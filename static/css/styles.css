@@ -1,0 +1,11 @@
+.headshot-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    padding-bottom: 20px;
+}
+div.header .container .logo {
+    margin-left: -1em;
+}
