@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Blog about programming and various other things">
+
+
+<meta property="og:site_name" content="Horribly Underqualified" />
+<meta property="og:locale" content="nn_NO" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://horriblyunderqualified.com/posts/wtf-ruby-pt-1/" />
+<meta property="og:title" content="Wtf Ruby Pt 1: DSL Dyslexia" />
+<meta property="twitter:title" content="Wtf Ruby Pt 1: DSL Dyslexia">
+
+    <meta property="og:image" content="https://horriblyunderqualified.com/img/banner.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:image" content="https://horriblyunderqualified.com/img/banner.png">
+
+<meta property="og:description" content="">
+<meta property="twitter:description" content="">
+
+<title>
+
+
+     Horribly Underqualified - Wtf Ruby Pt 1: DSL Dyslexia 
+
+</title>
+<link rel="canonical" href="https://horriblyunderqualified.com/posts/wtf-ruby-pt-1/">
+
+
+<style media="screen">
+  @font-face {
+  font-family: 'Nexa Bold';
+  src: url('https://horriblyunderqualified.com/fonts/Nexa Bold.otf');
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, div.column {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+a,
+a:visited,
+a:focus,
+a:active {
+  text-decoration: none;
+}
+html {
+  height: 100%;
+  font-size: 16px;
+}
+body {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: flex-start;
+  -moz-justify-content: flex-start;
+  -ms-justify-content: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 100%;
+  font-weight: 400;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  color: #111111;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility !important;
+}
+.icon {
+  text-rendering: geometricPrecision !important;
+}
+section {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  width: 100%;
+}
+div.column {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  width: 100%;
+}
+.container {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  width: 100%;
+}
+div.header .container {
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+}
+div.header .content {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+div.header .container .logo {
+  max-width: 100px;
+}
+div.header .name {
+  padding-top: 20px;
+  font-size: 28px;
+  font-family: 'Nexa Bold', 'Helvetica Neue', 'Arial', sans-serif;
+  letter-spacing: -0.005rem;
+  text-transform: uppercase;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  color: #333333;
+}
+div.header nav {
+  margin-bottom: 16px;
+}
+div.header nav ul {
+  list-style: none;
+  text-align: center;
+  display: -webkit-inline-flex;
+  display: -moz-inline-flex;
+  display: -ms-inline-flexbox;
+  display: -ms-inline-flex;
+  display: inline-flex;
+}
+div.header nav ul li {
+  margin-left: 6px;
+  margin-right: 6px;
+}
+div.header nav ul li:first-child {
+  margin-left: 0;
+}
+div.header nav ul li:last-child {
+  margin-right: 0;
+}
+div.header nav ul a {
+  color: #555555;
+  font-weight: 400;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  -webkit-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -moz-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -ms-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -o-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+}
+div.header nav ul a:hover {
+  color: #111111;
+}
+div.footer .container {
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  flex-direction: column-reverse;
+  width: 100%;
+  text-align: center;
+}
+div.footer .container a {
+  font-size: 14px;
+  margin-left: 6px;
+  margin-right: 6px;
+  opacity: 0.6;
+  -webkit-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -moz-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -ms-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -o-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+}
+div.footer .container a:first-child {
+  margin-left: 0;
+}
+div.footer .container a:last-child {
+  margin-right: 0;
+}
+div.footer .container a:hover {
+  opacity: 0.8;
+}
+div.footer .container a .icon {
+  width: 16px;
+  height: 16px;
+}
+div.footer .container .copyright {
+  flex-grow: 0.5;
+  text-align: start;
+}
+div.footer .container .icons {
+  flex-grow: 0.5;
+  text-align: end;
+}
+div.main .container {
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: flex-start;
+  -moz-justify-content: flex-start;
+  -ms-justify-content: flex-start;
+  justify-content: flex-start;
+}
+div.main .content {
+  color: #111111;
+  font-size: 16px;
+}
+div.main .content .title-container {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  justify-content: space-between;
+}
+div.main .content .posts {
+  margin-bottom: 4em;
+}
+div.main .content .page-heading {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  letter-spacing: -0.005rem;
+  text-transform: uppercase;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  color: #333333;
+  margin-bottom: 16px;
+}
+div.main .content .front-matter .page-heading {
+  margin-bottom: 0;
+}
+div.main .content .front-matter .meta {
+  font-size: 14px;
+  color: #666666;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  margin-bottom: 32px;
+}
+div.main .content .front-matter .date,
+div.main .content .front-matter .author,
+div.main .content .front-matter .tags,
+div.main .content .front-matter .word-count,
+div.main .content .front-matter .middot:before {
+  display: none;
+}
+div.main .content .front-matter .middot:before {
+  font-size: 6px;
+  margin: 0 6px;
+  vertical-align: middle;
+  content: "•";
+}
+div.main .content .front-matter .tags ul {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+div.main .content .front-matter .tags ul li {
+  -webkit-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -moz-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -ms-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -o-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+}
+div.main .content .front-matter .tags ul li:hover {
+  opacity: 0.7;
+}
+div.main .content .front-matter .tags ul li a {
+  color: #666666;
+}
+div.main .container.f04 {
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+}
+div.main .container.f04 .content {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+div.main .container.f04 .content .num {
+  margin: 30px 0px 30px 0;
+  font-weight: 400;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  font-size: 50px;
+}
+div.main .container.f04 .content .detail {
+  margin-bottom: 40px;
+}
+div.main .container .content .groupby {
+  margin-top: 1em;
+  padding-left: 0.5em;
+}
+div.main .container .content .post-item {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  display: list-item;
+  list-style: disc inside;
+}
+div.main .container .content .post-item .meta {
+  font-size: 14px;
+  color: #666666;
+  display: none;
+  min-width: 100px;
+}
+div.main .container .content .see-more {
+  font-style: italic;
+  float: right;
+  font-size: 0.9em;
+  margin-top: 2em;
+  color: #313537;
+}
+div.main .container .content .see-more:hover {
+  color: #666;
+}
+section {
+  padding: 0 16px;
+}
+div.column {
+  padding: 0 16px;
+}
+div.header {
+  padding-top: 10px;
+}
+div.header-home {
+  padding-top: 36px;
+}
+div.main {
+  padding-top: 32px;
+}
+div.main .container .content .post-item .meta {
+    display: block;
+}
+div.main .container .content .post-item {
+    display: flex;
+    list-style: none;
+}
+a {
+  color: #428bca;
+  -webkit-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -moz-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -ms-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -o-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+}
+a:hover {
+  color: #2a6496;
+}
+img {
+  max-width: 100%;
+}
+div.main .content {
+    width: 100%;
+}
+div.main .content .markdown {
+  font-size: 1.1em;
+  line-height: 1.75em;
+  color: #313537;
+  font-family: serif;
+  font-weight: 300;
+}
+div.main .content .markdown h1,
+div.main .content .markdown h2,
+div.main .content .markdown h3,
+div.main .content .markdown h4,
+div.main .content .markdown h5,
+div.main .content .markdown h6 {
+  font-size: 22px;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  letter-spacing: -0.005rem;
+  font-weight: 700;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  color: #333333;
+  text-transform: none;
+  margin-top: 1.75rem;
+}
+div.main .content .markdown h1 {
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
+}
+div.main .content .markdown h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+div.main .content .markdown h3 {
+  font-size: 1em;
+  margin-bottom: 1rem;
+}
+div.main .content .markdown h4,
+div.main .content .markdown h5,
+div.main .content .markdown h6 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  letter-spacing: none;
+}
+div.main .content .markdown code,
+div.main .content .markdown pre {
+  font-family: 'Menlo', monospace;
+  font-size: 0.98rem;
+  background-color: #f7f7f7;
+}
+div.main .content .markdown code {
+  /* enclosed by single backtick (`) */
+  padding: .15em .5em;
+  border-radius: 2px;
+}
+div.main .content .markdown pre {
+  /* Hugo specific: consider using the 'highlight' shortcode */
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  line-height: 1.5em;
+  white-space: pre;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+div.main .content .markdown pre code {
+  /* enclosed by 4 backticks (````) */
+  padding: 0;
+  font-size: 0.9rem;
+}
+div.main .content .markdown a code {
+  color: #428bca !important;
+}
+div.main .content .markdown a code:hover {
+  text-decoration: underline;
+}
+div.main .content .markdown p {
+  
+  text-align: justify;
+  
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+div.main .content .markdown ul,
+div.main .content .markdown ol,
+div.main .content .markdown dl {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+div.main .content .markdown dt {
+  font-weight: bold;
+}
+div.main .content .markdown dd {
+  margin-bottom: .5rem;
+}
+div.main .content .markdown ul {
+  list-style-type: disc;
+  list-style-position: outside;
+  margin-bottom: 1.25rem;
+}
+div.main .content .markdown ol {
+  list-style-type: decimal;
+  margin-bottom: 1.25rem;
+}
+div.main .content .markdown li {
+  margin-left: 2em;
+}
+div.main .content .markdown em {
+  font-style: italic;
+}
+div.main .content .markdown strong {
+  font-weight: 700;
+}
+div.main .content .markdown hr {
+  position: relative;
+  margin: 1.75rem 0;
+  border: 0;
+  border-top: 1px solid #808080;
+  border-top: 1px solid #999999;
+}
+div.main .content .markdown abbr {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #666666;
+  text-transform: uppercase;
+}
+div.main .content .markdown abbr[title] {
+  cursor: help;
+  border-bottom: 1px dotted #808080;
+}
+div.main .content .markdown blockquote {
+  padding: .5rem 1rem;
+  margin: .8rem 0;
+  color: #7a7a7a;
+  border-left: .25rem solid #e5e5e5;
+}
+div.main .content .markdown blockquote p:last-child {
+  margin-bottom: 0;
+}
+div.main .content .markdown figure {
+  width: 100%;
+  background: #fff;
+  margin-bottom: 1em;
+}
+div.main .content .markdown figure img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  position: static;
+  margin: auto;
+}
+div.main .content .markdown table {
+  margin-bottom: 1rem;
+  width: 100%;
+  border: 1px solid #e5e5e5;
+  border-collapse: collapse;
+}
+div.main .content .markdown td,
+div.main .content .markdown th {
+  padding: .25rem .5rem;
+  border: 1px solid #e5e5e5;
+}
+div.main .content .markdown tbody tr:nth-child(odd) td,
+div.main .content .markdown tbody tr:nth-child(odd) th {
+  background-color: #f7f7f7;
+}
+div.main .content .markdown .footnotes ol {
+  list-style-type: decimal;
+  margin-left: 16px;
+}
+div.main .content .markdown .footnotes li {
+  list-style-type: unset;
+}
+div.main .content .markdown .footnote-ref {
+  font-size: 0.7em;
+}
+div.main .content .navigation {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  padding: 2em;
+}
+div.main .content .navigation div {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  margin-top: 1em;
+}
+div.main .content .navigation .icon {
+  width: 16px;
+  height: 16px;
+}
+div.main .content .navigation a {
+  width: 250px;
+  margin: 0 1em;
+  text-align: center;
+  font-style: italic;
+  color: #313537;
+}
+div.main .content .share, div.main .content .share div {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  justify-content: center;
+}
+div.main .content .share {
+  background-color: rgba(152, 152, 152, 0.07);
+  padding: 1em 0;
+}
+div.main .content .share a {
+  margin: 0 6px;
+}
+kbd {
+  padding: 0.1em 0.6em;
+  border: 1px solid #ccc;
+  font-size: 11px;
+  font-family: Arial,Helvetica,sans-serif;
+  background-color: #f7f7f7;
+  color: #333;
+  -moz-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
+  -webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
+  box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  display: inline-block;
+  margin: 0 0.1em;
+  text-shadow: 0 1px 0 #fff;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+/* Fonts */
+
+
+.wf-raleway-n4-active body, 
+.wf-raleway-n4-active div.header nav ul a,
+.wf-raleway-n7-active div.main .content .page-heading,
+.wf-raleway-n2-active div.main .container.f04 .content .num,
+.wf-raleway-n7-active div.main .content .markdown h1,
+.wf-raleway-n7-active div.main .content .markdown h2,
+.wf-raleway-n7-active div.main .content .markdown h3,
+.wf-raleway-n7-active div.main .content .markdown h4,
+.wf-raleway-n7-active div.main .content .markdown h5,
+.wf-raleway-n7-active div.main .content .markdown h6 {
+      font-family: 'Raleway';
+}
+
+.wf-merriweather-n3-active div.main .content .markdown {
+      font-family: 'Merriweather';
+}
+
+.wf-ubuntu-mono-n4-active div.main .content .markdown code,
+.wf-ubuntu-mono-n4-active div.main .content .markdown pre {
+      font-family: 'Ubuntu Mono';
+}
+
+
+</style>
+<style media="(min-width: 600px)">
+  body {
+-webkit-justify-content: center;
+-moz-justify-content: center;
+-ms-justify-content: center;
+justify-content: center;
+}
+.non-narrow.zero-top-spacing {
+padding-top: 0 !important;
+}
+section {
+padding: 0 16px;
+margin-left: 100px;
+margin-right: 100px;
+max-width: 750px;
+}
+div.column {
+padding: 0 16px;
+max-width: 750px;
+}
+div.header {
+background-color: transparent;
+}
+div.header .container {
+-webkit-justify-content: flex-start;
+-moz-justify-content: flex-start;
+-ms-justify-content: flex-start;
+justify-content: flex-start;
+}
+div.header .container .logo {
+margin: 0;
+}
+div.header-home .container .logo {
+max-width: 180px;
+margin-left: 20px;
+}
+div.header-home .name-home {
+padding-top: 30px;
+font-size: 40px;
+}
+div.header-home nav ul a {
+font-size: 18px;
+}
+div.header .content {
+-webkit-align-items: flex-start;
+-moz-align-items: flex-start;
+-ms-align-items: flex-start;
+align-items: flex-start;
+}
+div.header .name {
+color: #333333;
+}
+div.header nav {
+font-size: 14px;
+margin-bottom: 0;
+}
+div.header nav ul {
+text-align: left;
+}
+div.header nav ul a {
+color: #666666;
+}
+div.header nav ul a:hover {
+color: #333333;
+}
+div.footer {
+background-color: transparent;
+}
+div.footer .container {
+flex-direction: row;
+}
+div.footer .container a {
+margin-left: 3px;
+margin-right: 3px;
+color: #666666;
+}
+div.footer .container a:hover {
+color: #333333;
+}
+div.footer .container a .icon {
+font-size: 18px;
+}
+div.footer .container a .icon.larger {
+font-size: 20px;
+}
+div.main .content .front-matter .date,
+div.main .content .front-matter .author,
+div.main .content .front-matter .tags,
+div.main .content .front-matter .word-count,
+div.main .content .front-matter .middot:before {
+display: initial;
+}
+div.main .container.f04 {
+-webkit-justify-content: flex-start;
+-moz-justify-content: flex-start;
+-ms-justify-content: flex-start;
+justify-content: flex-start;
+}
+div.main .container.f04 .content {
+-webkit-align-items: flex-start;
+-moz-align-items: flex-start;
+-ms-align-items: flex-start;
+align-items: flex-start;
+}
+div.main .container.f04 .content .num {
+margin: 0 0 10px 0;
+font-size: 32px;
+}
+div.main .container.f04 .content .detail {
+margin-bottom: 30px;
+}
+.container {
+padding: 0 30px;
+}
+div.header {
+padding-top: 60px;
+padding-bottom: 60px;
+}
+div.footer {
+padding-top: 30px;
+padding-bottom: 60px;
+}
+div.main {
+padding-top: 0;
+}
+div.main .container .content .post-item {
+display: flex;
+list-style: none;
+padding-left: 1.5em;
+}
+div.main .container .content .post-item .meta {
+display: block;
+}
+div.main.post {
+padding-top: 60px;
+padding-bottom: 60px;
+}
+div.main .content .markdown blockquote {
+padding-right: 5rem;
+padding-left: 1.25rem;
+}
+div.main .content .navigation {
+-webkit-flex-direction: row;
+-moz-flex-direction: row;
+-ms-flex-direction: row;
+flex-direction: row;
+}
+div.main .content .navigation div {
+margin-top: 0em;
+}
+
+</style>
+<style media="(min-width: 769px)">
+  div.main .content .markdown figure {
+width: 110%;
+margin-left: -4%;
+}
+div.main .content .markdown img {
+max-width: 110%;
+width: 110%;
+margin-left: -4%;
+}
+div.main .content .markdown pre {
+width: 110%;
+margin-left: -4%;
+}
+
+</style>
+
+<noscript>
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet">
+</noscript>
+
+
+  <style type="text/css" media="screen">
+    .hljs{display:block;background:white;padding:0.5em;color:#333333;overflow-x:auto}.hljs-comment,.hljs-meta{color:#969896}.hljs-string,.hljs-variable,.hljs-template-variable,.hljs-strong,.hljs-emphasis,.hljs-quote{color:#df5000}.hljs-keyword,.hljs-selector-tag,.hljs-type{color:#a71d5d}.hljs-literal,.hljs-symbol,.hljs-bullet,.hljs-attribute{color:#0086b3}.hljs-section,.hljs-name{color:#63a35c}.hljs-tag{color:#333333}.hljs-title,.hljs-attr,.hljs-selector-id,.hljs-selector-class,.hljs-selector-attr,.hljs-selector-pseudo{color:#795da3}.hljs-addition{color:#55a532;background-color:#eaffea}.hljs-deletion{color:#bd2c00;background-color:#ffecec}.hljs-link{text-decoration:underline}
+  </style>
+
+
+
+  <style type="text/css" media="screen">
+    .progressive{overflow:hidden;position:relative;background:#efefef}.progressive__img{width:100%;height:100%;position:absolute;-webkit-transform:translateZ(0);transform:translateZ(0)}.progressive--not-loaded{filter:blur(30px);-webkit-filter:blur(30px)}.progressive--is-loaded{filter:blur(20px);-webkit-filter:blur(20px);-webkit-animation:sharpen .5s both;animation:sharpen .5s both}@-webkit-keyframes sharpen{from{filter:blur(20px);-webkit-filter:blur(20px)}to{filter:blur(0);-webkit-filter:blur(0)}}@keyframes sharpen{from{filter:blur(20px);-webkit-filter:blur(20px)}to{filter:blur(0);-webkit-filter:blur(0)}}
+  </style>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://horriblyunderqualified.com/img/favicon.ico"
+
+>
+
+
+
+
+<link href="https://horriblyunderqualified.com/css/styles.css" type="text/css" rel="stylesheet">
+</head>
+
+
+<body>
+
+
+<div class="header column">
+
+    <div class="container">
+        <a href="https://horriblyunderqualified.com/"><img class="logo" src="https://horriblyunderqualified.com/img/logo.png" alt="logo" /></a>
+        <div class="content">
+            <a href="https://horriblyunderqualified.com/"><div class="name"><h1>Horribly Underqualified</h1></div></a>
+            <nav>
+                <ul>
+                    
+		    
+                        
+                            <li><a href="https://horriblyunderqualified.com/about/">About</a></li>
+                        
+                    
+                    
+                        
+                            
+                            <li><a href="https://horriblyunderqualified.com/posts">posts</a></li>
+                            
+                        
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<div class="main column">
+    <div class="container">
+        <div class="content">
+            <div class="page-heading">
+
+    Wtf Ruby Pt 1: DSL Dyslexia
+
+</div>
+
+            <div class="markdown">
+                
+    
+    
+
+<h2 id="preface">Preface</h2>
+
+<p>This summer I&rsquo;ve been working on the Ruby language adding type
+annotations to the grammar. However, the Ruby codebase is rather
+challenging. There&rsquo;s not a whole lot of documentation (at least in
+English), there&rsquo;s a fair amount of C preprocessor hacking, and there&rsquo;s
+a few tricky scripts attached. I&rsquo;ve decided to document these
+challenges in this blog. I hope that they&rsquo;re useful to anybody who
+decides to work on the Ruby codebase, and I also hope that I can use
+these notes to improve the codebase myself. If any Ruby maintainers
+read this, I apologize in advance for any seemingly critical
+language. I totally respect and appreciate your contributions to Ruby
+and to the open source community as a whole. Please understand that
+these criticisms are coming from a place of respect and learning.</p>
+
+<h2 id="dsl-dyslexia">DSL Dyslexia</h2>
+
+<p>Today I&rsquo;m going to talk about Domain Specific Languages (DSLs),
+specifically the one in Ripper. Ripper, for those who don&rsquo;t know, is a
+Ruby library that consists of a Ruby parser. Ripper allows developers
+to literally &ldquo;rip apart&rdquo; the Ruby code into tokens, a process called
+lexing, or into an Abstract Syntax Tree (AST), a process called
+parsing. An AST is essentially the Ruby code turned into a general,
+homogeneous form independent of syntax.</p>
+
+<p>Now the way that Ripper is generated is rather interesting. Instead of
+rewriting the parser in Ruby, the developers of Ruby opted to take the
+existing Ruby parser and extend it to also work with Ripper. This
+makes the most sense, as Ruby has a rather complex grammar with a lot
+of little details. It would have been far too time consuming and
+painful to recreate the parser in Ruby. Furthermore, if new grammar
+rules were to be added, two parsers would have to be updated.</p>
+
+<p>So how did the developers extend the Ruby parser? Well they
+implemented a DSL. Domain Specific Languages are a really interesting
+form of computer languages. They are built for very specific usecases,
+such as quickly writing data models, or defining objects in a graphics
+engine, as opposed to general purpose languages like Python, Ruby, C,
+etc. They can allow for immense expressiveness in a clear, concise
+manner. However, if they are not well documented or understood, they
+can be confusing, even alien. The Ruby community as a whole tends to
+use DSLs a fair amount. For instance, Ruby on Rails uses a DSL to help
+programmers write web applications with minimal boilerplate.</p>
+
+<p>But back to the Ruby parser. The way that the developers implemented
+this DSL was by adding comments into the Ruby parser file,
+<code>parse.y</code>. While this is a completely understandable solution, as a
+result, a fair bit of complexity was introduced. You see, the Ruby
+parser is created using Bison, Bison being a very popular parser
+generator. Parser generators allow programmers to create a parser by
+simply defining some grammar rules in&hellip;you guessed it, a DSL. So by
+adding a second DSL through comments, the developers put two DSLs in
+one file. That won&rsquo;t be confusing, right?</p>
+
+<p>Which brings us to this past day. I decided to read the code in
+<code>ext/ripper/tools</code>, where the Ripper DSL is parsed. There&rsquo;s a fun
+bit of code in <code>generate.rb</code> where it takes the Ripper annotations:</p>
+
+<pre><code>    /*% ripper[brace]: rb_ary_new3(1, get_value($1)) %*/
+</code></pre>
+
+<p>and, using a regular expression, or regex (<code>%r&lt;/\*%
+*ripper(?:\[(.*?)\])?: *(.*?) *%\*/&gt;</code>) splits them into:</p>
+
+<pre><code>$1 = &quot;brace&quot;
+$2 = &quot;rb_ary_new3(1,get_value($1))&quot;
+</code></pre>
+
+<p>This is done implicitly in Ruby, as <code>$n</code> (where <code>n</code> is an integer) are
+magic global variables that refer to the nth match in the regular
+expression. Note that it&rsquo;s <code>rb_ary_new3(1...</code>, not $1. I actually had
+to double check that I didn&rsquo;t accidentally delete the dollar sign. I
+don&rsquo;t know why it&rsquo;s there.</p>
+
+<p>Anyways, what&rsquo;s interesting is that <code>generate.rb</code> initializes a DSL
+object that takes these two variables, well, <code>$2</code> and <code>($1 ||
+&quot;&quot;).split(&quot;,&quot;)</code> (which is probably an attempt to put $1 in an
+array?). The DSL object&rsquo;s constructor, as defined in <code>dsl.rb</code>,
+proceeds to do a few things which I&rsquo;ll get to and then evaluates
+<code>$2</code>. Kinda like this:</p>
+
+<pre><code>eval(&quot;rb_ary_new3(1, get_value($1))&quot;)
+</code></pre>
+
+<p>Therefore all the annotations in parse.y should be valid Ruby!
+But&hellip;<code>$1-$9</code> aren&rsquo;t defined. Well, actually&hellip;they are. Let&rsquo;s take a
+look at the code above this:</p>
+
+<pre><code class="language-ruby">    # create $1 == &quot;$1&quot;, $2 == &quot;$2&quot;, ...
+    re, s = &quot;&quot;, &quot;&quot;
+    1.upto(9) do |n|
+      re &lt;&lt; &quot;(..)&quot;
+      s &lt;&lt; &quot;$#{ n }&quot;
+    end
+    /#{ re }/ =~ s
+</code></pre>
+
+<p>At first I didn&rsquo;t really pay attention to this code. But the comment
+caught my eye the second time around. So I read it a little more
+carefully and realized that this code is automatically generating
+values for $1-$9!</p>
+
+<p>How, pray tell is it doing that? Well one side effect of <code>$n</code> being
+magic global variables is that they cannot be directly
+mutated. Therefore something like <code>$1 = 'mike'</code> doesn&rsquo;t
+work. Therefore, to get around this issue, the developers created this
+hack.</p>
+
+<p>Basically, we build up to strings, <code>re</code> and <code>s</code>. <code>re</code> is actually a
+regular expression, one of the form
+<code>/(..)(..)(..)(..)(..)(..)(..)(..)(..)(..)/</code>, basically 10
+<code>(..)</code> in a row. The string <code>s</code> on the other hand consists of
+<code>&quot;$1$2$3$4$5$6$7$8$9&quot;</code>. The final operation is a match operation,
+namely it matches <code>re</code> against <code>s</code>. Now, at first glance, this appears
+to do nothing. There&rsquo;s no apparent side effects and no variables bound
+except <code>re</code> and <code>s</code>, which are never used again. EXCEPT, if you
+remember the meaning of <code>$n</code>. You see, in regular expressions, <code>(..)</code>
+means match exactly two characters, that&rsquo;s it. So when you run <code>re</code>,
+basically 10 of these <code>(..)</code>, against <code>s</code>, you match two characters 10
+times. For instance, the first match, which will be stored in <code>$1</code>
+is&hellip;yep <code>&quot;$1&quot;</code>, the second match, stored in <code>$2</code> is <code>&quot;$2&quot;</code>, and so
+on.</p>
+
+<p>To recap, this code generates a regular expression and generates a
+string to implicitly bind 10 global variables. Pretty gnarly.</p>
+
+<p>But that&rsquo;s not the end of it! After that, I started to wonder how in
+the world the <code>eval</code> function was working. After all, these functions
+aren&rsquo;t naturally in the Ruby scope, there aren&rsquo;t any other files
+imported in <code>dsl.rb</code>, and there isn&rsquo;t a binding passed along to
+eval. Also, something weird would happen. I would try to print out the
+output of the function call like such:</p>
+
+<pre><code>puts(rb_ary_new3(1, get_value($1)))
+</code></pre>
+
+<p>Only to get <code>rb_ary_push($1, get_value($3))</code> as my output. Kinda weird&hellip;</p>
+
+<p>So I scrolled down a little and found to my horror: <code>def
+method_missing</code>. To quote Gary Bernhardt,
+<a href="https://www.destroyallsoftware.com/talks/wat">wat</a>.</p>
+
+<p>For those who don&rsquo;t know, <code>method_missing</code> is a rather infamous
+function in Ruby. When you attempt to call a function that doesn&rsquo;t
+exist in Ruby, Ruby normally raises a <code>MethodError</code>, which is fairly
+standard, rather sensible, basically an overall normal thing to do. But
+the demented, insane geniuses that are the Ruby developers decided
+that this isn&rsquo;t flexible enough, so they gave an alternative:
+<code>method_missing</code>. <code>method_missing</code>, when defined, allows you to
+implicitly catch the error. Instead of raising a <code>MethodError</code>, Ruby
+calls your <code>method_missing</code> and passes it the name of the method you
+tried to call, along with any potential arguments you might
+passed. This is NOT advised. Most Ruby style guides heavily discourage
+<code>method_missing</code>. Granted, the developers of Ruby are not most Ruby
+programmers. But still, it&rsquo;s not exactly common behavior.</p>
+
+<p>Anyways, this <code>method_missing</code> does a few different things. For
+instance, if your DSL annotations end in a bang, i.e. they match this
+regex <code>/!\z/</code>, then it outputs this in ripper.y:</p>
+
+<pre><code>{VALUE v1,v2;v1=$1;v2=dispatch1(assoclist_from_args,v1);$$=v2;}
+</code></pre>
+
+<p>or, if they begin with an id, you just get the event back, as something like:</p>
+
+<pre><code>{$$=idCOLON2}
+</code></pre>
+
+<p>I can&rsquo;t actually find any example of this in <code>parse.y</code>, but we&rsquo;ll
+assume it&rsquo;s used somewhere. And for the rest you basically just get
+the same function that you started with (the value of <code>$2</code>). That&rsquo;s why
+the <code>puts(rb_ary_new3(1, get_value($1)))</code> gives <code>rb_ary_push($1,
+get_value($3))</code> as the output. This gives the following in ripper.y (the output of this DSL):</p>
+
+<pre><code>$$=rb_ary_push($1, get_value($3));
+</code></pre>
+
+<p>Oh yeah, and if you happen to have an annotation called <code>opt_event</code>,
+that actually does call a method called <code>opt_event</code>. It basically does
+something similar with a few minor changes (I believe a nil check and
+some other stuff).</p>
+
+<p>In conclusion, this has been an excellent exercise in interesting Ruby
+code. In all seriousness, I wouldn&rsquo;t really advise writing Ruby code
+in this manner, but I have a serious amount of respect for the person
+who wrote this code and thought of it in this manner. I certainly
+would have written it in a more *ahem* pedestrian manner.</p>
+
+<p>Indeed, I might decide to attempt a refactor of this code, or at the
+very least some heavy documentation. Right now I&rsquo;m holding off on
+refactoring simply because I don&rsquo;t know the whole picture and I don&rsquo;t
+know whether my refactoring attempts would actually fix anything, or
+if it would just miserably fail due to some detail of which I&rsquo;m not
+aware. The developers of Ruby are smart people and I can&rsquo;t claim to
+know better than them.</p>
+
+<p>In the next post I&rsquo;ll explain where all those weird <code>dispatch</code>
+functions came from and what they&rsquo;re doing.</p>
+
+<p>Hope this has been helpful!</p>
+
+<p>Nicholas</p>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer column">
+    <div class="container">
+
+        
+
+        <div class="copyright">
+
+        
+            
+                <a href="https://horriblyunderqualified.com/license">Copyright © 2018 Nicholas Yang</a>
+            
+        
+
+        </div>
+        <div class="icons">
+
+        
+
+        
+            <a href="https://github.com/nicholaslyang" target="_blank">
+                <img class="icon" src="https://horriblyunderqualified.com/img/github.svg" alt="github" />
+            </a>
+        
+
+        
+
+        
+            <a href="https://www.linkedin.com/in/nicholaslyang" target="_blank">
+                <img class="icon" src="https://horriblyunderqualified.com/img/linkedin.svg" alt="linkedin" />
+            </a>
+        
+
+        
+            <a href="mailto:nick@nicholasyang.com">
+                <img class="icon" src="https://horriblyunderqualified.com/img/email.svg" alt="email" />
+            </a>
+        
+
+        
+            <a href="https://horriblyunderqualified.com/index.xml">
+                <img class="icon" src="https://horriblyunderqualified.com/img/rss.svg" alt="rss" />
+            </a>
+        
+
+        </div>
+    </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+<script>
+  WebFont.load({
+    google: {
+      families: ['Raleway:400,600,700', 'Merriweather:300,300i,700,700i', 'Ubuntu+Mono:400,700']
+    }
+  });
+</script>
+
+
+
+  <script src="https://horriblyunderqualified.com/js/highlight.min.js" defer></script>
+  
+
+
+
+  <script src="https://horriblyunderqualified.com/js/progressively.min.js" defer></script>
+
+
+
+
+
+
+
+
+
+<script>
+  window.onload = function() {
+    
+      hljs.initHighlighting();
+    
+    
+      progressively.init({delay: 30, throttle: 50});
+    
+    
+  };
+</script>
+
+
+
+
+</body>
+</html>
+

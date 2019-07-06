@@ -89,4 +89,4 @@ concrete details about what value you provide. Do you have experience
 in marketing and raising money? Do you have industry contacts? Are you
 like, really good at Excel? Because ultimately, I'm investing in you
 as much as the company. If I don't think you're worth it, I might just
-pull a Zuckerberg and steal your idea.l
+pull a Zuckerberg and steal your idea.

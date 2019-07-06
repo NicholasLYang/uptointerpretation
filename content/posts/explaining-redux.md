@@ -53,8 +53,7 @@ happened. In Redux, these checks are called *actions*. Actions are
 basically ways of telling the store that you want to change the
 state. The bank account is called the *store* and keeps the state. The
 bank itself is called the *reducer* and responds to actions by
-adjusting the store accordingly (there's a little more to that, but
-I'll discuss it later).
+adjusting the store accordingly.
 
 Moving on, there's a few more benefits. For instance, if you have more
 than one person using the cash, e.g. a family member, then you don't
@@ -65,4 +64,13 @@ Likewise, there's an idea of middleware. Let's say you want to get
 bank alerts on your phone. What you can do is ask the bank to send you
 notices whenever someone takes out money. This is called a
 *middleware*. A middleware intercepts the actions and applies a
-function to it, in this case a logging function.
+function to it, in this case a logging function. However, it doesn't
+have to be a logging function. You can ask the bank to take any
+deposit and put some of the money away into a savings account. Or even
+have the bank send money at a given time. All of these are
+accomplishable with middleware.
+
+I could go on with this metaphor, but honestly it's reaching its
+limit. Redux is a great example of simplicity and minimalism in its
+design. Redux gives you a way to abstract your state away into a store
+and control your state updates with actions and reducers. That's it.

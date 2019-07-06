@@ -6,10 +6,157 @@
     <description>Recent content on Horribly Underqualified</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 21 Feb 2018 17:52:10 -0500</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jul 2019 00:57:47 -0700</lastBuildDate>
     
 	<atom:link href="https://horriblyunderqualified.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Stop Using So Many Damn Ternaries</title>
+      <link>https://horriblyunderqualified.com/posts/stop-using-so-many-ternaries/</link>
+      <pubDate>Fri, 05 Jul 2019 00:57:47 -0700</pubDate>
+      
+      <guid>https://horriblyunderqualified.com/posts/stop-using-so-many-ternaries/</guid>
+      <description>A ternary operator, for those of you who don&amp;rsquo;t know, is an operator with three parts&amp;mdash;hence ternary operator instead of binary operator. They look like this:
+ cond ? a : b  If cond is true, then the expression evaluates to a, otherwise it evaluates to b. They&amp;rsquo;re very useful in some situations, such as when you want to conditionally assign to a variable.
+Contrast this
+let a; if (cond) { a = foo(); } else { b = bar(); }  With this</description>
+    </item>
+    
+    <item>
+      <title>Endurance Traveling</title>
+      <link>https://horriblyunderqualified.com/posts/endurance-traveling/</link>
+      <pubDate>Sun, 26 May 2019 20:20:14 -0500</pubDate>
+      
+      <guid>https://horriblyunderqualified.com/posts/endurance-traveling/</guid>
+      <description>When I started solo traveling a couple years ago, I became obsessed with techwear. Techwear is clothing that is &amp;ldquo;optimized&amp;rdquo; in some fashion. It uses fabrics that dry faster, breathe better, offer more stretch, more durability, etc. The brand that I became enamored with was Outlier. They offer Merino wool t-shirts that could be worn for days on end, shorts that can be used as swimming trunks, specialty button ups that are lighter than linen.</description>
+    </item>
+    
+    <item>
+      <title>What Do You Want (Instead)?</title>
+      <link>https://horriblyunderqualified.com/posts/what-do-you-want/</link>
+      <pubDate>Tue, 26 Feb 2019 17:33:26 -0500</pubDate>
+      
+      <guid>https://horriblyunderqualified.com/posts/what-do-you-want/</guid>
+      <description>A lot of virtual ink has been spilled about dependency hell and left-pad and how NPM is hell incarnate. Medium posts moan about how NPM is insecure, is full of bad packages and is emblematic of developers&amp;rsquo; laziness. They&amp;rsquo;re not wrong. However, when one raises an issue with a service, there is always the inevitable follow up: what do you want instead? There&amp;rsquo;s no clear answer to this question for package management.</description>
+    </item>
+    
+    <item>
+      <title>Mirror Shining</title>
+      <link>https://horriblyunderqualified.com/posts/mirror-shining/</link>
+      <pubDate>Sat, 01 Dec 2018 15:55:20 -0500</pubDate>
+      
+      <guid>https://horriblyunderqualified.com/posts/mirror-shining/</guid>
+      <description>One of my earliest programming projects was for my Intro to Computer Science class in high school. The assignment was to create a game in NetLogo. NetLogo, for those who are not familiar, is a program where users can control &amp;ldquo;turtles&amp;rdquo; and &amp;ldquo;patches&amp;rdquo;, basically agents and the squares they move on. Users can move the turtles, which can in turn paint the patches they traverse.
+I decided to make a simple platformer with a twist&amp;mdash;the map was to be encased in darkness except for a bubble of light.</description>
+    </item>
+    
+    <item>
+      <title>Create Your Own Reality</title>
+      <link>https://horriblyunderqualified.com/posts/create-your-own-reality/</link>
+      <pubDate>Sun, 28 Oct 2018 23:59:07 -0400</pubDate>
+      
+      <guid>https://horriblyunderqualified.com/posts/create-your-own-reality/</guid>
+      <description>I&amp;rsquo;ve been thinking about closures recently. Closures are really neat. And they&amp;rsquo;re not particularly hard to understand, at least at a summary level. But they&amp;rsquo;re often misunderstood because it&amp;rsquo;s hard to understand why they&amp;rsquo;re so powerful and why they&amp;rsquo;re so useful. For that, you need context. So let&amp;rsquo;s get into some Γ1!
+Closures stem from a simple problem: How do I hide information, while still providing some form of access to it?</description>
+    </item>
+    
+    <item>
+      <title>Free Startup Ideas</title>
+      <link>https://horriblyunderqualified.com/posts/free-startup-ideas/</link>
+      <pubDate>Wed, 05 Sep 2018 21:19:00 -0400</pubDate>
+      
+      <guid>https://horriblyunderqualified.com/posts/free-startup-ideas/</guid>
+      <description>Free Startup Ideas. Success not guaranteed
+ Printing: Make a better printer. Make ink cheap and printers reliable. Make the UI easy and connecting simple.
+ College Chooser: Help kids find the right college. Help them wade through the marketing and bullshit
+ Benchmarking: Benchmark people&amp;rsquo;s products for them and help determine optimizations. Basically Google Pagespeed but for everything.
+  </description>
+    </item>
+    
+    <item>
+      <title>Google Summer of Code 2018: Ruby</title>
+      <link>https://horriblyunderqualified.com/posts/gsoc-ruby-2018/</link>
+      <pubDate>Tue, 14 Aug 2018 15:06:22 -0400</pubDate>
+      
+      <guid>https://horriblyunderqualified.com/posts/gsoc-ruby-2018/</guid>
+      <description>My Google Summer of Code project for Ruby is coming to an end. In a nutshell, the project was to add type annotations to Ruby. When I first approached this problem, my thoughts were &amp;ldquo;this is just a syntatical change, this shouldn&amp;rsquo;t be hard&amp;rdquo;. Haha, yeah, that wasn&amp;rsquo;t quite true. While I did end up adding type annotations, I didn&amp;rsquo;t manage to complete all of my goals, and the ones that I did complete, I did by the skin of my teeth.</description>
+    </item>
+    
+    <item>
+      <title>Stackoverflow Isnt Everything</title>
+      <link>https://horriblyunderqualified.com/posts/stackoverflow-isnt-everything/</link>
+      <pubDate>Thu, 26 Jul 2018 14:56:46 -0400</pubDate>
+      
+      <guid>https://horriblyunderqualified.com/posts/stackoverflow-isnt-everything/</guid>
+      <description>There&amp;rsquo;s a lot of memes and jokes online about developers&amp;rsquo; dependency on StackOverflow.
+And to an extent it&amp;rsquo;s true. StackOverflow is a pretty essential tool in a modern developer&amp;rsquo;s kit. I&amp;rsquo;ve used it a lot, for everything from iOS code signing issues to Rails bugs. However, as I&amp;rsquo;ve progressed in my projects, I&amp;rsquo;ve started to use StackOverflow less and less. There&amp;rsquo;s a few reasons for this.
+For one, there are problems where StackOverflow straight up doesn&amp;rsquo;t help.</description>
+    </item>
+    
+    <item>
+      <title>Racket School</title>
+      <link>https://horriblyunderqualified.com/posts/racket-school/</link>
+      <pubDate>Sat, 14 Jul 2018 23:21:37 -0600</pubDate>
+      
+      <guid>https://horriblyunderqualified.com/posts/racket-school/</guid>
+      <description>I&amp;rsquo;m waiting for my flight back from Racket School 2018, so I figured I might as well recommend the event while it&amp;rsquo;s still fresh. Basically, Racket School is a week long conference/workshop about Racket, the programming language. It&amp;rsquo;s run by the creators of Racket: Matthias Felleisen, Robby Findler, and Matthew Flatt. For anybody who learned Racket in school, that may seem a little odd–&amp;rdquo;Racket, you mean that language I used in Intro CS five million years ago?</description>
+    </item>
+    
+    <item>
+      <title>Wtf Ruby Pt 1: DSL Dyslexia</title>
+      <link>https://horriblyunderqualified.com/posts/wtf-ruby-pt-1/</link>
+      <pubDate>Sun, 08 Jul 2018 21:41:58 -0600</pubDate>
+      
+      <guid>https://horriblyunderqualified.com/posts/wtf-ruby-pt-1/</guid>
+      <description>Preface This summer I&amp;rsquo;ve been working on the Ruby language adding type annotations to the grammar. However, the Ruby codebase is rather challenging. There&amp;rsquo;s not a whole lot of documentation (at least in English), there&amp;rsquo;s a fair amount of C preprocessor hacking, and there&amp;rsquo;s a few tricky scripts attached. I&amp;rsquo;ve decided to document these challenges in this blog. I hope that they&amp;rsquo;re useful to anybody who decides to work on the Ruby codebase, and I also hope that I can use these notes to improve the codebase myself.</description>
+    </item>
+    
+    <item>
+      <title>Graphql APIs</title>
+      <link>https://horriblyunderqualified.com/posts/graphql-apis/</link>
+      <pubDate>Sat, 23 Jun 2018 02:45:51 -0400</pubDate>
+      
+      <guid>https://horriblyunderqualified.com/posts/graphql-apis/</guid>
+      <description>I&amp;rsquo;ve been using GraphQL for almost a year now. I&amp;rsquo;ve used it in a few small hackathon projects, along with the Stuyvesant Spectator site. I like using GraphQL because it&amp;rsquo;s rather easy to query complicated relations, especially for React components. On StuySpec it allowed us to split the fetching logic into smaller, more granular queries, which got rid of the large up front fetch that we previously had (not that you need GraphQL to solve that, you can easily use query params).</description>
+    </item>
+    
+    <item>
+      <title>Boring Ass Classes</title>
+      <link>https://horriblyunderqualified.com/posts/boring-ass-classes/</link>
+      <pubDate>Wed, 14 Mar 2018 23:01:57 -0400</pubDate>
+      
+      <guid>https://horriblyunderqualified.com/posts/boring-ass-classes/</guid>
+      <description>Let&amp;rsquo;s imagine you&amp;rsquo;re a first year physics student. You&amp;rsquo;ve never taken a physics class in your life. You&amp;rsquo;ve never even conducted a simple physics experiment in your life. The only thing you know about physics is that it&amp;rsquo;s used to make bridges and it has something to do with electricity, motion, and gravity. You like the idea of making bridges, so you decided to become a physics major. So you take your first class and you realize that your professor doesn&amp;rsquo;t know the first thing about bridges.</description>
+    </item>
+    
+    <item>
+      <title>C Is Cool</title>
+      <link>https://horriblyunderqualified.com/posts/c-is-cool/</link>
+      <pubDate>Tue, 06 Mar 2018 16:09:56 -0500</pubDate>
+      
+      <guid>https://horriblyunderqualified.com/posts/c-is-cool/</guid>
+      <description>I&amp;rsquo;ve been using C for my classes and I can&amp;rsquo;t help but be really really happy about that. I&amp;rsquo;ve played with C before. Well, actually, C was my first language. I tried learning it as a stepping stone to Objective C and iOS development, but I quickly gave it up after getting to pointers and arrays. Granted, I was like 11. After that, I&amp;rsquo;ve played with C in various places. First, I had to use C++ in an internship, where I got to play around with performance optimization and profiling.</description>
+    </item>
+    
+    <item>
+      <title>Using Rails in 2018</title>
+      <link>https://horriblyunderqualified.com/posts/using-rails-in-2018/</link>
+      <pubDate>Sat, 03 Mar 2018 17:06:43 -0500</pubDate>
+      
+      <guid>https://horriblyunderqualified.com/posts/using-rails-in-2018/</guid>
+      <description>I&amp;rsquo;m a huge fan of Ruby on Rails. I&amp;rsquo;ve used it for numerous hackathons and various other projects. The Stuyvesant Spectator website is built with a Rails back end and the previous iteration of this blog was my first Rails project. However, as a shameless advocate of Rails, I get to hear a lot of inaccurate ideas about Rails, such as:
+ Isn&amp;rsquo;t Rails dead? I don&amp;rsquo;t know anybody who uses it Rails is too confusing Why should I use Rails when I can use Node?</description>
+    </item>
+    
+    <item>
+      <title>Explaining Redux</title>
+      <link>https://horriblyunderqualified.com/posts/explaining-redux/</link>
+      <pubDate>Mon, 26 Feb 2018 13:31:22 -0500</pubDate>
+      
+      <guid>https://horriblyunderqualified.com/posts/explaining-redux/</guid>
+      <description>Redux is one of those concepts that is so damn hard to explain, and even harder to understand. For me at least, React was a lot easier to understand at a high level. I mean, React at a high level is basically just objects minus inheritance plus one way data flow. Or function composition with some enclosed state if you&amp;rsquo;re into functional programming. Sure, there&amp;rsquo;s a lot more to it once you get into the nitty gritty, but really that&amp;rsquo;s all you need to know to start writing React code.</description>
+    </item>
     
     <item>
       <title>Rules of Engagement</title>
@@ -45,7 +192,7 @@ So let&amp;rsquo;s say you are the founder of a startup called Breakr, Tinder fo
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://horriblyunderqualified.com/about/</guid>
-      <description>This blog is written by me, Nicholas Yang. I am currently a freshman at NYU studying computer science and mathematics. I like to read, program and fence epee. Some of my interests include functional programming, compilers and language design. I&amp;rsquo;m also interested in user interfaces and creating intuitive, beautiful design.
+      <description>This blog is written by me, Nicholas Yang. I am currently a sophomore at NYU studying computer science and mathematics. I will be interning at Microsoft for summer 2019. I like to read, program and cook. Some of my interests include functional programming, compilers and language design. I&amp;rsquo;m also interested in user interfaces and creating intuitive, beautiful design.
 The blog name is a tongue in cheek allusion to how many young (and not young) developers feel while applying for jobs; completely hopelessly, horribly underqualified.</description>
     </item>
     

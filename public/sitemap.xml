@@ -3,6 +3,81 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://horriblyunderqualified.com/posts/stop-using-so-many-ternaries/</loc>
+    <lastmod>2019-07-05T00:57:47-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://horriblyunderqualified.com/posts/endurance-traveling/</loc>
+    <lastmod>2019-05-26T20:20:14-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://horriblyunderqualified.com/posts/what-do-you-want/</loc>
+    <lastmod>2019-02-26T17:33:26-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://horriblyunderqualified.com/posts/mirror-shining/</loc>
+    <lastmod>2018-12-01T15:55:20-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://horriblyunderqualified.com/posts/create-your-own-reality/</loc>
+    <lastmod>2018-10-28T23:59:07-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://horriblyunderqualified.com/posts/free-startup-ideas/</loc>
+    <lastmod>2018-09-05T21:19:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://horriblyunderqualified.com/posts/gsoc-ruby-2018/</loc>
+    <lastmod>2018-08-14T15:06:22-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://horriblyunderqualified.com/posts/stackoverflow-isnt-everything/</loc>
+    <lastmod>2018-07-26T14:56:46-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://horriblyunderqualified.com/posts/racket-school/</loc>
+    <lastmod>2018-07-14T23:21:37-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://horriblyunderqualified.com/posts/wtf-ruby-pt-1/</loc>
+    <lastmod>2018-07-08T21:41:58-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://horriblyunderqualified.com/posts/graphql-apis/</loc>
+    <lastmod>2018-06-23T02:45:51-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://horriblyunderqualified.com/posts/boring-ass-classes/</loc>
+    <lastmod>2018-03-14T23:01:57-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://horriblyunderqualified.com/posts/c-is-cool/</loc>
+    <lastmod>2018-03-06T16:09:56-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://horriblyunderqualified.com/posts/using-rails-in-2018/</loc>
+    <lastmod>2018-03-03T17:06:43-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://horriblyunderqualified.com/posts/explaining-redux/</loc>
+    <lastmod>2018-02-26T13:31:22-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://horriblyunderqualified.com/posts/rules-of-engagement/</loc>
     <lastmod>2018-02-21T17:52:10-05:00</lastmod>
   </url>
@@ -28,13 +103,13 @@
   
   <url>
     <loc>https://horriblyunderqualified.com/</loc>
-    <lastmod>2018-02-21T17:52:10-05:00</lastmod>
+    <lastmod>2019-07-05T00:57:47-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://horriblyunderqualified.com/posts/</loc>
-    <lastmod>2018-02-21T17:52:10-05:00</lastmod>
+    <lastmod>2019-07-05T00:57:47-07:00</lastmod>
     <priority>0</priority>
   </url>
   
