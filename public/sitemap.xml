@@ -3,6 +3,46 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://horriblyunderqualified.com/</loc>
+    <lastmod>2019-11-09T04:04:51-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://horriblyunderqualified.com/posts/</loc>
+    <lastmod>2019-11-09T04:04:51-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://horriblyunderqualified.com/posts/we-get-it/</loc>
+    <lastmod>2019-11-09T04:04:51-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://horriblyunderqualified.com/posts/preoccupation-with-plot/</loc>
+    <lastmod>2019-10-25T01:36:06-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://horriblyunderqualified.com/posts/apple-and-fashion/</loc>
+    <lastmod>2019-10-19T02:11:52-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://horriblyunderqualified.com/posts/people-suck-at-email/</loc>
+    <lastmod>2019-10-05T01:28:57-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://horriblyunderqualified.com/posts/surviving-cso/</loc>
+    <lastmod>2019-08-03T00:00:38-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://horriblyunderqualified.com/posts/assuming-stupidity/</loc>
+    <lastmod>2019-07-26T16:45:05-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://horriblyunderqualified.com/posts/stop-using-so-many-ternaries/</loc>
     <lastmod>2019-07-05T00:57:47-07:00</lastmod>
   </url>
@@ -98,24 +138,10 @@
   
   <url>
     <loc>https://horriblyunderqualified.com/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://horriblyunderqualified.com/</loc>
-    <lastmod>2019-07-05T00:57:47-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://horriblyunderqualified.com/posts/</loc>
-    <lastmod>2019-07-05T00:57:47-07:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://horriblyunderqualified.com/tags/</loc>
-    <priority>0</priority>
   </url>
   
 </urlset>

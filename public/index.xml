@@ -6,10 +6,70 @@
     <description>Recent content on Horribly Underqualified</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 05 Jul 2019 00:57:47 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 09 Nov 2019 04:04:51 -0500</lastBuildDate>
     
 	<atom:link href="https://horriblyunderqualified.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>We Get It</title>
+      <link>https://horriblyunderqualified.com/posts/we-get-it/</link>
+      <pubDate>Sat, 09 Nov 2019 04:04:51 -0500</pubDate>
+      
+      <guid>https://horriblyunderqualified.com/posts/we-get-it/</guid>
+      <description>Spend enough time procrastinating on reddit, you inevitable end up reading the same links again and again and again. One of the common links I see are the ones that complain about JavaScript. There&amp;rsquo;s wat, the tried and tired ecosystem article and many many more.
+To all of those articles, I just want to say:
+We get it
+We get it, JavaScript sucks. It&amp;rsquo;s insecure, it has weird features, npm is out of control, etc.</description>
+    </item>
+    
+    <item>
+      <title>Preoccupation With Plot</title>
+      <link>https://horriblyunderqualified.com/posts/preoccupation-with-plot/</link>
+      <pubDate>Fri, 25 Oct 2019 01:36:06 -0400</pubDate>
+      
+      <guid>https://horriblyunderqualified.com/posts/preoccupation-with-plot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Apple &amp; Fashion</title>
+      <link>https://horriblyunderqualified.com/posts/apple-and-fashion/</link>
+      <pubDate>Sat, 19 Oct 2019 02:11:52 -0400</pubDate>
+      
+      <guid>https://horriblyunderqualified.com/posts/apple-and-fashion/</guid>
+      <description>Go online and you&amp;rsquo;ll find particularly potent venom directed towards Apple. Critics denigrate their products as overpriced, underpowered1 scams that only uninformed dolts would buy. Others insist that Apple has become unduly obsessed with aesthetics. They perpetually raise the question: Do people really want thinner phones? Do people really need a lighter laptop?
+To answer these questions, yes. People do want a thinner phone. They do want a lighter laptop. Why?</description>
+    </item>
+    
+    <item>
+      <title>People Suck at Email</title>
+      <link>https://horriblyunderqualified.com/posts/people-suck-at-email/</link>
+      <pubDate>Sat, 05 Oct 2019 01:28:57 -0400</pubDate>
+      
+      <guid>https://horriblyunderqualified.com/posts/people-suck-at-email/</guid>
+      <description>Just because someone has not responded to an email in a few days doesn&amp;rsquo;t mean they&amp;rsquo;re angry at you. It doesn&amp;rsquo;t mean they don&amp;rsquo;t like you. It doesn&amp;rsquo;t mean they want to stop talking to you. They most likely forgot.
+Expect to send at least a couple follow up emails. If the person you are emailing is famous or important or a leader of some sorts, expect to send even more emails.</description>
+    </item>
+    
+    <item>
+      <title>Surviving CSO</title>
+      <link>https://horriblyunderqualified.com/posts/surviving-cso/</link>
+      <pubDate>Sat, 03 Aug 2019 00:00:38 -0700</pubDate>
+      
+      <guid>https://horriblyunderqualified.com/posts/surviving-cso/</guid>
+      <description>Computer Systems Organization, or CSO, is the third class in NYU CAS&amp;rsquo;s computer science program. I&amp;rsquo;ve noticed that a lot of people have trouble in CSO. This is for good reasons. The class covers a lot of ground, from the C language to systems architecture to concurrency. This is especially tricky because students face a massive paradigm shift from the relatively high level bubble of Python and Java with its managed memory and forgiving error messages, to the raw, bare metal of C and x86 assembly.</description>
+    </item>
+    
+    <item>
+      <title>Assuming Stupidity</title>
+      <link>https://horriblyunderqualified.com/posts/assuming-stupidity/</link>
+      <pubDate>Fri, 26 Jul 2019 16:45:05 -0700</pubDate>
+      
+      <guid>https://horriblyunderqualified.com/posts/assuming-stupidity/</guid>
+      <description>We&amp;rsquo;ve all heard of the term mansplaining&amp;mdash;when a man condescendingly explains something to a person, often female, who already knows it. It&amp;rsquo;s quite terrible and unfortunately too common on tech.
+However while I don&amp;rsquo;t want to discredit the phenomenon of mansplaining, what I&amp;rsquo;ve noticed is that this situation of a person assuming another person&amp;rsquo;s stupidity and using it to condescend or treat them badly is far more common than just the cases of mansplaining.</description>
+    </item>
     
     <item>
       <title>Stop Using So Many Damn Ternaries</title>
@@ -192,7 +252,7 @@ So let&amp;rsquo;s say you are the founder of a startup called Breakr, Tinder fo
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://horriblyunderqualified.com/about/</guid>
-      <description>This blog is written by me, Nicholas Yang. I am currently a sophomore at NYU studying computer science and mathematics. I will be interning at Microsoft for summer 2019. I like to read, program and cook. Some of my interests include functional programming, compilers and language design. I&amp;rsquo;m also interested in user interfaces and creating intuitive, beautiful design.
+      <description>This blog is written by me, Nicholas Yang. I am currently a junior at NYU studying computer science and mathematics. I am interning at Microsoft for summer 2019. I like to read, program and cook. Some of my interests include functional programming, compilers and language design. I&amp;rsquo;m also interested in user interfaces and creating intuitive, beautiful design.
 The blog name is a tongue in cheek allusion to how many young (and not young) developers feel while applying for jobs; completely hopelessly, horribly underqualified.</description>
     </item>
     

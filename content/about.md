@@ -6,10 +6,10 @@ title: "About"
      <img class="headshot" style="width: 80%" alt="Headshot of meeeee" src="/img/headshot.jpg">
 </div>
 
-This blog is written by me, Nicholas Yang. I am currently a sophomore
-at NYU studying computer science and mathematics. I will be interning
-at Microsoft for summer 2019. I like to read, program and cook. Some
-of my interests include functional programming, compilers and language
+This blog is written by me, Nicholas Yang. I am currently a junior at
+NYU studying computer science and mathematics. I am interning at
+Microsoft for summer 2019. I like to read, program and cook. Some of
+my interests include functional programming, compilers and language
 design. I'm also interested in user interfaces and creating intuitive,
 beautiful design.
 

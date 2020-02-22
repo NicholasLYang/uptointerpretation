@@ -85,6 +85,12 @@ projects, future projects will automatically use the newer
 package. And tools like NPM and GitHub are starting to warn people
 automatically about their dependency security holes.
 
+Besides, as Python is finding out, if you bundle certain things in
+your standard library, but newer, better alternatives come out, you're
+going to be stuck with a bunch of outdated packages in your standard
+library. Imagine if jQuery was JavaScript's standard library. Hell,
+for the longest time it basically was.
+
 This isn't to say packages are perfect or that we should just ignore
 the issues with packages. I'm just sick of people hating on NPM as if
 there's something unique about it that makes it bad and I'm sick of
