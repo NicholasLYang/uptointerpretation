@@ -1,7 +1,7 @@
 ---
 title: "Apple & Fashion"
 date: 2019-10-19T02:11:52-04:00
-draft: true
+draft: false
 ---
 
 Go online and you'll find particularly potent venom directed towards

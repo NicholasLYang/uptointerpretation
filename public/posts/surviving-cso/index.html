@@ -1,1029 +1,64 @@
 <!DOCTYPE html>
-<html lang="en-us">
-
+<html>
 <head>
+    
+        
 <meta charset="utf-8">
 <meta name="HandheldFriendly" content="True">
-<meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="referrer" content="no-referrer">
-<meta name="description" content="Blog about programming and various other things">
+<meta name="referrer" content="no-referrer-when-downgrade">
 
+<title>Surviving CSO  - Horribly Underqualified</title>
+<meta name="description" content="A blog on programming and other things">
 
-<meta property="og:site_name" content="Horribly Underqualified" />
-<meta property="og:locale" content="nn_NO" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="https://horriblyunderqualified.com/rss/">
+
+<link rel="icon" type="image/x-icon" href="https://horriblyunderqualified.com/favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="https://horriblyunderqualified.com/favicon.png">
+
+<link rel="stylesheet" href="https://horriblyunderqualified.com/css/style.css?rnd=1582404776" />
+
+<meta property="og:title" content="Surviving CSO" />
+<meta property="og:description" content="Computer Systems Organization, or CSO, is the third class in NYU CAS&rsquo;s computer science program. I&rsquo;ve noticed that a lot of people have trouble in CSO. This is for good reasons. The class covers a lot of ground, from the C language to systems architecture to concurrency. This is especially tricky because students face a massive paradigm shift from the relatively high level bubble of Python and Java with its managed memory and forgiving error messages, to the raw, bare metal of C and x86 assembly." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://horriblyunderqualified.com/posts/surviving-cso/" />
-<meta property="og:title" content="Surviving CSO" />
-<meta property="twitter:title" content="Surviving CSO">
+<meta property="article:published_time" content="2019-08-03T00:00:38-07:00" />
+<meta property="article:modified_time" content="2019-08-03T00:00:38-07:00" />
 
-    <meta property="og:image" content="https://horriblyunderqualified.com/img/banner.png">
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:image" content="https://horriblyunderqualified.com/img/banner.png">
-
-<meta property="og:description" content="">
-<meta property="twitter:description" content="">
-
-<title>
-
-
-     Horribly Underqualified - Surviving CSO 
-
-</title>
-<link rel="canonical" href="https://horriblyunderqualified.com/posts/surviving-cso/">
-
-
-<style media="screen">
-  @font-face {
-  font-family: 'Nexa Bold';
-  src: url('https://horriblyunderqualified.com/fonts/Nexa Bold.otf');
-}
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section, div.column {
-  display: block;
-}
-body {
-  line-height: 1;
-}
-ol, ul {
-  list-style: none;
-}
-blockquote, q {
-  quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-a,
-a:visited,
-a:focus,
-a:active {
-  text-decoration: none;
-}
-html {
-  height: 100%;
-  font-size: 16px;
-}
-body {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  -webkit-justify-content: flex-start;
-  -moz-justify-content: flex-start;
-  -ms-justify-content: flex-start;
-  justify-content: flex-start;
-  width: 100%;
-  min-height: 100%;
-  font-weight: 400;
-  font-family: 'Helvetica Neue', 'Arial', sans-serif;
-  color: #111111;
-  line-height: 1.6;
-  text-rendering: optimizeLegibility !important;
-}
-.icon {
-  text-rendering: geometricPrecision !important;
-}
-section {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  -ms-justify-content: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  width: 100%;
-}
-div.column {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  -ms-justify-content: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  width: 100%;
-}
-.container {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  width: 100%;
-}
-div.header .container {
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  -ms-justify-content: center;
-  justify-content: center;
-}
-div.header .content {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-}
-div.header .container .logo {
-  max-width: 100px;
-}
-div.header .name {
-  padding-top: 20px;
-  font-size: 28px;
-  font-family: 'Nexa Bold', 'Helvetica Neue', 'Arial', sans-serif;
-  letter-spacing: -0.005rem;
-  text-transform: uppercase;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-smoothing: antialiased;
-  color: #333333;
-}
-div.header nav {
-  margin-bottom: 16px;
-}
-div.header nav ul {
-  list-style: none;
-  text-align: center;
-  display: -webkit-inline-flex;
-  display: -moz-inline-flex;
-  display: -ms-inline-flexbox;
-  display: -ms-inline-flex;
-  display: inline-flex;
-}
-div.header nav ul li {
-  margin-left: 6px;
-  margin-right: 6px;
-}
-div.header nav ul li:first-child {
-  margin-left: 0;
-}
-div.header nav ul li:last-child {
-  margin-right: 0;
-}
-div.header nav ul a {
-  color: #555555;
-  font-weight: 400;
-  font-size: 14px;
-  text-transform: uppercase;
-  font-family: 'Helvetica Neue', 'Arial', sans-serif;
-  -webkit-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -moz-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -ms-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -o-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-}
-div.header nav ul a:hover {
-  color: #111111;
-}
-div.footer .container {
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  -ms-justify-content: center;
-  justify-content: center;
-  flex-direction: column-reverse;
-  width: 100%;
-  text-align: center;
-}
-div.footer .container a {
-  font-size: 14px;
-  margin-left: 6px;
-  margin-right: 6px;
-  opacity: 0.6;
-  -webkit-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -moz-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -ms-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -o-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-}
-div.footer .container a:first-child {
-  margin-left: 0;
-}
-div.footer .container a:last-child {
-  margin-right: 0;
-}
-div.footer .container a:hover {
-  opacity: 0.8;
-}
-div.footer .container a .icon {
-  width: 16px;
-  height: 16px;
-}
-div.footer .container .copyright {
-  flex-grow: 0.5;
-  text-align: start;
-}
-div.footer .container .icons {
-  flex-grow: 0.5;
-  text-align: end;
-}
-div.main .container {
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  -webkit-justify-content: flex-start;
-  -moz-justify-content: flex-start;
-  -ms-justify-content: flex-start;
-  justify-content: flex-start;
-}
-div.main .content {
-  color: #111111;
-  font-size: 16px;
-}
-div.main .content .title-container {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-justify-content: space-between;
-  -moz-justify-content: space-between;
-  -ms-justify-content: space-between;
-  justify-content: space-between;
-}
-div.main .content .posts {
-  margin-bottom: 4em;
-}
-div.main .content .page-heading {
-  font-size: 20px;
-  font-weight: 700;
-  font-family: 'Helvetica Neue', 'Arial', sans-serif;
-  letter-spacing: -0.005rem;
-  text-transform: uppercase;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-smoothing: antialiased;
-  color: #333333;
-  margin-bottom: 16px;
-}
-div.main .content .front-matter .page-heading {
-  margin-bottom: 0;
-}
-div.main .content .front-matter .meta {
-  font-size: 14px;
-  color: #666666;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  margin-bottom: 32px;
-}
-div.main .content .front-matter .date,
-div.main .content .front-matter .author,
-div.main .content .front-matter .tags,
-div.main .content .front-matter .word-count,
-div.main .content .front-matter .middot:before {
-  display: none;
-}
-div.main .content .front-matter .middot:before {
-  font-size: 6px;
-  margin: 0 6px;
-  vertical-align: middle;
-  content: "•";
-}
-div.main .content .front-matter .tags ul {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  -moz-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-}
-div.main .content .front-matter .tags ul li {
-  -webkit-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -moz-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -ms-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -o-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-}
-div.main .content .front-matter .tags ul li:hover {
-  opacity: 0.7;
-}
-div.main .content .front-matter .tags ul li a {
-  color: #666666;
-}
-div.main .container.f04 {
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  -ms-justify-content: center;
-  justify-content: center;
-}
-div.main .container.f04 .content {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-}
-div.main .container.f04 .content .num {
-  margin: 30px 0px 30px 0;
-  font-weight: 400;
-  font-family: 'Helvetica Neue', 'Arial', sans-serif;
-  font-size: 50px;
-}
-div.main .container.f04 .content .detail {
-  margin-bottom: 40px;
-}
-div.main .container .content .groupby {
-  margin-top: 1em;
-  padding-left: 0.5em;
-}
-div.main .container .content .post-item {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  display: list-item;
-  list-style: disc inside;
-}
-div.main .container .content .post-item .meta {
-  font-size: 14px;
-  color: #666666;
-  display: none;
-  min-width: 100px;
-}
-div.main .container .content .see-more {
-  font-style: italic;
-  float: right;
-  font-size: 0.9em;
-  margin-top: 2em;
-  color: #313537;
-}
-div.main .container .content .see-more:hover {
-  color: #666;
-}
-section {
-  padding: 0 16px;
-}
-div.column {
-  padding: 0 16px;
-}
-div.header {
-  padding-top: 10px;
-}
-div.header-home {
-  padding-top: 36px;
-}
-div.main {
-  padding-top: 32px;
-}
-div.main .container .content .post-item .meta {
-    display: block;
-}
-div.main .container .content .post-item {
-    display: flex;
-    list-style: none;
-}
-a {
-  color: #428bca;
-  -webkit-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -moz-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -ms-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -o-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-}
-a:hover {
-  color: #2a6496;
-}
-img {
-  max-width: 100%;
-}
-div.main .content {
-    width: 100%;
-}
-div.main .content .markdown {
-  font-size: 1.1em;
-  line-height: 1.75em;
-  color: #313537;
-  font-family: serif;
-  font-weight: 300;
-}
-div.main .content .markdown h1,
-div.main .content .markdown h2,
-div.main .content .markdown h3,
-div.main .content .markdown h4,
-div.main .content .markdown h5,
-div.main .content .markdown h6 {
-  font-size: 22px;
-  font-family: 'Helvetica Neue', 'Arial', sans-serif;
-  letter-spacing: -0.005rem;
-  font-weight: 700;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-smoothing: antialiased;
-  color: #333333;
-  text-transform: none;
-  margin-top: 1.75rem;
-}
-div.main .content .markdown h1 {
-  font-size: 1.75rem;
-  margin-bottom: 2rem;
-}
-div.main .content .markdown h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-div.main .content .markdown h3 {
-  font-size: 1em;
-  margin-bottom: 1rem;
-}
-div.main .content .markdown h4,
-div.main .content .markdown h5,
-div.main .content .markdown h6 {
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  letter-spacing: none;
-}
-div.main .content .markdown code,
-div.main .content .markdown pre {
-  font-family: 'Menlo', monospace;
-  font-size: 0.98rem;
-  background-color: #f7f7f7;
-}
-div.main .content .markdown code {
-  /* enclosed by single backtick (`) */
-  padding: .15em .5em;
-  border-radius: 2px;
-}
-div.main .content .markdown pre {
-  /* Hugo specific: consider using the 'highlight' shortcode */
-  display: block;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  padding: 1rem;
-  line-height: 1.5em;
-  white-space: pre;
-  word-break: break-all;
-  word-wrap: break-word;
-}
-div.main .content .markdown pre code {
-  /* enclosed by 4 backticks (````) */
-  padding: 0;
-  font-size: 0.9rem;
-}
-div.main .content .markdown a code {
-  color: #428bca !important;
-}
-div.main .content .markdown a code:hover {
-  text-decoration: underline;
-}
-div.main .content .markdown p {
-  
-  text-align: justify;
-  
-  margin-top: 0;
-  margin-bottom: 1em;
-}
-div.main .content .markdown ul,
-div.main .content .markdown ol,
-div.main .content .markdown dl {
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-}
-div.main .content .markdown dt {
-  font-weight: bold;
-}
-div.main .content .markdown dd {
-  margin-bottom: .5rem;
-}
-div.main .content .markdown ul {
-  list-style-type: disc;
-  list-style-position: outside;
-  margin-bottom: 1.25rem;
-}
-div.main .content .markdown ol {
-  list-style-type: decimal;
-  margin-bottom: 1.25rem;
-}
-div.main .content .markdown li {
-  margin-left: 2em;
-}
-div.main .content .markdown em {
-  font-style: italic;
-}
-div.main .content .markdown strong {
-  font-weight: 700;
-}
-div.main .content .markdown hr {
-  position: relative;
-  margin: 1.75rem 0;
-  border: 0;
-  border-top: 1px solid #808080;
-  border-top: 1px solid #999999;
-}
-div.main .content .markdown abbr {
-  font-size: 0.85rem;
-  font-weight: bold;
-  color: #666666;
-  text-transform: uppercase;
-}
-div.main .content .markdown abbr[title] {
-  cursor: help;
-  border-bottom: 1px dotted #808080;
-}
-div.main .content .markdown blockquote {
-  padding: .5rem 1rem;
-  margin: .8rem 0;
-  color: #7a7a7a;
-  border-left: .25rem solid #e5e5e5;
-}
-div.main .content .markdown blockquote p:last-child {
-  margin-bottom: 0;
-}
-div.main .content .markdown figure {
-  width: 100%;
-  background: #fff;
-  margin-bottom: 1em;
-}
-div.main .content .markdown figure img {
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  display: block;
-  position: static;
-  margin: auto;
-}
-div.main .content .markdown table {
-  margin-bottom: 1rem;
-  width: 100%;
-  border: 1px solid #e5e5e5;
-  border-collapse: collapse;
-}
-div.main .content .markdown td,
-div.main .content .markdown th {
-  padding: .25rem .5rem;
-  border: 1px solid #e5e5e5;
-}
-div.main .content .markdown tbody tr:nth-child(odd) td,
-div.main .content .markdown tbody tr:nth-child(odd) th {
-  background-color: #f7f7f7;
-}
-div.main .content .markdown .footnotes ol {
-  list-style-type: decimal;
-  margin-left: 16px;
-}
-div.main .content .markdown .footnotes li {
-  list-style-type: unset;
-}
-div.main .content .markdown .footnote-ref {
-  font-size: 0.7em;
-}
-div.main .content .navigation {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  padding: 2em;
-}
-div.main .content .navigation div {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  -moz-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  margin-top: 1em;
-}
-div.main .content .navigation .icon {
-  width: 16px;
-  height: 16px;
-}
-div.main .content .navigation a {
-  width: 250px;
-  margin: 0 1em;
-  text-align: center;
-  font-style: italic;
-  color: #313537;
-}
-div.main .content .share, div.main .content .share div {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  -moz-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  justify-content: center;
-}
-div.main .content .share {
-  background-color: rgba(152, 152, 152, 0.07);
-  padding: 1em 0;
-}
-div.main .content .share a {
-  margin: 0 6px;
-}
-kbd {
-  padding: 0.1em 0.6em;
-  border: 1px solid #ccc;
-  font-size: 11px;
-  font-family: Arial,Helvetica,sans-serif;
-  background-color: #f7f7f7;
-  color: #333;
-  -moz-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
-  -webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
-  box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  display: inline-block;
-  margin: 0 0.1em;
-  text-shadow: 0 1px 0 #fff;
-  line-height: 1.4;
-  white-space: nowrap;
-}
-
-/* Fonts */
-
-
-.wf-raleway-n4-active body, 
-.wf-raleway-n4-active div.header nav ul a,
-.wf-raleway-n7-active div.main .content .page-heading,
-.wf-raleway-n2-active div.main .container.f04 .content .num,
-.wf-raleway-n7-active div.main .content .markdown h1,
-.wf-raleway-n7-active div.main .content .markdown h2,
-.wf-raleway-n7-active div.main .content .markdown h3,
-.wf-raleway-n7-active div.main .content .markdown h4,
-.wf-raleway-n7-active div.main .content .markdown h5,
-.wf-raleway-n7-active div.main .content .markdown h6 {
-      font-family: 'Raleway';
-}
-
-.wf-merriweather-n3-active div.main .content .markdown {
-      font-family: 'Merriweather';
-}
-
-.wf-ubuntu-mono-n4-active div.main .content .markdown code,
-.wf-ubuntu-mono-n4-active div.main .content .markdown pre {
-      font-family: 'Ubuntu Mono';
-}
-
-
-</style>
-<style media="(min-width: 600px)">
-  body {
--webkit-justify-content: center;
--moz-justify-content: center;
--ms-justify-content: center;
-justify-content: center;
-}
-.non-narrow.zero-top-spacing {
-padding-top: 0 !important;
-}
-section {
-padding: 0 16px;
-margin-left: 100px;
-margin-right: 100px;
-max-width: 750px;
-}
-div.column {
-padding: 0 16px;
-max-width: 750px;
-}
-div.header {
-background-color: transparent;
-}
-div.header .container {
--webkit-justify-content: flex-start;
--moz-justify-content: flex-start;
--ms-justify-content: flex-start;
-justify-content: flex-start;
-}
-div.header .container .logo {
-margin: 0;
-}
-div.header-home .container .logo {
-max-width: 180px;
-margin-left: 20px;
-}
-div.header-home .name-home {
-padding-top: 30px;
-font-size: 40px;
-}
-div.header-home nav ul a {
-font-size: 18px;
-}
-div.header .content {
--webkit-align-items: flex-start;
--moz-align-items: flex-start;
--ms-align-items: flex-start;
-align-items: flex-start;
-}
-div.header .name {
-color: #333333;
-}
-div.header nav {
-font-size: 14px;
-margin-bottom: 0;
-}
-div.header nav ul {
-text-align: left;
-}
-div.header nav ul a {
-color: #666666;
-}
-div.header nav ul a:hover {
-color: #333333;
-}
-div.footer {
-background-color: transparent;
-}
-div.footer .container {
-flex-direction: row;
-}
-div.footer .container a {
-margin-left: 3px;
-margin-right: 3px;
-color: #666666;
-}
-div.footer .container a:hover {
-color: #333333;
-}
-div.footer .container a .icon {
-font-size: 18px;
-}
-div.footer .container a .icon.larger {
-font-size: 20px;
-}
-div.main .content .front-matter .date,
-div.main .content .front-matter .author,
-div.main .content .front-matter .tags,
-div.main .content .front-matter .word-count,
-div.main .content .front-matter .middot:before {
-display: initial;
-}
-div.main .container.f04 {
--webkit-justify-content: flex-start;
--moz-justify-content: flex-start;
--ms-justify-content: flex-start;
-justify-content: flex-start;
-}
-div.main .container.f04 .content {
--webkit-align-items: flex-start;
--moz-align-items: flex-start;
--ms-align-items: flex-start;
-align-items: flex-start;
-}
-div.main .container.f04 .content .num {
-margin: 0 0 10px 0;
-font-size: 32px;
-}
-div.main .container.f04 .content .detail {
-margin-bottom: 30px;
-}
-.container {
-padding: 0 30px;
-}
-div.header {
-padding-top: 60px;
-padding-bottom: 60px;
-}
-div.footer {
-padding-top: 30px;
-padding-bottom: 60px;
-}
-div.main {
-padding-top: 0;
-}
-div.main .container .content .post-item {
-display: flex;
-list-style: none;
-padding-left: 1.5em;
-}
-div.main .container .content .post-item .meta {
-display: block;
-}
-div.main.post {
-padding-top: 60px;
-padding-bottom: 60px;
-}
-div.main .content .markdown blockquote {
-padding-right: 5rem;
-padding-left: 1.25rem;
-}
-div.main .content .navigation {
--webkit-flex-direction: row;
--moz-flex-direction: row;
--ms-flex-direction: row;
-flex-direction: row;
-}
-div.main .content .navigation div {
-margin-top: 0em;
-}
-
-</style>
-<style media="(min-width: 769px)">
-  div.main .content .markdown figure {
-width: 110%;
-margin-left: -4%;
-}
-div.main .content .markdown img {
-max-width: 110%;
-width: 110%;
-margin-left: -4%;
-}
-div.main .content .markdown pre {
-width: 110%;
-margin-left: -4%;
-}
-
-</style>
-
-<noscript>
-  <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,700,700i" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet">
-</noscript>
-
-
-  <style type="text/css" media="screen">
-    .hljs{display:block;background:white;padding:0.5em;color:#333333;overflow-x:auto}.hljs-comment,.hljs-meta{color:#969896}.hljs-string,.hljs-variable,.hljs-template-variable,.hljs-strong,.hljs-emphasis,.hljs-quote{color:#df5000}.hljs-keyword,.hljs-selector-tag,.hljs-type{color:#a71d5d}.hljs-literal,.hljs-symbol,.hljs-bullet,.hljs-attribute{color:#0086b3}.hljs-section,.hljs-name{color:#63a35c}.hljs-tag{color:#333333}.hljs-title,.hljs-attr,.hljs-selector-id,.hljs-selector-class,.hljs-selector-attr,.hljs-selector-pseudo{color:#795da3}.hljs-addition{color:#55a532;background-color:#eaffea}.hljs-deletion{color:#bd2c00;background-color:#ffecec}.hljs-link{text-decoration:underline}
-  </style>
-
-
-
-  <style type="text/css" media="screen">
-    .progressive{overflow:hidden;position:relative;background:#efefef}.progressive__img{width:100%;height:100%;position:absolute;-webkit-transform:translateZ(0);transform:translateZ(0)}.progressive--not-loaded{filter:blur(30px);-webkit-filter:blur(30px)}.progressive--is-loaded{filter:blur(20px);-webkit-filter:blur(20px);-webkit-animation:sharpen .5s both;animation:sharpen .5s both}@-webkit-keyframes sharpen{from{filter:blur(20px);-webkit-filter:blur(20px)}to{filter:blur(0);-webkit-filter:blur(0)}}@keyframes sharpen{from{filter:blur(20px);-webkit-filter:blur(20px)}to{filter:blur(0);-webkit-filter:blur(0)}}
-  </style>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Surviving CSO"/>
+<meta name="twitter:description" content="Computer Systems Organization, or CSO, is the third class in NYU CAS&rsquo;s computer science program. I&rsquo;ve noticed that a lot of people have trouble in CSO. This is for good reasons. The class covers a lot of ground, from the C language to systems architecture to concurrency. This is especially tricky because students face a massive paradigm shift from the relatively high level bubble of Python and Java with its managed memory and forgiving error messages, to the raw, bare metal of C and x86 assembly."/>
 
 
 
 
 
 
-
-
-
-
-
-<link rel="shortcut icon"
-
-    href="https://horriblyunderqualified.com/img/favicon.ico"
-
->
-
-
-
-
-<link href="https://horriblyunderqualified.com/css/styles.css" type="text/css" rel="stylesheet">
+    
 </head>
-
-
 <body>
-
-
-<div class="header column">
-
     <div class="container">
-        <a href="https://horriblyunderqualified.com/"><img class="logo" src="https://horriblyunderqualified.com/img/logo.png" alt="logo" /></a>
-        <div class="content">
-            <a href="https://horriblyunderqualified.com/"><div class="name"><h1>Horribly Underqualified</h1></div></a>
-            <nav>
-                <ul>
-                    
-		    
-                        
-                            <li><a href="https://horriblyunderqualified.com/about/">About</a></li>
-                        
-                    
-                    
-                        
-                            
-                            <li><a href="https://horriblyunderqualified.com/posts">posts</a></li>
-                            
-                        
-                    
-                </ul>
-            </nav>
-        </div>
-    </div>
-</div>
-
-<div class="main column">
-    <div class="container">
-        <div class="content">
-            <div class="page-heading">
-
-    Surviving CSO
-
-</div>
-
-            <div class="markdown">
-                
+        <header> 
+            
+                <h1 class="site-header">
+    <a href="https://horriblyunderqualified.com">Horribly Underqualified</a>
+</h1>
+<nav>
     
     
+</nav>
 
-<p>Computer Systems Organization, or CSO, is the third class in NYU CAS&rsquo;s
+            
+        </header>
+        <main>
+            
+
+    <article class="post">
+        <header>
+            <h1>Surviving CSO</h1>
+        </header>
+        <div class="content">
+            <p>Computer Systems Organization, or CSO, is the third class in NYU CAS&rsquo;s
 computer science program. I&rsquo;ve noticed that a lot of people have
 trouble in CSO. This is for good reasons. The class covers a lot of
 ground, from the C language to systems architecture to
@@ -1032,7 +67,6 @@ paradigm shift from the relatively high level bubble of Python and
 Java with its managed memory and forgiving error messages, to the raw,
 bare metal of C and x86 assembly. It&rsquo;s kind of like going from driving
 a 2019 Mercedes to a Model T.</p>
-
 <p>I was lucky enough to come into the class with some C experience. I&rsquo;ve
 also learned some more useful techniques for systems development after
 I took CSO. I hope that by writing up a quick guide for preparing and
@@ -1040,39 +74,31 @@ surviving CSO, future students can be more prepared, get better grades
 and be happier people. Well, at least the first two. The last one
 might require <a href="https://www.youtube.com/watch?v=TbwlC2B-BIg">incremental lifestyle changes sustained over
 time</a>.</p>
-
 <p>This guide is applicable whether you have an entire summer to prepare,
 a few weeks to practice or even if you&rsquo;re in the middle of the course
 and struggling.</p>
-
 <p>Quick aside, if you&rsquo;re in CSO already and worried that you&rsquo;re going to
 fail, don&rsquo;t panic. You are almost certainly not the only person in
 this situation. In fact, there&rsquo;s a decent chance a lot of people are
 in the same boat. CSO generally has a reasonable curve to it. Not that
 you should rely on the curve to pass. Now let&rsquo;s get to work:</p>
-
 <h2 id="tooling">Tooling</h2>
-
 <p>Memorize these 3 flags: <code>-Wall -Wpedantic -Wextra</code>. Flags are ways of
 modifying your compiler and how it views your code. Like how you can
 flip a switch on some cars and go into sports mode. These three flags
 basically turn up your compiler&rsquo;s standards for code quality. The
 compiler will now warn you about potential issues in your code.</p>
-
 <p>One side effect is that when you run your code, you may get a gigantic
 boatload of errors. <strong>That&rsquo;s fine</strong>. The compiler is your friend,
 who&rsquo;s warning you about potential issues in your code. Better the
 compiler than the professor&rsquo;s test suite.</p>
-
 <p>You can either manually call the compiler with these flags. That means
 entering something like <code>gcc -Wall -Wpedantic -Wextra main.c</code> into the
 command line. Or you can <a href="http://www.cs.colby.edu/maxwell/courses/tutorials/maketutor/">add it to your
 Makefile</a>.</p>
-
 <p>Install <a href="http://www.valgrind.org/">valgrind</a>. It&rsquo;s extremely
 useful for finding places where your code is messing up memory
 management. Consider running your code with it automatically.</p>
-
 <p>Finally, learn to use the terminal if you haven&rsquo;t already. If you&rsquo;re
 using Windows, either install a Linux VM, dual boot Linux or use the
 subsystem. Usually your TA has you set up a Linux VM to run your
@@ -1084,20 +110,16 @@ Terminal. Seriously consider learning git. Version control allows you
 to save various versions of your code, making it easier to store and
 roll back your code changes. Maybe learn some vim or emacs, personally
 I use emacs.</p>
-
 <p>You don&rsquo;t have to set up all of these things immediately. I&rsquo;d get the
 basics down, learn some C, then tinker with your setup more. Don&rsquo;t
 feel like you have to get everything perfect immediately.</p>
-
 <h2 id="c">C</h2>
-
 <p>Find yourself a good source to learn or relearn C. I&rsquo;m not up to date
 on the best books for C. Personally I used The C Programming Language
 by Kernighan &amp; Ritchie but they teach a very old fashioned style with
 terrible variable names (like atoi) and really optimistic uses of
 memory. I&rsquo;d look at <a href="https://stackoverflow.com/questions/562303/the-definitive-c-book-guide-and-list">some lists
 online</a>.</p>
-
 <p>The areas you need to be solid in are pointers and memory layout. C is
 very tricky in that its model of memory has very little
 abstraction. Languages like Java or Python abstract away pointers with
@@ -1109,7 +131,6 @@ kinda). The <code>a[i]</code> syntax? That&rsquo;s just syntactic sugar for <cod
 Strings? They&rsquo;re just arrays of characters. So if you add 1 to a
 pointer, you are simply changing the value of the pointer, not where
 it&rsquo;s pointing.</p>
-
 <p>Debugging in C is very different due to how C handles (or doesn&rsquo;t
 handle) errors. Java will generally spit out nice stack traces which
 you can just follow to find your problems. In C, the most common error
@@ -1118,30 +139,23 @@ basically immediately halt the program. The way I debug segfaults
 personally is to print out markers at various parts in my code, then
 see which markers get printed before my code segfaults. For instance,
 if you have</p>
-
 <pre><code>printf(&quot;1\n&quot;);
 char* x = NULL;
 printf(&quot;2\n&quot;);
 *x = 5;
 printf(&quot;3\n&quot;);
-</code></pre>
-
-<p>It&rsquo;s totally okay if you don&rsquo;t understand this. Come back to it once
+</code></pre><p>It&rsquo;s totally okay if you don&rsquo;t understand this. Come back to it once
 you&rsquo;ve learned some C. In most cases this will print out:</p>
-
 <pre><code>1
 2   
 Segmentation fault: 11
-</code></pre>
-
-<p>This will allow me to say &ldquo;huh, I guess my error is in between 2 and
+</code></pre><p>This will allow me to say &ldquo;huh, I guess my error is in between 2 and
 3&rdquo;. In fact, you can kinda <a href="https://en.wikipedia.org/wiki/Binary_search_algorithm">binary
 search</a> your
 code by putting one marker in the middle of your code, then if it gets
 printed out, putting a new marker between the old one and the end of
 your code, otherwise putting a new marker between the beginning of
 your code and the old marker, etc.</p>
-
 <p>However contrary to popular belief, segfaults are not the worst errors
 in C. The worst errors in C are the <em>silent</em> ones. These are errors
 that don&rsquo;t manifest until you happen to run a particular input or
@@ -1152,13 +166,10 @@ always test for bad input. Passing in a pointer? Make it NULL, 0, -1,
 anything you want. Giving in integers? What if they&rsquo;re really large?
 What if they&rsquo;re negative? Write code that runs through these
 situations.</p>
-
 <p>Under no circumstances should you <strong>ever</strong> submit code that you have
 not compiled and run. Never assume your code will work. Test and
 verify.</p>
-
 <h2 id="assembly">Assembly</h2>
-
 <p>Assembly is probably my weakest area, so I can&rsquo;t offer too much
 advice. I guess if I had to give some, it&rsquo;d be that assembly is just
 another language. You can run it, you can generate it, etc. A good way
@@ -1166,30 +177,24 @@ to read assembly is to write some C, compile it with the <code>-S</code> flag an
 look at the assembly. The <a href="https://godbolt.org/">Godbolt compiler
 explorer</a> is a nice interactive tool for this as
 well.</p>
-
 <h2 id="misc">Misc</h2>
-
 <p>Start the labs early. I definitely had to use some grace days to
 submit some of my labs. Even if just the thought of the labs stresses
 you out, just try to take the smallest peek at the problem
 statement. Even if it&rsquo;s just looking at the README and jotting down a
 couple notes, that&rsquo;ll go a long long way.</p>
-
 <p>Depending on your professor and their views on collaboration, you
 might want to work with a partner. Even if your professor doesn&rsquo;t look
 kindly on collaborating on code, you can still talk to each other
 about techniques and ideas.</p>
-
 <p>All the standard advice for hard courses applies. Talk to your
 professor. Go to tutoring. Go to office hours. Find a study buddy.</p>
-
 <p>Buy a print copy of the textbook. Yeah, it&rsquo;s likely you won&rsquo;t read it,
 but it&rsquo;s even less likely that you&rsquo;d read the PDF version. You can&rsquo;t
 flip through a PDF and print books don&rsquo;t have Facebook or Reddit on
 them to distract you. A good trick is to find international editions
 of the book. I usually try to find the Indian version, as it&rsquo;s
 significantly cheaper (under 20 dollars) and the same exact material.</p>
-
 <p>This is extremely optional and not recommended unless you have the
 free time, but I&rsquo;d consider learning a little Rust. Rust is a very
 interesting systems language that enforces a lot of rules about memory
@@ -1197,105 +202,31 @@ at compile time. It&rsquo;s kind of like working with an extremely anal
 programmer who forces you to follow the rules with memory. If you can
 pick up some Rust, I guarantee you&rsquo;ll get better at thinking about
 memory and how to manage it. Plus it&rsquo;s just a fun language.</p>
-
 <p>Congratulate yourself: you&rsquo;ve read this advice and are now on the path
 to passing CSO! Good luck!</p>
 
-
-            </div>
         </div>
-    </div>
-</div>
-<div class="footer column">
-    <div class="container">
-
-        
-
-        <div class="copyright">
-
+        <div class="article-info">
+    
+        <div class="article-date">2019-08-03</div>
+    
+    <div class="article-taxonomies">
         
             
-                <a href="https://horriblyunderqualified.com/license">Copyright © 2018 Nicholas Yang</a>
-            
-        
-
-        </div>
-        <div class="icons">
-
-        
-
-        
-            <a href="https://github.com/nicholaslyang" target="_blank">
-                <img class="icon" src="https://horriblyunderqualified.com/img/github.svg" alt="github" />
-            </a>
-        
-
-        
-
-        
-            <a href="https://www.linkedin.com/in/nicholaslyang" target="_blank">
-                <img class="icon" src="https://horriblyunderqualified.com/img/linkedin.svg" alt="linkedin" />
-            </a>
-        
-
-        
-            <a href="mailto:nick@nicholasyang.com">
-                <img class="icon" src="https://horriblyunderqualified.com/img/email.svg" alt="email" />
-            </a>
-        
-
-        
-            <a href="https://horriblyunderqualified.com/index.xml">
-                <img class="icon" src="https://horriblyunderqualified.com/img/rss.svg" alt="rss" />
-            </a>
-        
-
-        </div>
     </div>
 </div>
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
-<script>
-  WebFont.load({
-    google: {
-      families: ['Raleway:400,600,700', 'Merriweather:300,300i,700,700i', 'Ubuntu+Mono:400,700']
-    }
-  });
-</script>
-
-
-
-  <script src="https://horriblyunderqualified.com/js/highlight.min.js" defer></script>
-  
-
-
-
-  <script src="https://horriblyunderqualified.com/js/progressively.min.js" defer></script>
-
-
-
-
-
-
-
-
-
-<script>
-  window.onload = function() {
+    </article>
     
-      hljs.initHighlighting();
-    
-    
-      progressively.init({delay: 30, throttle: 50});
-    
-    
-  };
-</script>
 
 
-
-
+        </main>
+        <footer>
+            
+                <p>© Nicholas Yang, 2020<br>
+Powered by <a target="_blank" href="https://gohugo.io/">Hugo</a>, theme <a target="_blank" href="https://github.com/mitrichius/hugo-theme-anubis">Anubis</a>.
+</p>
+            
+        </footer>
+    </div>
 </body>
 </html>
-

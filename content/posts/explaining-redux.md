@@ -1,7 +1,7 @@
 ---
 title: "Explaining Redux"
 date: 2018-02-26T13:31:22-05:00
-draft: true
+draft: false
 ---
 
 Redux is one of those concepts that is so damn hard to explain, and

@@ -1,7 +1,7 @@
 ---
 title: "Google Summer of Code 2018: Ruby"
 date: 2018-08-14T15:06:22-04:00
-draft: true
+draft: false
 ---
 
 

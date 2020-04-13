@@ -1,7 +1,7 @@
 ---
 title: "Racket School"
 date: 2018-07-14T23:21:37-06:00
-draft: true
+draft: false
 ---
 
 I'm waiting for my flight back from Racket School 2018, so I figured I

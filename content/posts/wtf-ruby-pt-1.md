@@ -1,7 +1,7 @@
 ---
 title: "Wtf Ruby Pt 1: DSL Dyslexia"
 date: 2018-07-08T21:41:58-06:00
-draft: true
+draft: false
 ---
 
 ## Preface

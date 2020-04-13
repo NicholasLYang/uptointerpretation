@@ -1,7 +1,7 @@
 ---
 title: "Surviving CSO"
 date: 2019-08-03T00:00:38-07:00
-draft: true
+draft: false
 ---
 
 Computer Systems Organization, or CSO, is the third class in NYU CAS's

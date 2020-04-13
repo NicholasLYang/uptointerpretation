@@ -8,7 +8,7 @@ We've all heard of the term mansplaining---when a man condescendingly
 explains something to a person, often female, who already knows
 it. It's quite terrible and unfortunately too common on tech.
 
-However while I don't want to discredit the phenomenon of
+While I don't want to discredit the phenomenon of
 mansplaining, what I've noticed is that this situation of a person
 assuming another person's stupidity and using it to condescend or
 treat them badly is far more common than just the cases of

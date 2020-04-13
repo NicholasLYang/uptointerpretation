@@ -1,7 +1,7 @@
 ---
 title: "Speed and Iteration"
 date: 2018-02-20T14:38:33-05:00
-draft: true
+draft: false
 ---
 
 I've become interested in programming languages recently. This

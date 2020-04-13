@@ -1,7 +1,7 @@
 ---
 title: "Using Rails in 2018"
 date: 2018-03-03T17:06:43-05:00
-draft: true
+draft: false
 ---
 
 I'm a huge fan of Ruby on Rails. I've used it for numerous hackathons

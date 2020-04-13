@@ -1,7 +1,7 @@
 ---
 title: "Rules of Engagement"
 date: 2018-02-21T17:52:10-05:00
-draft: true
+draft: false
 ---
 
 I've gotten approached by a fair amount of "entrepreneurs"

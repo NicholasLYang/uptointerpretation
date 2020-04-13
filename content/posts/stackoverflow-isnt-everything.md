@@ -1,7 +1,7 @@
 ---
 title: "Stackoverflow Isnt Everything"
 date: 2018-07-26T14:56:46-04:00
-draft: true
+draft: false
 ---
 
 There's a lot of memes and jokes online about developers' dependency

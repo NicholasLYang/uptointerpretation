@@ -1,7 +1,7 @@
 ---
 title: "People Suck at Email"
 date: 2019-10-05T01:28:57-04:00
-draft: true
+draft: false
 ---
 
 Just because someone has not responded to an email in a few days

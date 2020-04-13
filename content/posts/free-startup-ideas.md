@@ -1,7 +1,7 @@
 ---
 title: "Free Startup Ideas"
 date: 2018-09-05T21:19:00-04:00
-draft: true
+draft: false
 ---
 
 Free Startup Ideas. Success not guaranteed

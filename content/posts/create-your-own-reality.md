@@ -72,8 +72,8 @@ rules here[^3]. What if we change our reality?
 [^2]: A second corollary is that functions don't necessarily have to
     have names. This isn't as important.
 	
-[^3]: An interesting question to ask is what happens when you break
-    these rules?
+[^3]: A good question to ask is what you need to implement in order
+    to break these rules.
 
 The answer here is you get an innovation. You get something that
 changes programming forever. Seem overdramatic? Sure, but it's also

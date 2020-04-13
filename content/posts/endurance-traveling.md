@@ -1,7 +1,7 @@
 ---
 title: "Endurance Traveling"
 date: 2019-05-26T20:20:14-05:00
-draft: true
+draft: false
 ---
 
 When I started solo traveling a couple years ago, I became obsessed
@@ -17,15 +17,14 @@ However, as I went on my first solo trip, I made a few
 observations. First, the clothing was not life-changing-ly,
 earth-shattering-ly better than my normal, pedestrian cotton shirts
 and cotton chinos. Oh sure, I *could* wear the shirts for 4 days on
-end. But did I want to? And sure, I could hand wash the pants and have
-them dry quickly, but I could also just spin dry
-them. Newsflash---washers and dryers exist in 95% of the
-world. Second, the clothing felt, well...wrong. Not that it was
-uncomfortable. Far from it, the clothing was extremely
-comfortable. But it just wasn't what I wore at home. And while Outlier
-puts a lot of effort into making the clothing look normal and not
-tech-y, the clothing felt less a fashionable garment and more an
-expensive, kinda dorky gadget.
+end. But did I want to? I could hand wash the pants and have them dry
+quickly, but I could also just spin dry them. Newsflash---washers and
+dryers exist in 95% of the world. Second, the clothing felt,
+well...wrong. Not that it was uncomfortable. Far from it, the clothing
+was extremely comfortable. But it just wasn't what I wore at
+home. While Outlier puts a lot of effort into making the clothing look
+normal and not tech-y, the clothing felt less a fashionable garment
+and more an expensive, kinda dorky gadget.
 
 When I made it back home, I took an inordinate amount of pleasure in
 wearing my normal, impractical clothing. A cotton oxford shirt and a
@@ -37,9 +36,9 @@ only a small subset of the traveling "hacks" that are peddled around
 the internet. People discuss the optimal places to go, using the
 optimal flight scheme and stopping at the optimal restaurants to
 eat. These optimizations are often quite useful; nobody should pay 600
-dollars for a flight from New York to Paris. But at the same time,
-this optimization obsession lends an intensity, a certain level of
-stress to traveling that is not necessary. 
+dollars for an economy flight from New York to Paris. But at the same
+time, this optimization obsession lends an intensity, a certain level
+of stress to traveling that is not necessary.
 
 For an example of this stress, simply go to a tourist heavy city; New
 York, Paris, Rome, etc. and look for a nuclear family, often American,

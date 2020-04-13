@@ -1,1027 +1,64 @@
 <!DOCTYPE html>
-<html lang="en-us">
-
+<html>
 <head>
+    
+        
 <meta charset="utf-8">
 <meta name="HandheldFriendly" content="True">
-<meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="referrer" content="no-referrer">
-<meta name="description" content="Blog about programming and various other things">
+<meta name="referrer" content="no-referrer-when-downgrade">
 
+<title>Google Summer of Code 2018: Ruby  - Horribly Underqualified</title>
+<meta name="description" content="A blog on programming and other things">
 
-<meta property="og:site_name" content="Horribly Underqualified" />
-<meta property="og:locale" content="nn_NO" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="https://horriblyunderqualified.com/rss/">
+
+<link rel="icon" type="image/x-icon" href="https://horriblyunderqualified.com/favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="https://horriblyunderqualified.com/favicon.png">
+
+<link rel="stylesheet" href="https://horriblyunderqualified.com/css/style.css?rnd=1582404776" />
+
+<meta property="og:title" content="Google Summer of Code 2018: Ruby" />
+<meta property="og:description" content="My Google Summer of Code project for Ruby is coming to an end. In a nutshell, the project was to add type annotations to Ruby. When I first approached this problem, my thoughts were &ldquo;this is just a syntatical change, this shouldn&rsquo;t be hard&rdquo;. Haha, yeah, that wasn&rsquo;t quite true. While I did end up adding type annotations, I didn&rsquo;t manage to complete all of my goals, and the ones that I did complete, I did by the skin of my teeth." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://horriblyunderqualified.com/posts/gsoc-ruby-2018/" />
-<meta property="og:title" content="Google Summer of Code 2018: Ruby" />
-<meta property="twitter:title" content="Google Summer of Code 2018: Ruby">
+<meta property="article:published_time" content="2018-08-14T15:06:22-04:00" />
+<meta property="article:modified_time" content="2018-08-14T15:06:22-04:00" />
 
-    <meta property="og:image" content="https://horriblyunderqualified.com/img/banner.png">
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:image" content="https://horriblyunderqualified.com/img/banner.png">
-
-<meta property="og:description" content="">
-<meta property="twitter:description" content="">
-
-<title>
-
-
-     Horribly Underqualified - Google Summer of Code 2018: Ruby 
-
-</title>
-<link rel="canonical" href="https://horriblyunderqualified.com/posts/gsoc-ruby-2018/">
-
-
-<style media="screen">
-  @font-face {
-  font-family: 'Nexa Bold';
-  src: url('https://horriblyunderqualified.com/fonts/Nexa Bold.otf');
-}
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section, div.column {
-  display: block;
-}
-body {
-  line-height: 1;
-}
-ol, ul {
-  list-style: none;
-}
-blockquote, q {
-  quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-a,
-a:visited,
-a:focus,
-a:active {
-  text-decoration: none;
-}
-html {
-  height: 100%;
-  font-size: 16px;
-}
-body {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  -webkit-justify-content: flex-start;
-  -moz-justify-content: flex-start;
-  -ms-justify-content: flex-start;
-  justify-content: flex-start;
-  width: 100%;
-  min-height: 100%;
-  font-weight: 400;
-  font-family: 'Helvetica Neue', 'Arial', sans-serif;
-  color: #111111;
-  line-height: 1.6;
-  text-rendering: optimizeLegibility !important;
-}
-.icon {
-  text-rendering: geometricPrecision !important;
-}
-section {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  -ms-justify-content: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  width: 100%;
-}
-div.column {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  -ms-justify-content: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  width: 100%;
-}
-.container {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  width: 100%;
-}
-div.header .container {
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  -ms-justify-content: center;
-  justify-content: center;
-}
-div.header .content {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-}
-div.header .container .logo {
-  max-width: 100px;
-}
-div.header .name {
-  padding-top: 20px;
-  font-size: 28px;
-  font-family: 'Nexa Bold', 'Helvetica Neue', 'Arial', sans-serif;
-  letter-spacing: -0.005rem;
-  text-transform: uppercase;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-smoothing: antialiased;
-  color: #333333;
-}
-div.header nav {
-  margin-bottom: 16px;
-}
-div.header nav ul {
-  list-style: none;
-  text-align: center;
-  display: -webkit-inline-flex;
-  display: -moz-inline-flex;
-  display: -ms-inline-flexbox;
-  display: -ms-inline-flex;
-  display: inline-flex;
-}
-div.header nav ul li {
-  margin-left: 6px;
-  margin-right: 6px;
-}
-div.header nav ul li:first-child {
-  margin-left: 0;
-}
-div.header nav ul li:last-child {
-  margin-right: 0;
-}
-div.header nav ul a {
-  color: #555555;
-  font-weight: 400;
-  font-size: 14px;
-  text-transform: uppercase;
-  font-family: 'Helvetica Neue', 'Arial', sans-serif;
-  -webkit-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -moz-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -ms-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -o-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-}
-div.header nav ul a:hover {
-  color: #111111;
-}
-div.footer .container {
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  -ms-justify-content: center;
-  justify-content: center;
-  flex-direction: column-reverse;
-  width: 100%;
-  text-align: center;
-}
-div.footer .container a {
-  font-size: 14px;
-  margin-left: 6px;
-  margin-right: 6px;
-  opacity: 0.6;
-  -webkit-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -moz-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -ms-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -o-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-}
-div.footer .container a:first-child {
-  margin-left: 0;
-}
-div.footer .container a:last-child {
-  margin-right: 0;
-}
-div.footer .container a:hover {
-  opacity: 0.8;
-}
-div.footer .container a .icon {
-  width: 16px;
-  height: 16px;
-}
-div.footer .container .copyright {
-  flex-grow: 0.5;
-  text-align: start;
-}
-div.footer .container .icons {
-  flex-grow: 0.5;
-  text-align: end;
-}
-div.main .container {
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  -webkit-justify-content: flex-start;
-  -moz-justify-content: flex-start;
-  -ms-justify-content: flex-start;
-  justify-content: flex-start;
-}
-div.main .content {
-  color: #111111;
-  font-size: 16px;
-}
-div.main .content .title-container {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-justify-content: space-between;
-  -moz-justify-content: space-between;
-  -ms-justify-content: space-between;
-  justify-content: space-between;
-}
-div.main .content .posts {
-  margin-bottom: 4em;
-}
-div.main .content .page-heading {
-  font-size: 20px;
-  font-weight: 700;
-  font-family: 'Helvetica Neue', 'Arial', sans-serif;
-  letter-spacing: -0.005rem;
-  text-transform: uppercase;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-smoothing: antialiased;
-  color: #333333;
-  margin-bottom: 16px;
-}
-div.main .content .front-matter .page-heading {
-  margin-bottom: 0;
-}
-div.main .content .front-matter .meta {
-  font-size: 14px;
-  color: #666666;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  margin-bottom: 32px;
-}
-div.main .content .front-matter .date,
-div.main .content .front-matter .author,
-div.main .content .front-matter .tags,
-div.main .content .front-matter .word-count,
-div.main .content .front-matter .middot:before {
-  display: none;
-}
-div.main .content .front-matter .middot:before {
-  font-size: 6px;
-  margin: 0 6px;
-  vertical-align: middle;
-  content: "•";
-}
-div.main .content .front-matter .tags ul {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  -moz-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-}
-div.main .content .front-matter .tags ul li {
-  -webkit-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -moz-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -ms-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -o-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-}
-div.main .content .front-matter .tags ul li:hover {
-  opacity: 0.7;
-}
-div.main .content .front-matter .tags ul li a {
-  color: #666666;
-}
-div.main .container.f04 {
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  -ms-justify-content: center;
-  justify-content: center;
-}
-div.main .container.f04 .content {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-}
-div.main .container.f04 .content .num {
-  margin: 30px 0px 30px 0;
-  font-weight: 400;
-  font-family: 'Helvetica Neue', 'Arial', sans-serif;
-  font-size: 50px;
-}
-div.main .container.f04 .content .detail {
-  margin-bottom: 40px;
-}
-div.main .container .content .groupby {
-  margin-top: 1em;
-  padding-left: 0.5em;
-}
-div.main .container .content .post-item {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  display: list-item;
-  list-style: disc inside;
-}
-div.main .container .content .post-item .meta {
-  font-size: 14px;
-  color: #666666;
-  display: none;
-  min-width: 100px;
-}
-div.main .container .content .see-more {
-  font-style: italic;
-  float: right;
-  font-size: 0.9em;
-  margin-top: 2em;
-  color: #313537;
-}
-div.main .container .content .see-more:hover {
-  color: #666;
-}
-section {
-  padding: 0 16px;
-}
-div.column {
-  padding: 0 16px;
-}
-div.header {
-  padding-top: 10px;
-}
-div.header-home {
-  padding-top: 36px;
-}
-div.main {
-  padding-top: 32px;
-}
-div.main .container .content .post-item .meta {
-    display: block;
-}
-div.main .container .content .post-item {
-    display: flex;
-    list-style: none;
-}
-a {
-  color: #428bca;
-  -webkit-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -moz-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -ms-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-  -o-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
-}
-a:hover {
-  color: #2a6496;
-}
-img {
-  max-width: 100%;
-}
-div.main .content {
-    width: 100%;
-}
-div.main .content .markdown {
-  font-size: 1.1em;
-  line-height: 1.75em;
-  color: #313537;
-  font-family: serif;
-  font-weight: 300;
-}
-div.main .content .markdown h1,
-div.main .content .markdown h2,
-div.main .content .markdown h3,
-div.main .content .markdown h4,
-div.main .content .markdown h5,
-div.main .content .markdown h6 {
-  font-size: 22px;
-  font-family: 'Helvetica Neue', 'Arial', sans-serif;
-  letter-spacing: -0.005rem;
-  font-weight: 700;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-smoothing: antialiased;
-  color: #333333;
-  text-transform: none;
-  margin-top: 1.75rem;
-}
-div.main .content .markdown h1 {
-  font-size: 1.75rem;
-  margin-bottom: 2rem;
-}
-div.main .content .markdown h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-div.main .content .markdown h3 {
-  font-size: 1em;
-  margin-bottom: 1rem;
-}
-div.main .content .markdown h4,
-div.main .content .markdown h5,
-div.main .content .markdown h6 {
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  letter-spacing: none;
-}
-div.main .content .markdown code,
-div.main .content .markdown pre {
-  font-family: 'Menlo', monospace;
-  font-size: 0.98rem;
-  background-color: #f7f7f7;
-}
-div.main .content .markdown code {
-  /* enclosed by single backtick (`) */
-  padding: .15em .5em;
-  border-radius: 2px;
-}
-div.main .content .markdown pre {
-  /* Hugo specific: consider using the 'highlight' shortcode */
-  display: block;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  padding: 1rem;
-  line-height: 1.5em;
-  white-space: pre;
-  word-break: break-all;
-  word-wrap: break-word;
-}
-div.main .content .markdown pre code {
-  /* enclosed by 4 backticks (````) */
-  padding: 0;
-  font-size: 0.9rem;
-}
-div.main .content .markdown a code {
-  color: #428bca !important;
-}
-div.main .content .markdown a code:hover {
-  text-decoration: underline;
-}
-div.main .content .markdown p {
-  
-  text-align: justify;
-  
-  margin-top: 0;
-  margin-bottom: 1em;
-}
-div.main .content .markdown ul,
-div.main .content .markdown ol,
-div.main .content .markdown dl {
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-}
-div.main .content .markdown dt {
-  font-weight: bold;
-}
-div.main .content .markdown dd {
-  margin-bottom: .5rem;
-}
-div.main .content .markdown ul {
-  list-style-type: disc;
-  list-style-position: outside;
-  margin-bottom: 1.25rem;
-}
-div.main .content .markdown ol {
-  list-style-type: decimal;
-  margin-bottom: 1.25rem;
-}
-div.main .content .markdown li {
-  margin-left: 2em;
-}
-div.main .content .markdown em {
-  font-style: italic;
-}
-div.main .content .markdown strong {
-  font-weight: 700;
-}
-div.main .content .markdown hr {
-  position: relative;
-  margin: 1.75rem 0;
-  border: 0;
-  border-top: 1px solid #808080;
-  border-top: 1px solid #999999;
-}
-div.main .content .markdown abbr {
-  font-size: 0.85rem;
-  font-weight: bold;
-  color: #666666;
-  text-transform: uppercase;
-}
-div.main .content .markdown abbr[title] {
-  cursor: help;
-  border-bottom: 1px dotted #808080;
-}
-div.main .content .markdown blockquote {
-  padding: .5rem 1rem;
-  margin: .8rem 0;
-  color: #7a7a7a;
-  border-left: .25rem solid #e5e5e5;
-}
-div.main .content .markdown blockquote p:last-child {
-  margin-bottom: 0;
-}
-div.main .content .markdown figure {
-  width: 100%;
-  background: #fff;
-  margin-bottom: 1em;
-}
-div.main .content .markdown figure img {
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  display: block;
-  position: static;
-  margin: auto;
-}
-div.main .content .markdown table {
-  margin-bottom: 1rem;
-  width: 100%;
-  border: 1px solid #e5e5e5;
-  border-collapse: collapse;
-}
-div.main .content .markdown td,
-div.main .content .markdown th {
-  padding: .25rem .5rem;
-  border: 1px solid #e5e5e5;
-}
-div.main .content .markdown tbody tr:nth-child(odd) td,
-div.main .content .markdown tbody tr:nth-child(odd) th {
-  background-color: #f7f7f7;
-}
-div.main .content .markdown .footnotes ol {
-  list-style-type: decimal;
-  margin-left: 16px;
-}
-div.main .content .markdown .footnotes li {
-  list-style-type: unset;
-}
-div.main .content .markdown .footnote-ref {
-  font-size: 0.7em;
-}
-div.main .content .navigation {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  padding: 2em;
-}
-div.main .content .navigation div {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  -moz-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  margin-top: 1em;
-}
-div.main .content .navigation .icon {
-  width: 16px;
-  height: 16px;
-}
-div.main .content .navigation a {
-  width: 250px;
-  margin: 0 1em;
-  text-align: center;
-  font-style: italic;
-  color: #313537;
-}
-div.main .content .share, div.main .content .share div {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  -moz-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  justify-content: center;
-}
-div.main .content .share {
-  background-color: rgba(152, 152, 152, 0.07);
-  padding: 1em 0;
-}
-div.main .content .share a {
-  margin: 0 6px;
-}
-kbd {
-  padding: 0.1em 0.6em;
-  border: 1px solid #ccc;
-  font-size: 11px;
-  font-family: Arial,Helvetica,sans-serif;
-  background-color: #f7f7f7;
-  color: #333;
-  -moz-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
-  -webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
-  box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  display: inline-block;
-  margin: 0 0.1em;
-  text-shadow: 0 1px 0 #fff;
-  line-height: 1.4;
-  white-space: nowrap;
-}
-
-/* Fonts */
-
-
-.wf-raleway-n4-active body, 
-.wf-raleway-n4-active div.header nav ul a,
-.wf-raleway-n7-active div.main .content .page-heading,
-.wf-raleway-n2-active div.main .container.f04 .content .num,
-.wf-raleway-n7-active div.main .content .markdown h1,
-.wf-raleway-n7-active div.main .content .markdown h2,
-.wf-raleway-n7-active div.main .content .markdown h3,
-.wf-raleway-n7-active div.main .content .markdown h4,
-.wf-raleway-n7-active div.main .content .markdown h5,
-.wf-raleway-n7-active div.main .content .markdown h6 {
-      font-family: 'Raleway';
-}
-
-.wf-merriweather-n3-active div.main .content .markdown {
-      font-family: 'Merriweather';
-}
-
-.wf-ubuntu-mono-n4-active div.main .content .markdown code,
-.wf-ubuntu-mono-n4-active div.main .content .markdown pre {
-      font-family: 'Ubuntu Mono';
-}
-
-
-</style>
-<style media="(min-width: 600px)">
-  body {
--webkit-justify-content: center;
--moz-justify-content: center;
--ms-justify-content: center;
-justify-content: center;
-}
-.non-narrow.zero-top-spacing {
-padding-top: 0 !important;
-}
-section {
-padding: 0 16px;
-margin-left: 100px;
-margin-right: 100px;
-max-width: 750px;
-}
-div.column {
-padding: 0 16px;
-max-width: 750px;
-}
-div.header {
-background-color: transparent;
-}
-div.header .container {
--webkit-justify-content: flex-start;
--moz-justify-content: flex-start;
--ms-justify-content: flex-start;
-justify-content: flex-start;
-}
-div.header .container .logo {
-margin: 0;
-}
-div.header-home .container .logo {
-max-width: 180px;
-margin-left: 20px;
-}
-div.header-home .name-home {
-padding-top: 30px;
-font-size: 40px;
-}
-div.header-home nav ul a {
-font-size: 18px;
-}
-div.header .content {
--webkit-align-items: flex-start;
--moz-align-items: flex-start;
--ms-align-items: flex-start;
-align-items: flex-start;
-}
-div.header .name {
-color: #333333;
-}
-div.header nav {
-font-size: 14px;
-margin-bottom: 0;
-}
-div.header nav ul {
-text-align: left;
-}
-div.header nav ul a {
-color: #666666;
-}
-div.header nav ul a:hover {
-color: #333333;
-}
-div.footer {
-background-color: transparent;
-}
-div.footer .container {
-flex-direction: row;
-}
-div.footer .container a {
-margin-left: 3px;
-margin-right: 3px;
-color: #666666;
-}
-div.footer .container a:hover {
-color: #333333;
-}
-div.footer .container a .icon {
-font-size: 18px;
-}
-div.footer .container a .icon.larger {
-font-size: 20px;
-}
-div.main .content .front-matter .date,
-div.main .content .front-matter .author,
-div.main .content .front-matter .tags,
-div.main .content .front-matter .word-count,
-div.main .content .front-matter .middot:before {
-display: initial;
-}
-div.main .container.f04 {
--webkit-justify-content: flex-start;
--moz-justify-content: flex-start;
--ms-justify-content: flex-start;
-justify-content: flex-start;
-}
-div.main .container.f04 .content {
--webkit-align-items: flex-start;
--moz-align-items: flex-start;
--ms-align-items: flex-start;
-align-items: flex-start;
-}
-div.main .container.f04 .content .num {
-margin: 0 0 10px 0;
-font-size: 32px;
-}
-div.main .container.f04 .content .detail {
-margin-bottom: 30px;
-}
-.container {
-padding: 0 30px;
-}
-div.header {
-padding-top: 60px;
-padding-bottom: 60px;
-}
-div.footer {
-padding-top: 30px;
-padding-bottom: 60px;
-}
-div.main {
-padding-top: 0;
-}
-div.main .container .content .post-item {
-display: flex;
-list-style: none;
-padding-left: 1.5em;
-}
-div.main .container .content .post-item .meta {
-display: block;
-}
-div.main.post {
-padding-top: 60px;
-padding-bottom: 60px;
-}
-div.main .content .markdown blockquote {
-padding-right: 5rem;
-padding-left: 1.25rem;
-}
-div.main .content .navigation {
--webkit-flex-direction: row;
--moz-flex-direction: row;
--ms-flex-direction: row;
-flex-direction: row;
-}
-div.main .content .navigation div {
-margin-top: 0em;
-}
-
-</style>
-<style media="(min-width: 769px)">
-  div.main .content .markdown figure {
-width: 110%;
-margin-left: -4%;
-}
-div.main .content .markdown img {
-max-width: 110%;
-width: 110%;
-margin-left: -4%;
-}
-div.main .content .markdown pre {
-width: 110%;
-margin-left: -4%;
-}
-
-</style>
-
-<noscript>
-  <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,700,700i" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet">
-</noscript>
-
-
-  <style type="text/css" media="screen">
-    .hljs{display:block;background:white;padding:0.5em;color:#333333;overflow-x:auto}.hljs-comment,.hljs-meta{color:#969896}.hljs-string,.hljs-variable,.hljs-template-variable,.hljs-strong,.hljs-emphasis,.hljs-quote{color:#df5000}.hljs-keyword,.hljs-selector-tag,.hljs-type{color:#a71d5d}.hljs-literal,.hljs-symbol,.hljs-bullet,.hljs-attribute{color:#0086b3}.hljs-section,.hljs-name{color:#63a35c}.hljs-tag{color:#333333}.hljs-title,.hljs-attr,.hljs-selector-id,.hljs-selector-class,.hljs-selector-attr,.hljs-selector-pseudo{color:#795da3}.hljs-addition{color:#55a532;background-color:#eaffea}.hljs-deletion{color:#bd2c00;background-color:#ffecec}.hljs-link{text-decoration:underline}
-  </style>
-
-
-
-  <style type="text/css" media="screen">
-    .progressive{overflow:hidden;position:relative;background:#efefef}.progressive__img{width:100%;height:100%;position:absolute;-webkit-transform:translateZ(0);transform:translateZ(0)}.progressive--not-loaded{filter:blur(30px);-webkit-filter:blur(30px)}.progressive--is-loaded{filter:blur(20px);-webkit-filter:blur(20px);-webkit-animation:sharpen .5s both;animation:sharpen .5s both}@-webkit-keyframes sharpen{from{filter:blur(20px);-webkit-filter:blur(20px)}to{filter:blur(0);-webkit-filter:blur(0)}}@keyframes sharpen{from{filter:blur(20px);-webkit-filter:blur(20px)}to{filter:blur(0);-webkit-filter:blur(0)}}
-  </style>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Google Summer of Code 2018: Ruby"/>
+<meta name="twitter:description" content="My Google Summer of Code project for Ruby is coming to an end. In a nutshell, the project was to add type annotations to Ruby. When I first approached this problem, my thoughts were &ldquo;this is just a syntatical change, this shouldn&rsquo;t be hard&rdquo;. Haha, yeah, that wasn&rsquo;t quite true. While I did end up adding type annotations, I didn&rsquo;t manage to complete all of my goals, and the ones that I did complete, I did by the skin of my teeth."/>
 
 
 
 
 
 
-
-
-
-
-
-<link rel="shortcut icon"
-
-    href="https://horriblyunderqualified.com/img/favicon.ico"
-
->
-
-
-
-
-<link href="https://horriblyunderqualified.com/css/styles.css" type="text/css" rel="stylesheet">
-</head>
-
-
-<body>
-
-
-<div class="header column">
-
-    <div class="container">
-        <a href="https://horriblyunderqualified.com/"><img class="logo" src="https://horriblyunderqualified.com/img/logo.png" alt="logo" /></a>
-        <div class="content">
-            <a href="https://horriblyunderqualified.com/"><div class="name"><h1>Horribly Underqualified</h1></div></a>
-            <nav>
-                <ul>
-                    
-		    
-                        
-                            <li><a href="https://horriblyunderqualified.com/about/">About</a></li>
-                        
-                    
-                    
-                        
-                            
-                            <li><a href="https://horriblyunderqualified.com/posts">posts</a></li>
-                            
-                        
-                    
-                </ul>
-            </nav>
-        </div>
-    </div>
-</div>
-
-<div class="main column">
-    <div class="container">
-        <div class="content">
-            <div class="page-heading">
-
-    Google Summer of Code 2018: Ruby
-
-</div>
-
-            <div class="markdown">
-                
     
-    <p>My Google Summer of Code project for Ruby is coming to an end. In a
+</head>
+<body>
+    <div class="container">
+        <header> 
+            
+                <h1 class="site-header">
+    <a href="https://horriblyunderqualified.com">Horribly Underqualified</a>
+</h1>
+<nav>
+    
+    
+</nav>
+
+            
+        </header>
+        <main>
+            
+
+    <article class="post">
+        <header>
+            <h1>Google Summer of Code 2018: Ruby</h1>
+        </header>
+        <div class="content">
+            <p>My Google Summer of Code project for Ruby is coming to an end. In a
 nutshell, the project was to add type annotations to Ruby. When I
 first approached this problem, my thoughts were &ldquo;this is just a
 syntatical change, this shouldn&rsquo;t be hard&rdquo;. Haha, yeah, that wasn&rsquo;t
@@ -1029,21 +66,18 @@ quite true. While I did end up adding type annotations, I didn&rsquo;t
 manage to complete all of my goals, and the ones that I did complete,
 I did by the skin of my teeth. Why couldn&rsquo;t I complete my goals? What
 happened? Was I simply too lazy? Well yes, but wait, there&rsquo;s more!</p>
-
 <p>When I first started the project, I had never seen the Ruby codebase
 before. Frankly, I didn&rsquo;t really think I was going to get accepted to
 GSoC, as the precise feature I proposed had already been <a href="https://bugs.ruby-lang.org/issues/9999">rejected by
 Matz</a>. But to my surprise, I
 was accepted into the program, for which I am endlessly grateful to my
 mentor <a href="https://tonyarcieri.com/">Tony Arcieri</a>.</p>
-
 <p>So when GSoC started, I forked the repo, cloned it, and immediately
 attempted to understand the parser. The Ruby parser is a LALR parser
 generated by Bison contained in a single file <code>parse.y</code> that numbers
 over 11k lines. For context, the only file larger than <code>parse.y</code> that
 are actual source code files (not counting JIT headers, configure
 files or libraries) is <code>io.c</code> at 13,270 lines.</p>
-
 <p>Anyways, I began reading <code>parse.y</code> and attempting to understand
 it. The first mistake I made was attempting to understand the entire
 file. With a codebase of this size, basically any function call or
@@ -1054,7 +88,6 @@ implements its own heap, and other various minutae. I attempted to do
 this for a bit. What didn&rsquo;t help was that since <code>parse.y</code> is not
 strictly speaking a C file, all of my navigation tools like ggtags
 didn&rsquo;t work.</p>
-
 <p>In the meanwhile, I also taught myself the basics of Bison. I already
 knew some stuff about parsing from <a href="http://www.craftinginterpreters.com/">Crafting
 Interpreters</a> and had written
@@ -1067,14 +100,12 @@ get bored with one tutorial I can always switch to a different
 one. For Bison, first there&rsquo;s a real dearth of tutorials. Sure,
 there&rsquo;s a lot of slides and theoretical documents on Bison, but
 there&rsquo;s not a lot of hands on, real world information.</p>
-
 <p>Thus, I ended up using the <a href="https://www.gnu.org/software/bison/manual/bison.html">Bison
 manual</a> a lot,
 which was pretty informative. However, even the most complicated
 example in the Bison manual was essentially a fancy
 calculator. Compared to the complex beast that is the Ruby grammar,
 that&rsquo;s not exactly equivalent.</p>
-
 <p>Sidenote, I&rsquo;ve noticed a severe lack of hands on, cookbook style books
 or tutorials on programming language topics (other than Crafting
 Interpreters). A book that would cover topics like &ldquo;here&rsquo;s how to make
@@ -1082,7 +113,6 @@ a package manager&rdquo; or &ldquo;how to write a simple typechecker&rdquo; woul
 extremely valuable. I get that books like the Dragon book are great
 and all, but I really don&rsquo;t want to read 100 pages on parsing theory
 just to get to the point where I can write a simple parser.</p>
-
 <p>Anyways, armed with some basic Bison knowledge, I decided to dive into
 <code>parse.y</code> again. My mentor, Tony, gave me some nice resources,
 including <a href="https://github.com/whitequark/parser">a parser</a> written by
@@ -1096,7 +126,6 @@ that this is done is through a finite state machine. The parser sets
 the lexer state at various grammar rules. Depending on the lexer
 state, you&rsquo;ll get different tokens or even errors, so this is pretty
 important. I&rsquo;ll return to this for&hellip;reasons.</p>
-
 <p>With all of this info, I started to take <a href="https://github.com/NicholasLYang/gsoc-2018-ruby-types">some
 notes</a> on the
 parser. While I didn&rsquo;t end up getting too far with the notes, this was
@@ -1106,17 +135,15 @@ essentially the rule for a normal argument (Ruby has a few different
 kinds of arguments, such as keyword args and default args). Tony and I
 had decided in a colon to delimit types. Interestingly enough, Ruby
 doesn&rsquo;t have a tCOLON token. Instead, the Bison file just uses a
-literal &lsquo;:&lsquo;. While that&rsquo;s fine for the ternary operator (the only case
+literal &lsquo;:'. While that&rsquo;s fine for the ternary operator (the only case
 where it&rsquo;s used), we wanted an explicit token for the type rule. I
 added a tCOLON token, which was pretty easy, since the lexer code
 outside of the states is pretty simple.</p>
-
 <p>I also noticed some interesting decisions with the grammar rules. For
 instance, Ruby does not have a function declaration grammar
 rule. Instead, it is grouped along with a bunch of other rules in a
 gigantic primary rule. This means that changing function grammar rules
 can be kind of tricky.</p>
-
 <p>However, it was after implementing argument type signatures where I
 got stuck. You see, adding the annotations to the parser was only the
 first part of the project. The second, and arguably more important
@@ -1126,7 +153,6 @@ them. Ripper provides this third party access. It allows Ruby
 developers to parse Ruby code into an s-expression form. And from the
 outside, adding the type annotations to Ruby should be rather simple,
 no?</p>
-
 <p>Well, no. I already discussed some of the issues with Ripper in <a href="https://horriblyunderqualified.com/posts/wtf-ruby-pt-1/">this
 post</a>. Basically,
 Ripper uses an embedded domain specific language within <code>parse.y</code>
@@ -1134,45 +160,33 @@ which is then converted to <code>ripper.y</code> with a quite ridiculous Ruby
 script, which is then run through Bison and converted into a <code>.so</code>
 file which is then imported by Ripper. This took a while to figure
 out, as there wasn&rsquo;t much existing documentation on Ripper.</p>
-
 <p>There were some other interesting aspects of Ripper, which I might get
 around to writing about, such as the <code>dispatch</code> macros that would call
 Ruby functions manually into the VM. Or the metaprogramming aliases
 that link to these functions. It&rsquo;s a bit crazy.</p>
-
 <p>Anyways, while this was happening, I decided to take a short break and
 implement return type signatures. This also ended up kind of
 tricky. I&rsquo;d implement the return type and get a lot of weird syntax
 errors (kind of funny that syntax errors imply an issue in the
 interpreter, not an issue in the code). For instance, I&rsquo;d get the following error:</p>
-
 <pre><code>ruby/lib/fileutils.rb:1654: syntax error, unexpected :: at EXPR_BEG, expecting keyword_end (SyntaxError)
     ::FileUtils::LOW_METHODS.map {|...
     ^~
-</code></pre>
-
-<p>The code for context:</p>
-
+</code></pre><p>The code for context:</p>
 <pre><code>	  def _do_nothing(*)end
     ::FileUtils::LOW_METHODS.map {|name| alias_method name, :_do_nothing}
-</code></pre>
-
-<p>Which&hellip;by the way is not a great error message. If I received that
+</code></pre><p>Which&hellip;by the way is not a great error message. If I received that
 without knowing that <code>EXPR_BEG</code> is a lexer state, I&rsquo;d find that pretty
 confusing. Anyways, I struggled with that one for a while. I tried
 moving around the various existing actions, changing the lexer state,
-etc. I even added a unique token (&lsquo;=&gt;&gt;&rsquo; or tDASSOC) and used that as
+etc. I even added a unique token (&lsquo;=&raquo;&rsquo; or tDASSOC) and used that as
 the return type symbol:</p>
-
 <pre><code>'(' f_args rparen tDASSOC type_sig
-</code></pre>
-
-<p>Given that this should be completely unambiguous, it was kind of
+</code></pre><p>Given that this should be completely unambiguous, it was kind of
 frustrating that it didn&rsquo;t work. Furthermore, the error message didn&rsquo;t
 even make much sense. Using the debugger mode for the Ruby parser, I
 figured out that when the code was parsed correctly, the lexer was in
 the EXPR_BEG state. So&hellip;yeah.</p>
-
 <p>After banging my head against this wall for a bit, I decided to look
 around for other people&rsquo;s implementations of type
 annotations. Eventually I stumbled upon <a href="https://github.com/github/ruby/tree/2.1+type-annotations">this
@@ -1183,16 +197,13 @@ sets lexer states changed since 2.1. I still don&rsquo;t exactly know why
 this works. My best guess is that it has to do with the
 <code>p-&gt;command_start = TRUE</code> line I put in, since I&rsquo;m fairly sure that&rsquo;s
 the main difference.</p>
-
 <p>I will admit, it&rsquo;s pretty bittersweet that I didn&rsquo;t get to figure out
 this on my own, but simply relied on someone else&rsquo;s code. On the other
 hand, I&rsquo;ll take the working code.</p>
-
 <p>After that, I continued my work on Ripper. I tried a few different
 approaches, such as adding an annotation to the DSL for type
 signatures, using an existing one for constant path references, such
 as <code>Foo::Bar</code>, etc. None of them stuck.</p>
-
 <p>Then I examined how Ripper actually does function
 arguments. Interestingly enough, function arguments are done by
 calling a function called <code>new_args</code>, which, depending on whether or
@@ -1202,14 +213,12 @@ is achieved via the C preprocessor). This function is essentially an
 alias for a dispatch with params as the function name. Which via some
 sort of magic gets turned into an sexpr with params as the
 name. Pretty much straight forward as far as Ripper is concerned.</p>
-
 <p>However, one thing I noticed, was that the arguments were of type
 <code>VALUE</code>, which is pretty much the least useful type in existence. It&rsquo;s
 a <code>u_intptr_t</code> which doesn&rsquo;t print out nicely and tells you zero about
 what&rsquo;s actually going on. Interestingly enough, all the grammar rules
 output <code>VALUE's</code> in Ripper, which makes even less sense. After all,
 how do you connect the values into a tree, like a normal parser?</p>
-
 <p>I then tried some other modifications, such as changing the function
 calls, printing out various info, etc. None worked. None even changed
 the output of Ripper. What then dawned upon me is a simple yet
@@ -1220,13 +229,11 @@ of the s-expression syntax (which is terrible for error handling by
 the way). Since Ripper wasn&rsquo;t returning nil for the type annotations,
 but it was returning nil when I tried using the type annotations on
 the trunk branch, I figured I was using the correct version of Ripper.</p>
-
 <p>BUT, there&rsquo;s a caveat here. Since Ripper relies on a <code>.so</code> file, which
 it imports via Ruby&rsquo;s require, I realized that it&rsquo;s quite possible
 that it&rsquo;s importing an old <code>.so</code> file. Now, this wouldn&rsquo;t explain why
 none of my changes are showing up while the type annotations parse
 correctly, but I supposed it was worth a shot.</p>
-
 <p>At that point, I decided to try to make a trivial change to Ripper on
 the main trunk branch and see if it is visible. I choose a fairly
 simple one: since Ruby function arguments don&rsquo;t require parenthesis, I
@@ -1234,59 +241,62 @@ just removed the <code>paren!</code> annotation in that rule. Simple. I compile,
 build a new version of Ruby, and boom, no change. Therefore, there
 should be something wrong with the version of Ripper that I&rsquo;m using,
 no?</p>
-
 <p>I then examine the require path. I add a basic print statement to
 print out the location of the file once it&rsquo;s been
 required. And&hellip;nope, it&rsquo;s the right file. I even switched it to a
 <code>load</code> with the exact unambiguous path and it still didn&rsquo;t work. So
 yeah, that&rsquo;s where I ended. I have no clue why my changes aren&rsquo;t
 appearing.</p>
-
 <p>Frankly it&rsquo;s been a long and frustrating process. I do want to finish
 this project, but right now I kind of want a break. I&rsquo;ve had to do a
 lot of detective work and careful reading and rereading.</p>
-
 <p>If I had to give myself some feedback, I&rsquo;d say the following:</p>
-
 <ul>
-<li><p>Take notes about everything. Keep a journal that you can update
-about all the different methods you&rsquo;ve tried.</p></li>
-
-<li><p>Do more preliminary research before trying to write stuff on your
+<li>
+<p>Take notes about everything. Keep a journal that you can update
+about all the different methods you&rsquo;ve tried.</p>
+</li>
+<li>
+<p>Do more preliminary research before trying to write stuff on your
 own. Email people, talk to others and get an idea of the context
-that your project is in.</p></li>
-
-<li><p>It&rsquo;s okay if you don&rsquo;t understand everything. Isolate the subset
-that you want or need to understand and focus on that.</p></li>
-
-<li><p>Try to do something else instead of just being stuck or
+that your project is in.</p>
+</li>
+<li>
+<p>It&rsquo;s okay if you don&rsquo;t understand everything. Isolate the subset
+that you want or need to understand and focus on that.</p>
+</li>
+<li>
+<p>Try to do something else instead of just being stuck or
 procrastinating. I definitely had some times where I should have
 just tossed some part back and worked on a different aspect of my
 code. But instead I tried to just keep on grinding and would end up
-frustrated.</p></li>
-
-<li><p>Always do the simplest possible modification first. Don&rsquo;t try
-anything fancy.</p></li>
+frustrated.</p>
+</li>
+<li>
+<p>Always do the simplest possible modification first. Don&rsquo;t try
+anything fancy.</p>
+</li>
 </ul>
-
 <p>On the other hand, if I were to give some suggestions about Ruby (as a
 highly inexperienced insolent developer), here are a few ordered from
 possible to less possible:</p>
-
 <ul>
-<li><p><code>parse.y</code> seriously needs to be split up and cleaned up. Something
+<li>
+<p><code>parse.y</code> seriously needs to be split up and cleaned up. Something
 as simple as some comments and a little reorganization would do
-wonders.</p></li>
-
-<li><p>Ripper is very very confusing and needs to be either refactored or
+wonders.</p>
+</li>
+<li>
+<p>Ripper is very very confusing and needs to be either refactored or
 rewritten entirely. Adding a DSL via comments and overriding
 functions using the C preprocessor just to add an API into the
 parser is not exactly great. It&rsquo;s confusing, hard to modify and I&rsquo;m
 not even sure how many people are actively using it. Plus there&rsquo;s
 little to no documentation. As far as I can tell, <code>Ripper#parse</code>
-doesn&rsquo;t even do anything!</p></li>
-
-<li><p>The Ruby parser should be decoupled from anything else. I&rsquo;ve noticed
+doesn&rsquo;t even do anything!</p>
+</li>
+<li>
+<p>The Ruby parser should be decoupled from anything else. I&rsquo;ve noticed
 a lot of intermixed code in <code>parse.y</code>. There&rsquo;s various connections
 to compilation, some testing, the Ripper manual calls into the Ruby
 virtual machine, etc. In my view, the parser shouldn&rsquo;t be concerned
@@ -1300,18 +310,12 @@ the parser was written this way. But at this point, it&rsquo;s pretty
 tricky to write extensions for Ruby. If the parser was independent
 of the bytecode compiler, I could conceivably see extensions to Ruby
 that just act like a pipeline for the parse tree:</p>
-
 <pre><code>Parse Tree -&gt; Typechecker -&gt; Parse Tree
+</code></pre><p>Or even:</p>
+<pre><code>Parse Tree -&gt; Static Analyzer -&gt; Parse Tree
 </code></pre></li>
-</ul>
-
-<p>Or even:</p>
-
-<pre><code>  Parse Tree -&gt; Static Analyzer -&gt; Parse Tree
-</code></pre>
-
-<ul>
-<li>The Ruby parser kinda needs to be rewritten. Sure, when Ruby was
+<li>
+<p>The Ruby parser kinda needs to be rewritten. Sure, when Ruby was
 first written, Bison was probably the best option for parsing. But
 there&rsquo;s a lot of baggage that comes with Bison. It&rsquo;s hard to debug,
 it&rsquo;s nearly impossible to introspect (tooling is straight up
@@ -1327,11 +331,9 @@ for significantly better error handling, better ways of resolving
 stateful lexing (communication between the lexer and the parser))
 and would be a lot easier to read. Heck, I&rsquo;d do it if I weren&rsquo;t
 A. very inexperienced, B. currently in school and C. interested in
-other projects.
-<br />
-<br /></li>
+other projects.</p>
+</li>
 </ul>
-
 <p>I&rsquo;d like to give my thanks to Tony, my mentor for being extremely
 helpful in his advice. I&rsquo;d also like to thank Yusuke Endoh (mame) for
 taking the time to answer my questions. Furthermore, I&rsquo;d like to thank
@@ -1341,105 +343,31 @@ favorite languages. Finally, I&rsquo;d like to thank Google for funding
 these projects. It&rsquo;s pretty awesome being able to get paid for open
 source contributions. I hope that I can continue to contribute to both
 Ruby and to other important open source projects.</p>
-
 <p>Thanks,
 Nicholas</p>
 
-
-            </div>
         </div>
-    </div>
-</div>
-<div class="footer column">
-    <div class="container">
-
-        
-
-        <div class="copyright">
-
+        <div class="article-info">
+    
+        <div class="article-date">2018-08-14</div>
+    
+    <div class="article-taxonomies">
         
             
-                <a href="https://horriblyunderqualified.com/license">Copyright © 2018 Nicholas Yang</a>
-            
-        
-
-        </div>
-        <div class="icons">
-
-        
-
-        
-            <a href="https://github.com/nicholaslyang" target="_blank">
-                <img class="icon" src="https://horriblyunderqualified.com/img/github.svg" alt="github" />
-            </a>
-        
-
-        
-
-        
-            <a href="https://www.linkedin.com/in/nicholaslyang" target="_blank">
-                <img class="icon" src="https://horriblyunderqualified.com/img/linkedin.svg" alt="linkedin" />
-            </a>
-        
-
-        
-            <a href="mailto:nick@nicholasyang.com">
-                <img class="icon" src="https://horriblyunderqualified.com/img/email.svg" alt="email" />
-            </a>
-        
-
-        
-            <a href="https://horriblyunderqualified.com/index.xml">
-                <img class="icon" src="https://horriblyunderqualified.com/img/rss.svg" alt="rss" />
-            </a>
-        
-
-        </div>
     </div>
 </div>
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
-<script>
-  WebFont.load({
-    google: {
-      families: ['Raleway:400,600,700', 'Merriweather:300,300i,700,700i', 'Ubuntu+Mono:400,700']
-    }
-  });
-</script>
-
-
-
-  <script src="https://horriblyunderqualified.com/js/highlight.min.js" defer></script>
-  
-
-
-
-  <script src="https://horriblyunderqualified.com/js/progressively.min.js" defer></script>
-
-
-
-
-
-
-
-
-
-<script>
-  window.onload = function() {
+    </article>
     
-      hljs.initHighlighting();
-    
-    
-      progressively.init({delay: 30, throttle: 50});
-    
-    
-  };
-</script>
 
 
-
-
+        </main>
+        <footer>
+            
+                <p>© Nicholas Yang, 2020<br>
+Powered by <a target="_blank" href="https://gohugo.io/">Hugo</a>, theme <a target="_blank" href="https://github.com/mitrichius/hugo-theme-anubis">Anubis</a>.
+</p>
+            
+        </footer>
+    </div>
 </body>
 </html>
-

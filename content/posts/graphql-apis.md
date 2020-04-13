@@ -1,7 +1,7 @@
 ---
 title: "Graphql APIs"
 date: 2018-06-23T02:45:51-04:00
-draft: true
+draft: false
 ---
 
 I've been using GraphQL for almost a year now. I've used it in a few
@@ -44,12 +44,12 @@ code and I recognized barely anything from old school Rails. I don't
 use Rails views. I use exactly one controller (GraphqlController). I'm
 not using RESTful resources. Okay, sure, I'm using ActiveRecord with
 migrations. But why do I need a framework for an ORM? I felt like I
-was using an SUV for the seat warmer. 
+was using an SUV for the seat warmer.
 
 So I decided to check out the other side of the fence. Namely,
 Node. After all, isn't that where it all started? GraphQL.js is the
 "reference implementation" of GraphQL. But with Node comes plenty of
-other problems. Namely, it's just *so* *damn* *tedious*. 
+other problems. Namely, it's just *so* *damn* *tedious*.
 
 GraphQL in Rails is literally installing a library, writing a few
 field types, and that's it. And in theory that's also GraphQL in
@@ -67,7 +67,7 @@ However I digress. In short, running your own GraphQL server is perfectly
 doable, but damn, is it tedious. And maybe coming from a world of
 Express or Flask that's fine, but coming from the nice and smooth
 world of Rails, it felt like building a Lego Death Star out of 1x2
-blocks. 
+blocks.
 
 And really, this is symptomatic of a more fundamental problem; the
 Node community many of the lessons of Rails. In their rush to get on
@@ -89,7 +89,7 @@ parts? And why can't we make it GraphQL first? Instead of building a
 REST framework that tacks on GraphQL at the last second, why don't we
 build it from the ground up around GraphQL? These are all questions
 that have been ringing around in my mind. I might very well make this
-framework. 
+framework.
 
 And if I were to make it, here are some of the features I would add:
 
@@ -98,20 +98,20 @@ And if I were to make it, here are some of the features I would add:
   wondering where all the code was. I'd probably combine ObjectTypes
   and Rails models into a single file that declares the database
   schema and then also contains the fields.
-  
+
 - Instead of Model View Controller, how about Model Resolver Query?
   Queries are the entrypoints for GraphQL, resolvers glue together the
   models (taking the place of controllers) and models contain most of
   the actual validation, fetching, business logic code.
-  
+
 - Query shortcuts. I've written a fair amount of ArticleById
   queries. It'd be nice to have an automatic bit of syntactic sugar
   for these. Something like "queryable_on :id"
-  
+
 - Code generation. Cause who likes writing boilerplate?
 
 That's all I have now. Oh and the name of this prospective framework?
-Lattice. Cause, get it? A Graph version of Rails? 
+Lattice. Cause, get it? A Graph version of Rails?
 
 ...
 

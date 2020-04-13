@@ -1,7 +1,7 @@
 ---
 title: "We Get It"
 date: 2019-11-09T04:04:51-05:00
-draft: true
+draft: false
 ---
 
 Spend enough time procrastinating on reddit, you inevitable end up
@@ -53,22 +53,26 @@ You're not obligated to help the JS community. But if you're so
 passionate that you're screaming from the rooftops about how
 JavaScript sucks, maybe spend that effort helping make it suck less.
 
-However, while I will admit that parts of JavaScript truly do suck
+However while I will admit that parts of JavaScript truly do suck
 (semicolon insertion, automatic globals, etc.), I don't think
 JavaScript gets enough credit for the stuff it does get right. For
 one, arrow functions are totally awesome! The syntax is concise and
 clear, and totally makes me want to strip out all the
 fun/func/fn/function keywords in other languages.
 
-Also, package management is pretty nice now! npm installs locally by
+Also package management is pretty nice now! npm installs locally by
 default. We have lockfiles and dependency auditing. It's pretty great!
 Python's whole pip install is global by default doesn't look as great
-anymore[^1].
+anymore[^2].
 
-[^1]: And don't give me the whole "just remember to turn on
+[^2]: And don't give me the whole "just remember to turn on
     virtualenv" shtick. That's like saying "just remember the types in
     your code". Totally missing the point.
 
 It's also great having a lightweight object/struct type with
 destructuring. Almost feels antiquated to have to put quotes around
 keys in a Python dict.
+
+I don't want this to turn into a language bashing session, so I'll end
+with this: If you don't like JavaScript in its current state, consider
+doing something to change its current state.

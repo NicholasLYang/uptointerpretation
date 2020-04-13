@@ -1,7 +1,7 @@
 ---
 title: "Stop Using So Many Damn Ternaries"
 date: 2019-07-05T00:57:47-07:00
-draft: true
+draft: false
 ---
 
 A ternary operator, for those of you who don't know, is an operator
