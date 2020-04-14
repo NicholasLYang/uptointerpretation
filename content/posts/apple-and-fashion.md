@@ -77,6 +77,11 @@ they could be buying a cheaper, uglier car that you can use to drag
 race is completely missing the point, especially when you're talking
 to people who do not and will never drag race in their life.
 
+Plus it just feels nice to use a device that's beautiful. There's some
+interesting research into how aesthetics play a role in usability; I'd
+recommend Don Norman's book [Emotional
+Design](https://www.nngroup.com/books/emotional-design/).
+
 Of course with clothes and cars and computers, the product must
 ultimately be usable. I don't begrudge any criticisms towards Apple
 about malfunctioning computers or buggy software. Nobody should accept
