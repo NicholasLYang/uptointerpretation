@@ -5,27 +5,27 @@ draft: false
 ---
 
 I've been using C for my classes and I can't help but be really really
-happy about that. I've played with C before. Well, actually, C was my
-first language. I tried learning it as a stepping stone to Objective C
-and iOS development, but I quickly gave it up after getting to
-pointers and arrays. Granted, I was like 11. After that, I've played
-with C in various places. First, I had to use C++ in an internship,
-where I got to play around with performance optimization and
-profiling. Then, last year because I was bored with using Java in my
-classes, I started to write some data structures in C. Just basic
-stuff like linked lists, binary trees, maybe a hash table. I found it
-really intriguing and a lot of fun to play with. Oh sure, segfaults
-were annoying and the whole lack of decent typing or safety led to
-some less than safe code. But overall it was a good experience.
+happy about that. I've played with C before. Actually C was my first
+language. I tried learning it as a stepping stone to Objective C and
+iOS development, but I quickly gave it up after getting to pointers
+and arrays. Granted I was like 11. After that, I played with C in
+various places. First I had to use C++ in an internship, where I got
+to play around with performance optimization and profiling. Then last
+year because I was bored with using Java in my classes, I started to
+write some data structures in C. Just basic stuff like linked lists,
+binary trees, maybe a hash table. I found it really intriguing and a
+lot of fun to play with. Oh sure---segfaults were annoying and the
+whole lack of decent typing or safety led to some less than safe
+code. But overall it was a good experience.
 
-Now, this semester, I'm in Computer Systems Organization, a class with
-a lot of C programming. And honestly I'm having the time of my life. C
-is just such a *cool* language. Oh sure, it doesn't have the fancy
-features of Python/Ruby, the metaprogramming of Lisp or the libraries
-of JavaScript. But it's just so damn minimal. I've been trying to
-learn about compilers and language development (albeit at a glacial
-pace, I do have other things in my life) and C is just such an
-intriguing language from a design standpoint.
+This semester, I'm in Computer Systems Organization, a class with a
+lot of C programming. And I'm having the time of my life. C is just
+such a *cool* language. Oh sure, it doesn't have the fancy features of
+Python/Ruby, the metaprogramming of Lisp or the libraries of
+JavaScript. But it's just so damn minimal. I've been trying to learn
+about compilers and language development (albeit at a glacial pace, I
+do have other things in my life) and C is just such an intriguing
+language from a design standpoint.
 
 Like take lexical scoping. C doesn't allow you to declare functions in
 functions. The best you can get are function pointers. But as a

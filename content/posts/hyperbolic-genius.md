@@ -23,3 +23,5 @@ like. Geniuses in media are always brilliant at 5 different subjects,
 horribly tortured/quirky/mentally unstable. I'm not a genius but I do
 know people who are. They're not brilliant at 5 different
 subjects. Usually they're very good at 1, maybe 2 subjects.
+
+They're not tortured, at least not more than any other people.

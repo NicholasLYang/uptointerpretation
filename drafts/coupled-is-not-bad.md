@@ -54,14 +54,14 @@ Now granted, there are some proposals underway to solve some of these
 issues. CSS variables appear to allow a way for JS and CSS to
 communicate. But they don't seem to solve the fundamental problem of
 the fact that the way your document looks and the document itself are
-fundamentally coupled. And *that's not bad*. 
+fundamentally coupled. And *that's not bad*.
 
 Furthermore, when you take a look at all the ways of extending or
 improving CSS, such as SASS, what they're basically doing is adding
 programmability to styles. For instance, SASS uses essentially a
 domain specific language (DSL) that looks like bastardized Ruby. Which
 begs the question, why bother with a DSL when you can simply use the
-existing language for the web, i.e. JavaScript? 
+existing language for the web, i.e. JavaScript?
 
 Which brings us to CSS in JS. Most people's reaction to CSS in JS is
 horror, combined with disgust. Why would we take JavaScript (ick!),
@@ -69,7 +69,7 @@ and combine it with CSS? Well for the same reason you take HTML and
 put it into JavaScript (React). Styling and structure are no longer
 fundamentally static. They aren't something you can render on the
 server and only tweak in the front end. They're dynamic, responsive,
-and inherently complex, and therefore must be programmable. 
+and inherently complex, and therefore must be programmable.
 
 One of my favorite examples of programmable styles is React-JSS. Being
 able to change styles with props is one of those "duh" moments. It's

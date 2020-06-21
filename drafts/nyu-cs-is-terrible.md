@@ -46,7 +46,7 @@ new libraries. In short, NYU students are a little bit useless.
 But, after some introspection, I've realized that the flip side is
 also not true: NYU CS is not theoretical! For one, there's a glaring
 lack of theory in the curriculum. There's no type theory, no formal
-methods class, no distributed systems, etc. 
+methods class, no distributed systems, etc.
 
 And just look at the courses that *are* available! Glancing at the
 courses for this year, the most common and important are Data
@@ -130,7 +130,7 @@ And third, APCS kinda throws a wrench into NYU's progression. When you
 think about it, Intro to Programming with Java is kind of a redundant
 course. We already have an intro with Python, why also with Java?. The
 reason is that NYU needs a course to place kids out of, while not
-getting them in out of their heads. You can't just place them out of
+getting them in over their heads. You can't just place them out of
 data structures, so you need to invent some course that's vaguely
 equivalent to APCS for which they can get credit.
 
@@ -142,7 +142,7 @@ But that's not all. No, there's a second issue here: culture. Plenty
 of schools can't offer good courses for one reason or another. I was
 complaining to my professor once about how we didn't have any classes
 that teach Lisp or functional programming and he casually mentioned
-how at MIT students would run their own guerrilla classes. 
+how at MIT students would run their own guerrilla classes.
 
 At NYU?  Not a chance. Kids are too obsessed with getting a job at one
 of the big tech companies or being an "entrepreneur" to actually have

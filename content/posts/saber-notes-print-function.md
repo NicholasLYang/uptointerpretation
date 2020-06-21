@@ -4,10 +4,6 @@ date: 2020-04-12T22:23:53-04:00
 draft: true
 ---
 
-I've been working on my language,
-[Saber](https://github.com/nicholaslyang/saber) a lot recently. I
-figured I should keep some notes on implementation in case someone
-finds them useful, even if that's only future-me.
 
 # Pre-print
 
