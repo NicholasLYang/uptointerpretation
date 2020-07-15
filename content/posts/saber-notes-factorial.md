@@ -1,7 +1,7 @@
 ---
 title: "Saber Notes Factorial"
 date: 2020-04-14T22:16:49-04:00
-draft: true
+draft: false
 ---
 
 I've been working on my language,
@@ -64,7 +64,7 @@ boolean through `generate_stmt`. If you're generating a return and
 `is_last` is true, then don't emit the return.
 
 ```
-fn generate_stmt(&mut self, stmt: &TypedStmt, is_last: bool) -> Result<Vec<OpCode>> { 
+fn generate_stmt(&mut self, stmt: &TypedStmt, is_last: bool) -> Result<Vec<OpCode>> {
     match stmt {
         TypedStmt::Return(expr) => self.generate_expr(expr),
         TypedStmt::Return(expr) => {
@@ -116,3 +116,34 @@ branches return, WebAssembly gets a little uneasy. Therefore I figured
 that you need to push on a special opcode `unreachable` that indicates
 that either branch returns.
 
+If by some virtue one branch doesn't return, we get an error.
+
+# Function Calls
+
+After that I implemented functions calls. This is getting a little
+hazy as I'm actually writing these posts a few months later, but I
+basically generated a function index for each function, then on a call
+expression, I check if the name corresponds to a function, get the
+index, and emit a call opcode with said index. This only works for
+functions defined statically, i.e. without any funny function-as-value
+stuff. For that I'd need indirect calls.
+
+One slight complication is that the index generation needs to happen
+before we typecheck the function body, as otherwise recursive calls
+won't work.
+
+# Factorial
+
+With if statements, return and function calls down, I was able to
+write a simple factorial program! It looked like the following:
+
+```
+let fact = \n => {
+  if n < 2 {
+    return 1;
+  }
+  return n * fact(n - 1);
+}
+```
+
+Very simple but satisfying to compile.

@@ -47,5 +47,5 @@ pretty cool seeing my language get new abilities. There's a whole
 bunch of big ones to tackle like strings, first class functions,
 structs, etc. but print seemed like a good start. So far I had been
 relying on returning out to the JS script running my WebAssembly for
-I/O. I read up on 
+I/O.
 

@@ -26,9 +26,9 @@ I've joked that we need some social evil hackathons to counterbalance
 the social good ones. How many large scale projects can you name that
 do not pretend to be some sort of social good?
 
-Therefore the term "social good" kind of gets diluted. As Silicon
-Valley points out, every company wants to [make the world a better
-place](https://www.youtube.com/watch?v=B8C5sjjhsso). How many
+Therefore the term "social good" kind of gets diluted. As the TV show
+Silicon Valley points out, every company wants to [make the world a
+better place](https://www.youtube.com/watch?v=B8C5sjjhsso). How many
 companies have you seen that want to make the world a worse place?
 
 # Presumption Of Good
@@ -91,7 +91,7 @@ taking various logical clauses and seeing if you can find an
 interpretation that evaluates to true. As we know by Cook-Levin,
 boolean satisfiability is NP complete[^1].
 
-[1]: This isn't a perfect metaphor since ideally you'd want intersectionality to be undecidable. But it's close enough
+[^1]: This isn't a perfect metaphor since ideally you'd want intersectionality to be undecidable. But it's close enough
 
 Is your startup NP complete? Have you solved P != NP? Probably
 not. Although proving P = NP would be a great social evil hack, while
