@@ -463,5 +463,6 @@ your next step. Then start walking.
 
 **Addendum:** This post isn't claiming that planning or thinking about
 the large ideas is bad. You should do that. But at a certain point you
-need to just write code. Sometimes you can completely reframe a
-problem after some progress.
+need to just write code. Problems that seem unsurmountable can open up
+with some programming. Everything is doable with enough patience and
+incremental progress.
