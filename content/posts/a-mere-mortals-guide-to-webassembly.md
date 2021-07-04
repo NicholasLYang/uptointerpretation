@@ -85,10 +85,10 @@ integer", which means that the integer is at MAX 32 bits long.
 [^1]: I guess WTF was a little vulgar?
 
 For this guide we'll worry about WASM bytecode because it's what most
-compilers output. However, valid WASM bytecode is easily convertable
+compilers output. However, valid WASM bytecode is easily convertible
 to WAT using `wasm2wat`. You can get `wasm2wat` as part of
 [WABT](https://github.com/WebAssembly/wabt), The WebAssembly Binary
-Toolkit. However invalid bytecode will not always be convertable. You
+Toolkit. However invalid bytecode will not always be convertible. You
 can use the `--no-check` flag with `wasm2wat` but if the bytecode is
 badly encoded, `wasm2wat` can't do much. Speaking of tooling...
 
