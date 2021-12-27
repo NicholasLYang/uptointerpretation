@@ -11,7 +11,7 @@ stretch, more durability, etc. The brand that I became enamored with
 was [Outlier](https://outlier.nyc). They offer Merino wool t-shirts
 that could be worn for days on end, shorts that can be used as
 swimming trunks, specialty button ups that are lighter than
-linen. 
+linen.
 
 However, as I went on my first solo trip, I made a few
 observations. First, the clothing was not life-changing-ly,
@@ -45,7 +45,7 @@ York, Paris, Rome, etc. and look for a nuclear family, often American,
 rushing from attraction to attraction. The parents are attempting to
 stick to their strict timeline, sweating and stressing in the
 process. The children are tired and hungry, bored and confused at
-their panicking parents. 
+their panicking parents.
 
 Why does this optimization cause so much stress and misery? Because
 the family is **outside their baseline**. They are sleeping in an
@@ -101,5 +101,3 @@ lack of *roads* in general---then a suitcase will work just fine.
 Honestly I suspect the backpacks are more for the self image of a
 brave adventurer, literally "backpacking" around the world. Great for
 Instagram, less great for your back.
-
-

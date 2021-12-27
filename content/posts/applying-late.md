@@ -1,7 +1,7 @@
 ---
-title: "Applying Late"
-date: 2021-01-15T17:33:16-05:00
-draft: true
+title: "Let Interns Apply Late"
+date: 2021-11-15T17:33:16-05:00
+draft: false
 ---
 
 Why do companies punish applying late? If a student dares to start
@@ -17,11 +17,10 @@ know the aphorisms. But plenty of brilliant, hard working programmers
 are lazy about recruiting. That shouldn't rule them out for
 jobs.
 
-I understand that internship recruiting gets earlier every year
-because companies keep racing to scoop up the same pool of talented
-interns. If Microsoft hires their interns in October, then Amazon can
-scoop up a few who would have gone to Microsoft by hiring in
-September.
+Internship recruiting gets earlier every year because companies keep
+racing to scoop up the same pool of talented interns. If Microsoft
+hires their interns in October, then Amazon can scoop up a few who
+would have gone to Microsoft by hiring in September.
 
 But why keep desperately raising the stakes for the same pool of
 interns? It's not the only source. For every intern who starts
@@ -70,8 +69,8 @@ By that late, we've exhausted the typical applicant pool. However this
 does not imply that we've exhausted all potential applicants. Far from
 it, we'd probably get a remarkable applicant pool. We'd get the crazy
 ones, the misfits[^1], the people who didn't or couldn't apply
-earlier. Cloudflare tried this by expanding their internship class due
-to COVID cancellations. We should continue this practice far after
-COVID is finished and done.
+earlier. Cloudflare is a great example of a company that hires
+late. They even expanded their intern class due to COVID. I hope other
+companies follow in their footsteps.
 
 [^1]: The people who (mis)quote Steve Jobs

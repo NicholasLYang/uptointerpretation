@@ -1,17 +1,23 @@
 ---
 title: "A Mere Mortal's Guide to Webassembly"
-date: 2021-06-22T13:37:45-04:00
-draft: true
+date: 2021-09-22T13:37:45-04:00
+draft: false
 ---
 
 Let's learn some WebAssembly. This guide is intended if you plan on
 getting nice and intimate with WebAssembly, whether that means writing
 a back-end for a compiler, hand writing WASM or inspecting the output
-of an existing compiler.
+of an existing compiler. It's not really that useful if you're just
+using Rust/C/whatever compiled to WebAssembly.
+
+I wrote this guide because I've spent a lot of time trying to
+understand the WebAssembly specification for my own
+projects. Hopefully it'll make other people's attempts a little easier.
 
 # Basics
 
-WebAssembly is a low level language that runs on the web. It's
+WebAssembly is a low level language that can be run in various
+contexts such as a web browser, a server side runtime, and so on. It's
 intended to be a fast, sandboxed compile target. While it is low
 level, it's not quite as low level as regular assembly. WebAssembly
 has some quite high level features such as structured control flow,
@@ -59,7 +65,7 @@ immutable.
 
 The types in WebAssembly are very simple, just 32 and 64 bit integers,
 along with 32 and 64 bit floats. WebAssembly uses 32 bit indexing (as
-of June 2021) for memory and most other things.
+of September 2021) for memory and most other things.
 
 # Encoding
 
@@ -80,7 +86,7 @@ stored first. LEB128 can encode signed and unsigned integers, both of
 which are used in WASM.
 
 I will occasionally say something like "a 32 bit LEB128 encoded
-integer", which means that the integer is at MAX 32 bits long.
+integer", which means that the integer is at maximum 32 bits long.
 
 [^1]: I guess WTF was a little vulgar?
 
@@ -98,7 +104,9 @@ I highly recommend downloading WABT. It's a great set of tools that
 makes your life a lot easier. I use `wasm-objdump`, `wasm2wat` and
 `wasm-validate` all the time. Of course good old `hexdump` and
 `hexl-mode` in emacs are good, especially if you're rolling your own
-encoder.
+encoder. [Binaryen](https://github.com/WebAssembly/binaryen) is also
+really great for optimizing WebAssembly and has some command line
+tools as well.
 
 The tooling and infrastructure around WebAssembly is still very new
 but there's a couple decent libraries in the Rust
@@ -109,9 +117,9 @@ great. There's other WebAssembly libraries like
 [parity-wasm](https://github.com/paritytech/parity-wasm) that also
 seem great.
 
-I'm working on a library for emitting WebAssembly in JavaScript called
-[wasup](https://github.com/NicholasLYang/wasup). When it's done it
-should be a decent way to generate WebAssembly.
+I also have a library for emitting WebAssembly in JavaScript called
+[wasup](https://github.com/NicholasLYang/wasup). It's quite good if I
+do say so myself.
 
 I'm not familiar enough with the different runtimes to say which one's
 the best. I've used
@@ -170,6 +178,10 @@ functions defined in the module to their type definitions.
 
 4. Table
 
+Declares the tables used in the module. Tables are used to store
+references and can be indexed by runtime values. This can be used to
+implement dynamic function calls by keeping a table of function
+references.
 
 5. Memory
 
@@ -183,14 +195,21 @@ Declares global variables by giving their type, whether they're
 mutable and a (limited) expression to evaluate to give their initial
 value.
 
-
 7. Export
 
 Declares exports. Like imports these can be functions, tables,
 memories, and global variables.
 
 8. Start
+
+Just a single index of a function to be called on module
+instantiation. Function cannot take arguments.
+
 9. Element
+
+Declares the actual elements of the tables declared in the tables
+section.
+
 10. Code
 
 The code section declares the actual code for functions. It also
@@ -209,10 +228,16 @@ local variables, something like:
 Which defines 2 i32 local variables and 5 f32 local variables.
 
 11. Data
+
+Declares constant data for programs such as strings. This data will be
+copied into memory. There are active and passive data segments; active
+segments are copied at instantiation while passive segments are copied
+using the `memory.init` instruction.
+
 12. Data count
 
-## Tables
-
+Stores the number of data sections. Used to keep validation of modules
+a single pass.
 
 
 ## Vectors
@@ -226,17 +251,19 @@ up everywhere.
 Because WebAssembly is made to be deserialized very quickly, the
 bytecode includes length info for various constructs. Each section
 starts with the section id then the length of the section in bytes,
-again as an unsigned 32 bit LEB128 integer. This can be tricky to
-serialize as you need to know the length up front.
+again as an unsigned 32 bit LEB128 integer. Same with code
+bodies. This can be tricky to serialize as you need to know the length
+up front.
 
 # Let's Code
 
 Let's write a program to encode WebAssembly. This is a simplified
-version of wasup, my WebAssembly encoder/decoder library. I'm going to
-use a JavaScript array with a whole bunch of concatenations. I'm not
-going to cover all of WebAssembly cause you can just read the wasup
-source for that. Instead I'm gonna write just enough to get a
-binary search program working in WebAssembly.
+version of [wasup](https://github.com/NicholasLYang/wasup), my
+WebAssembly encoder/decoder library. I'm going to use a JavaScript
+array with a whole bunch of concatenations. I'm not going to cover all
+of WebAssembly cause you can just read the wasup source for
+that. Instead I'm gonna write just enough to get a binary search
+program working in WebAssembly.
 
 The preamble consists of the Unicode string `\0asm` and the version
 number, in this case `1`. Note that the version is a fixed width 32
@@ -687,7 +714,12 @@ Next let's push on the condition:
   [InstrType.LocalGet, 1],
   [InstrType.I32Eq],
 ```
-Alright now we call `br_if` with a relative depth[^1] of 0. This will break out of our current block if the condition is satisfied, i.e. if the topmost value on the stack is not 0. Since the current block is the function block, this will cause an early return and since `mid` is already on the stack, that'll be the return value.
+
+Alright now we call `br_if` with a relative depth[^1] of 0. This will
+break out of our current block if the condition is satisfied, i.e. if
+the topmost value on the stack is not 0. Since the current block is
+the function block, this will cause an early return and since `mid` is
+already on the stack, that'll be the return value.
 
 [^1]: Relative depth refers to the number of nested blocks you want to
     break out of.

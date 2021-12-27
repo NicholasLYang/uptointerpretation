@@ -1,12 +1,12 @@
 ---
 title: "Surface Area"
-date: 2020-11-01T21:52:01-05:00
-draft: true
+date: 2021-12-11T11:52:01-05:00
+draft: false
 ---
 
 There's been a lot of ink spilled about how packages are evil and npm
 will bring about the end of days. I've responded to these critiques
-[before](https://horriblyunderqualified.com/posts/we-get-it/), but I
+[before](https://uptointerpretation.com/posts/we-get-it/), but I
 realized there's more to say. While I don't disagree that large
 dependencies cause issues ranging from security holes to serious
 single points of failure, I think it's important that we recognize why
@@ -28,9 +28,9 @@ bugs.
 
 I specify what your code handles because it's quite easy to look at a
 new feature and say "oh but that's only 20 more lines". Sure, but
-those 20 lines might cause 20 bugs. Not to mention, I can write a
-naive implemention in 20 lines, that will eventually balloon to 500
-lines once I figure out all the edgecases.
+those 20 lines might cause 20 bugs or 200 bugs. Not to mention, I can
+write a naive implemention in 20 lines, that will eventually balloon
+to 500 lines once I figure out all the edgecases.
 
 Some of you may be ahead of me and are already responding that using a
 library doesn't reduce surface area, that it just hides it. And if you
@@ -44,4 +44,20 @@ can be fought off quite easily. We have more users, more stakeholders,
 and therefore more potential fixers. [Linus's
 law](https://en.wikipedia.org/wiki/Linus%27s_law) comes into effect.
 
+What a lot of people miss when they make arguments against packages is
+that realistically, their code is not going to be better than the
+package's code. We all like to imagine that we write bug free, perfect
+code, but that's just not based in reality. Sure, in some cases the
+package code is truly not good and you should roll your own. But in
+many cases the opposite is true. And do we really want fifty buggy,
+insecure JSON parsers? I don't.
 
+This is maybe where some people step in and say "ugh this is what's
+wrong with programmers these days. You can totally write safe code,
+you just need to be careful." I'm not going to try to convince these
+people otherwise, because it takes a lot of self confidence to make
+such a claim and any argument I make will not remove that
+confidence. If you believe that, good for you and godspeed.
+
+For the rest of us, let's keep it practical: Use packages, not too
+many and not too few.

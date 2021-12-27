@@ -1,7 +1,7 @@
 ---
 title: "I'm N and I Did XYZ"
-date: 2020-08-13T02:09:48-04:00
-draft: true
+date: 2021-12-26T10:09:48-04:00
+draft: false
 ---
 
 We've seen these posts before: "I'm 13 and I'm learning Rust", "I'm 15
@@ -48,8 +48,17 @@ This obsession with levels can also be prohibitive. If you've been
 conditioned to always be ahead, starting a new area where you're at
 par or *gasp* behind will seem like a daunting task. Which is a
 shame. I took a drawing class the other semester and it was delightful
-being behind. There's a delight in knowing that you are not required
-to be at anybody's level.
+being behind. There's a joy in knowing that you are not required to be
+at anybody's level.
+
+The extreme example of this is a gap year. I took not one, but two gap
+years, putting me at *gasp*, two years behind my high school
+classmates. Is that a big deal? Not at all. I still accomplished a lot
+in those two years. I just happen to be graduating two years
+later. I've also gotten to do stuff that many could not, such as work
+on my mental health, travel, and do more internships. Through the
+lense of levelism, my gap years have put me behind, have made me less
+accomplished. I don't think that's a healthy or accurate view.
 
 Levels can also lead to jealousy. Any instance of someone younger
 doing something better is a sign that you're not doing enough, that
