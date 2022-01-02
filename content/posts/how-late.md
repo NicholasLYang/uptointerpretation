@@ -50,4 +50,4 @@ can make some money before going into academia.
 Because really, who tf decides that they're going to be a
 mathematician when they're 19? You have to be either extremely
 advanced and had a very enriched education; very very very naturally
-talented or very misguided.
+talented or very misguided. 

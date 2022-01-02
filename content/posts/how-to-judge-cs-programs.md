@@ -1,7 +1,7 @@
 ---
 title: "How to Judge CS Programs"
-date: 2021-12-27T00:02:21-05:00
-draft: true
+date: 2022-01-01T00:02:21-05:00
+draft: false
 ---
 
 You're a high school student who is interested in computer
@@ -10,7 +10,7 @@ taken a couple classes at your high school. Maybe you're a total
 beginner[^1]. How do you judge CS programs?
 
 [^1]: If you're a CS prodigy with IOI medals and high school tech
-    internships, the answer to this post is easy: go to MIT, CMU, or
+    internships, the answer to this post is easy: go to Waterloo, MIT, CMU, or
     Stanford.
 
 ## Why Are You Qualified?
@@ -20,8 +20,8 @@ as much as a prescriptive guide.
 
 The long answer is that I've spent a lot of time[^2] thinking about
 undergraduate CS program quality because I went to a program that
-appears prestigious on paper but was, in my opinion, on par with a CS
-program at a low tier liberal arts college. You can read my thoughts
+appears prestigious on paper but was, in my opinion, worse than
+schools with a tenth of the reputation. You can read my thoughts
 [here](https://blog.torchnyu.com/2020/11/12/goto-nyu-cs-considered-harmful.html)
 and
 [here](https://blog.torchnyu.com/2020/12/10/intellectual-ambition.html). I've
@@ -46,8 +46,8 @@ loved among professors. I'd ignore them almost completely.
 
 Do not go off of prestige signifiers such as Ivy League or admission
 rate. These can indicate a general amount of funding or student
-quality, but beyond that there is nothing about Ivy Leagues that makes
-them inherently good at computer science.
+quality, but beyond that there is nothing about Ivy League schools
+that makes them inherently good at computer science.
 
 Do not look up very famous professors and think "oh I'm gonna work
 with them". As great of a fantasy as it is, working with Yann LeCun at
@@ -92,16 +92,18 @@ you'll need to be a decent programmer either way.
 ## Signs Of A Good Program
 
 Now I'm gonna list various signs that I've noticed tend to imply a
-good CS program. These signs are not always a direct
-correlation. They're also very subjective to my interests and my
-beliefs in what makes a CS program good.
+good CS program. These signs are not always a direct correlation,
+i.e. absence of one of these does not imply a bad program. They're
+also very subjective to my interests and my beliefs in what makes a CS
+program good.
 
 Take a look at their intro to programming. Is it a perfunctory
 Java/Python tutorial that you can skip with AP credit? Or is it
-something deeper? Does the course encourage you to think about program
-design and computation at a deep level? Does it use a book like [How
-To Design Programs](https://htdp.org/) or [Structure and
-Interpretation of Computer
+something deeper that everybody is required to take? Does the course
+encourage you to think about program design and computation at a deep
+level? Does it use a book like [How To Design
+Programs](https://htdp.org/) or [Structure and Interpretation of
+Computer
 Programs](https://mitpress.mit.edu/sites/default/files/sicp/index.html). Does
 it use an off-kilter language like Haskell or Lisp? This is a sign
 that someone put a little thought into the CS program.
@@ -119,7 +121,7 @@ programming, operating systems, compilers, databases, theoretical
 computer science, programming languages, distributed systems,
 functional programming, cybersecurity, and machine learning? One fact
 that shocks most programmers is that my school does not have an
-undergraduate compilers course.
+undergraduate compilers course. Do they require these courses?
 
 Find a course website (at least a few professors have public
 ones). Compare it to another school's course site. Are similar topics
@@ -129,20 +131,23 @@ at least based around solving difficult problems?
 
 ## Programming, Yes Programming
 
-Whenever I emphasize programming, I inevitably get the same tired
-response of "Buuuuut CS iS NoT ProGraMmIng". And yes, reducing down
-computer science to the act of programming is like reducing down
-literature to the act of writing news articles. But if hundreds of
-thousands of companies were clamoring for journalists and these jobs
-paid six figures easily and 99% of people who enter a literature
-program intended on becoming journalists, you'd be forgiven for
-confusing the two as an undergraduate.
+You've probably noticed that I've emphasized programming. Whenever I
+do this, I inevitably get the same tired response of "Buuuuut CS iS
+NoT ProGraMmIng". And yes, reducing down computer science to the act
+of programming is like reducing down literature to the act of writing
+news articles. But if hundreds of thousands of companies were
+clamoring for journalists and these jobs paid six figures easily and
+99% of people who enter a literature program intended on becoming
+journalists, you'd be forgiven for confusing the two as an
+undergraduate.
 
 And indeed, yes, I will say that effectively, for 99% of
 undergraduates, computer science is programming. If you respond to the
 contrary, you are being a pedantic jerk. That isn't to say that the
-non-programming aspects of computer science are bad. It's just that
-they're less important to your average undergrad.
+non-programming aspects of computer science are bad. A CS program can
+and should have non-programming oriented classes such as Discrete
+Math, Algorithms, Theory of Computation, etc. It's just that they're
+less important to your average undergrad.
 
 ## Hackathons
 
@@ -162,9 +167,11 @@ there's a similar event out there.
 
 ## Signs Of A Bad Program
 
-Obviously the inverse of the good signs. Intro class is perfunctory
-Java/Python tutorial; limited course selection; insipid
-clubs/extracurriculars.
+In some cases, the inverse of the good sign is a negative
+indicator. Intro class is perfunctory Java/Python tutorial; limited
+course selection; insipid clubs/extracurriculars. However, I wouldn't
+rule out a school if you can't find good student run projects or if a
+course is slightly less thorough.
 
 Ironically, a school's general prestige can be a bad sign. For
 instance, my school is a fairly prestigious school. It's not an Ivy
@@ -176,3 +183,56 @@ science. This leads to students who are really focused on getting good
 grades, but maybe not on programming or computer science as a whole.
 
 Etch this into your brain: **grades do not make me a good programmer**.
+
+## Top Students
+
+One area that I'd try to examine are the top students within the
+program. This is hard. I don't exactly know how you find the top
+students. Often times they're not easily visible. They're not always
+on social media. They don't always show up to class. They may not go
+to the top companies.
+
+But if you can find people who are doing really cool stuff---stuff
+like writing a compiler, building sophisticated websites from scratch,
+developing their own operating system, etc---if you can find dozens of
+people doing this, then you are in a good place. If there's a
+sprinkling of these people, be cautious. If there's next to nobody,
+stay away completely.
+
+These people are your potential role models, peers, even
+rivals. Without them, you are not going to learn half as much.
+
+Of course some may see the professors as potential role models. They
+can be! But professors are not always great role models. For one, they
+chose a path that most students will not. If you wish to go into
+academia, by all means, seek out graduate students and professors as
+role models. Second, professors were and are profoundly good
+students. Philip Guo has this excellent memoir of his time as a
+graduate student[^3]. He has a great observation that his doctoral
+advisor must had been one of the top graduate students in order to
+become a tenure track professor at Stanford. Therefore it was rather
+hard for his advisor to understand Philip's struggles, because the
+advisor had never struggled to that degree.
+
+[^3]: I believe he removed it from his website, which is a shame.
+
+I have a longer piece on this, but becoming a professor is something
+that requires an extreme amount of talent but also devotion and
+time. You need to know pretty early on that you want to become a
+professor, otherwise you'll have to spend a lot of time hustling back
+into the academia timeline. Talking to tenure track professors is a
+great way to experience survivorship bias.
+
+As I mentioned before, top students are not necessarily the people who
+go to top companies. Getting into a top company does not actually
+require prodigious programming ability. You need a decent resume, the
+ability to solve the interview questions, and a whole lot of
+luck. Second, a lot of top students aren't always so interested in top
+companies or willing to play the game. Filling out applications is
+boring and they'd much rather be programming.
+
+## Tell Me More
+
+Again, this is more a bunch of musings on CS programs than a
+prescriptive guide. I'd love to hear your thoughts. Feel free to shoot
+me an email at nick@nicholasyang.com.
