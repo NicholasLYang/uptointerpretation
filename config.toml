@@ -16,5 +16,6 @@ enableRobotsTXT = true
 [params]
 author = "Nicholas Yang"
 description = "A blog on programming and other things"
-copyright = "Copyright © 2020 Nicholas Yang"
+copyright = "Copyright © 2022 Nicholas Yang"
 highlightjs = true
+rssAsSocialIcon = true

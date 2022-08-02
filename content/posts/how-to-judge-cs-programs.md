@@ -19,9 +19,10 @@ In short, I'm not. This is equally a rumination on CS program quality
 as much as a prescriptive guide.
 
 The long answer is that I've spent a lot of time[^2] thinking about
-undergraduate CS program quality because I went to a program that
-appears prestigious on paper but was, in my opinion, worse than
-schools with a tenth of the reputation. You can read my thoughts
+undergraduate CS program quality because I recently graduated from a
+program that appears prestigious on paper but was, in my opinion,
+worse than schools with a tenth of the reputation. You can read my
+thoughts
 [here](https://blog.torchnyu.com/2020/11/12/goto-nyu-cs-considered-harmful.html)
 and
 [here](https://blog.torchnyu.com/2020/12/10/intellectual-ambition.html). I've
@@ -30,6 +31,17 @@ other schools, reading through the degree requirements of various CS
 program and generally doing my homework.
 
 [^2]: Well, okay, 5 years
+
+Some may believe that a professor is better suited to judge programs,
+since they've likely had experience with multiple through their
+undergrad, grad, post-doc and professor tenures. I'd counter that
+professors are judging from a rather unique perspective, namely that
+of a tenured professor. I'll explore that point in depth in a bit. I'd
+also note that being a teacher in an undergraduate CS program is
+extremely different than being a student in one. Professors usually
+only experience one small part of an undergraduate CS program and
+therefore can't really judge it as a gestalt. That said, I'd be very
+interested to hear a professor's take on undergraduate CS programs.
 
 If you'd like to give a rebuttal, I'd love to hear it! Heck, I'll
 publish it here as long as you're not unneccessarily mean.
@@ -51,7 +63,7 @@ that makes them inherently good at computer science.
 
 Do not look up very famous professors and think "oh I'm gonna work
 with them". As great of a fantasy as it is, working with Yann LeCun at
-NYU is pretty unlikely. I get that a common admissions strategy is
+NYU is pretty unlikely.r I get that a common admissions strategy is
 "demonstrating interest", but Googling professors is not that much
 demonstration.
 
