@@ -98,7 +98,21 @@ let foo = foo.foo + 5
 If we get a command to rename `foo` to `bar`, which `foo` are we
 talking about?
 
-Fortunately, language servers offer a solution. They have a
+There's a simple answer: we don't know and therefore we cannot rename.
+
+But what about:
+
+```
+let foo = "this is foo"
+```
+
+In this case there is only one `foo` that we can rename: the
+variable. Of course we know this because human brains can parse code
+pretty well. For the action, this is a little harder. We could parse
+the code and determine that there's only one `foo` in that
+line. That'd be slightly annoying.
+
+Fortunately, language servers offer an easier solution. They have a
 `PrepareRenameRequest` that allows you to send a position and see if
 it's a valid symbol for renaming. We can get all the occurrances of a
 given name in the line, then see if any are a valid symbol. If none
@@ -114,12 +128,15 @@ After we've gotten the correct symbol, we can issue a
 server instead returns a list of changes to be made to various
 files. Fortunately for us, the VSCode library that we're using,
 [vscode-languageserver-protocol](https://www.npmjs.com/package/vscode-languageserver-protocol)
-has a way to apply these edits.
+has [a way to apply these
+edits](https://github.com/microsoft/vscode-languageserver-node/blob/d58c00bbf8837b9fd0144924db5e7b1c543d839e/textDocument/src/main.ts#L221).
+
+We apply the edits, write to the files, and we're done!
 
 That about wraps up the CLI part. We give it a line number, a file
 name, an old name and a new name, and it does the work for us. If you
 want to check out the CLI, the repository is
-[here](https://github.com/NicholasLYang/refactor-cli).
+[here](https://github.com/NicholasLYang/nit).
 
 ## Parsing Commands
 
@@ -138,7 +155,7 @@ Without actually triggering the rename.
 A simple regex works to parse this:
 
 ```
-/^\s*\/rename\s*\(\s*(\w[\w\d]*)\s*,\s*(\w[\w\d]*)\s*\)\s*$/
+/^\s*rename\s*\(\s*(\w[\w\d]*)\s*,\s*(\w[\w\d]*)\s*\)\s*$/
 ```
 
 From there, we get the new name and old name out in a simple
@@ -150,7 +167,7 @@ const side = \`${{ github.event.comment.side }}\`;
 // We make sure it's the right side of the diff
 // otherwise we're renaming old code.
 const isRightSide = side === 'RIGHT';
-const matches = comment.match(/^\s*\/rename\s*\(\s*(\w[\w\d]*)\s*,\s*(\w[\w\d]*)\s*\)\s*$/);
+const matches = comment.match(/^\s*rename\s*\(\s*(\w[\w\d]*)\s*,\s*(\w[\w\d]*)\s*\)\s*$/);
 if (matches && isRightSide) {
   console.log('::set-output name=isMatch::true');
   console.log('::set-output name=symbolName::' + matches[1]);
@@ -164,16 +181,14 @@ The `::set-output` allows us to pass variables to subsequent stages in
 a GitHub Action.
 
 If there's no match, we cancel the rest of the action and return. Yes,
-this does mean that we need to parse all pull request comments. While
-that's inevitable, we could probably make it a lot lighter by using
-our own system instead of spinning up an action for each comment.
+this does mean that we need to parse all pull request comments. It's
+an MVP, gimme a break.
 
 From there we download the CLI and run it on our code; then we make
-the pull request. As far as I know there's no way to reply to an
-existing PR comment, but that would be ideal here too.
+the pull request.
 
 If you want to check out the action code, it's
-[here](https://github.com/NicholasLYang/refactor-cli/blob/main/actions/rename.yml).
+[here](https://github.com/NicholasLYang/nit/blob/main/actions/rename.yml).
 
 ## Conclusion
 

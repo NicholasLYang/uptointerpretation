@@ -18,7 +18,7 @@ belief system, usually based around the idea that fencing is this
 graceful, sport for gentlemen where students need to be trained in the
 right fashion. Which, by the way, is some rather dog-whistle racism
 crap. The extreme of these people would be the classical fencers, but
-that's worth an entire rant. But anyways, this coach would impart
+that's worth an entire rant. Anyways, this coach would impart
 these beliefs on their students, stuff like screaming after a point
 being "unsportsmanlike", or having to learn foil, a different weapon,
 before epee. The moment these people would ask about their coach
