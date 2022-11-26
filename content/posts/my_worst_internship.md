@@ -291,8 +291,16 @@ Which brings me to the team. We had Dan, my manager. He seemed a
 decent fellow overall, besides the passive aggressive micromanagement
 and technical incompetence. He had also bought into the MyTime system
 entirely. If he could, Dan would have been a MyTime lifer. For all I
-know he is. After that we had Mohammad, a QA guy, and Amar, another
-developer. Don't get me wrong. They were all solid people.
+know he is. After that we had Mohammad, a QA guy, and Jalen, another
+developer. Don't get me wrong. They were all solid people. I got along
+with them pretty well. But for whatever reason, they just did not
+write good code. They had this perpetual attitude that they were under
+fire and needed to deliver code as soon as possible. Again, people
+would come in on Saturdays to finish their work.
+
+After I joined, another developer, Paul, joined. Honestly Paul joining
+was a huge relief. First, he was able to completely validate my
+concerns. He came and immediately realized the same issues that I had.
 
 - Team
   - Kevin: Underpaid

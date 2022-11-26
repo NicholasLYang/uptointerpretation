@@ -1,7 +1,7 @@
 ---
 title: "Fixing Nits Quickly"
 date: 2022-07-31T16:53:19-04:00
-draft: true
+draft: false
 ---
 
 How many times have you gotten the following comment on your PR?
@@ -198,3 +198,9 @@ simple changes without touching an editor. I'm going to look into
 making this a more full fledged setup. In the future I'd love the
 ability to add comments, rename files, maybe even factor out code into
 a separate function.
+
+And hopefully by making this a CLI, I can make it something that can
+run on multiple different CI platforms. Heck, with a proper TUI, I
+could make this feasible to run on the fly. Of course as someone will
+point out on Reddit, this is getting dangerously close to just being a
+damn editor itself.
