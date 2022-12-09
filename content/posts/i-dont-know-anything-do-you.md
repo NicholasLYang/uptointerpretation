@@ -6,7 +6,7 @@ draft: true
 
 Programming is perhaps the only field where one can be called "senior"
 at the age of 25. Sure, it's just an inflated title, but the fact that
-it can even be betowed in a non-ironic fashion is remarkable. Who is
+it is ever bestowed in a non-ironic fashion is remarkable. Who is
 senior at the age of 25? Even if one were to have been programming
 professionally from the age of 20, that's still only 5 years. Doctors
 require about 10 years of education to even be considered fully
@@ -92,4 +92,7 @@ and you end up with a rather restrictive, infeasible career
 path. Companies want warm bodies and don't want to spend 3-5 years
 training them, especially if they leave soon after.
 
-
+This isn't a post with an answer. Career progression for developers is
+very much an unsolved question. It's unsolved because neither the
+companies nor the employees would want an arrangement that restricts
+them. 

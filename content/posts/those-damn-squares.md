@@ -1,7 +1,7 @@
 ---
 title: "Those Damn Squares"
 date: 2020-07-31T00:58:43-04:00
-draft: true
+draft: false
 ---
 
 I'm not one for productivity metrics. I've tried apps like

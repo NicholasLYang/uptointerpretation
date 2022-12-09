@@ -1,7 +1,7 @@
 ---
 title: "Tooling for Tooling"
-date: 2022-11-22T01:32:34-05:00
-draft: true
+date: 2022-12-03T01:32:34-05:00
+draft: false
 ---
 
 We've seen a boom in programming language tooling in the past few
@@ -183,7 +183,13 @@ that other tools like HACS, bison, Racket, JavaCC, etc. are also
 meta-tools. I'd push back on that claim. Meta-tools should be usable
 in a production environment; they should facilitate a sophisticated
 user experience; and they should come with an ecosystem of "free"
-benefits.
+benefits. A tool such as Racket does have an ecosystem of various
+benefits, but I do not know of real, production languages that use
+Racket for their compilation. A snarky response could be Racket
+itself, but one implementation does not a meta-tool make. A meta-tool
+must work as a compiler implementation tool beyond one
+implementation. Bison simply lacks the usability story, ditto HACS,
+and ditto JavaCC.
 
 ## But How?
 

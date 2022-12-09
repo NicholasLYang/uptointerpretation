@@ -4,10 +4,11 @@ date: 2022-09-18T17:37:45-04:00
 draft: true
 ---
 
-A lot of people are rewriting in Rust. I spent some time at a company
-who did a rewrite and learned a bunch of lessons. I wanted to publish
-a post on these lessons, but I didn't get to do it while I was at the
-company. Here's my chance:
+A lot of people are rewriting in Rust. I've done a rewrite or two and
+learned a bunch of lessons. I'm still learning a lot every day, so
+this is more a snapshot of my beliefs than a prescriptive guide. As
+with a lot of my guides, this is written in the form of a series of
+questions.
 
 1. Why rewrite in Rust?
 
@@ -16,33 +17,36 @@ technical reasons? Or are you just getting to that boring part of the
 technical problem? It's often true that the early stages where you're
 figuring out architecture and writing a bunch of code are way more
 satisfying than the next stage where all the architecture decisions
-have been made and all that's left is a bunch of work. You feel really
-productive writing a new parser from scratch, adding all this code,
-handling the general cases, setting up infrastruture. Except if you
-don't need a parser from scratch, then you're just retreading covered
-ground.
+have been made and all that's left is a bunch of work. It feels really
+productive writing a new web server from scratch, adding all this
+code, handling the general cases, setting up infrastruture. Except if
+you don't need a new web server from scratch, then you're just
+retreading covered ground.
 
-Are you being attracted by the new shiny? It's easy to pretend that as
-a senior developer you don't fall for the new shiny, but in reality
-senior developers are also better at finding plausible sounding
-reasons to use the new shiny. As someone who likes Rust, I'll freely
-admit that it's more fun to write than say, JavaScript. That said, if
-I had a nice existing codebase in JavaScript, I wouldn't just throw it
-away to write Rust. I understand that it's tempting to go with the
-language that you like to write, but that's not enough.
+1a. Are you being attracted by the new shiny?
 
-Are you rewriting for performance or for safety? They're not mutually
-exclusive, but often times people are rewriting from a generally safe
-high level language (JS, Ruby, Python), or they're rewriting from an
-unsafe, low level language (C, C++). If it's performance, is there any
-way to get better performance with your existing language? How long
-would that take? Would that take longer than rewriting in Rust? If
-it's safety, then how critical is your software? Is it a big deal if
-there's a memory leak? Many developers seem to think that any bug is a
-horrible horrible problem that can never occur. Sometimes that's true,
-but bugs are also a factor of life. In many cases I'd rather have
-shipped software with some bugs versus a hypothetical piece of
-software with no bugs.
+It's easy to pretend that as a senior developer you don't fall for the
+new shiny, but in reality senior developers are also better at finding
+plausible sounding reasons to use the new shiny. As someone who likes
+Rust, I'll freely admit that it's more fun to write than say,
+Python. That said, if I had a nice existing codebase in Python, I
+wouldn't just throw it away to write Rust. I understand that it's
+tempting to go with the language that you like to write, but that's
+not enough.
+
+1b. Are you rewriting for performance or for safety?
+
+They're not mutually exclusive, but often times people are rewriting
+from a generally safe high level language (JS, Ruby, Python), or
+they're rewriting from an unsafe, low level language (C, C++). If it's
+performance, is there any way to get better performance with your
+existing language? How long would that take? Would that take longer
+than rewriting in Rust? If it's safety, then how critical is your
+software? Is it a big deal if there's a memory leak? Many developers
+seem to think that any bug is a horrible horrible problem that can
+never occur. Sometimes that's true, but bugs are also a factor of
+life. In many cases I'd rather have shipped software with some bugs
+versus a hypothetical piece of software with no bugs.
 
 2. Have you validated your product?
 
@@ -114,7 +118,6 @@ wrote with 2 months of Rust experience you end up wanting to refactor
 with 6 months of Rust experience. You probably shouldn't do that
 though. Because...
 
-
 5. Where are you going to waste time?
 
 Rust is a really easy language to refactor. The static type system
@@ -136,14 +139,40 @@ Your team will likely develop different styles and techniques as they
 learn Rust. That's okay. It will also mean that they will be tempted
 to refactor code that is not theirs. Resist that urge.
 
-6. Ownership and Rewriting
+6. What are you going to lose?
 
-Another problem that will arise is dealing with Rust ownership through
-an interop barrier.
+There are always tradeoffs to using a different language. Rust is
+great, but you can lose a lot. For one, you may lose some developers
+in the transition. Some developers simply don't work well with Rust's
+paradigms. Or maybe you want to have code that runs across platforms
+easily. In JavaScript, that's a given. In Rust, there's cross
+compilation, but that's a lot more effort. Maybe you have a plugin
+API. Unless you plan on compiling your Rust to WebAssembly (which
+comes with its own host of issues), or embedding a WebAssembly
+runtime, plugins suddenly become a lot harder. Yes, they can be done,
+but there is a serious difference between something that can be done,
+and might be done in a year or two, and something that is already
+done. It could be the difference between gaining users or losing
+users.
 
-7. Recruiting
+7. How are you going to hire?
 
 Common advice given for tech companies is that if your stack is in
 XYZ, you should have at least one XYZ guru on your team. That's valid,
-but you should recognize that a Rust guru is hard to find. It's okay
-if you don't have one.
+but you should recognize that a Rust guru is hard to find. There's
+plenty of senior developers and there's plenty of Rust developers, but
+finding a senior Rust developer who hasn't been snapped up by Amazon
+or Cloudflare, well that might be hard.
+
+This will have an effect on your code quality. Going back to #5, you
+will probably waste some time on refactoring code that you found less
+than ideal because you didn't have a Rust guru to warn you.
+
+On the flip side, you will get a lot of young, eager talent. This, of
+course, is good and bad. I forget where I read this, but some OG
+Mozilla Rust person noted that core parts of the Rust and Servo teams
+were driven by Mozilla interns. I'm not saying interns will save your
+company, but don't underestimate them. This is your chance to get the
+top talent of the future.
+
+

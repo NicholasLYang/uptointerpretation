@@ -96,5 +96,3 @@ boolean satisfiability is NP complete[^1].
 Is your startup NP complete? Have you solved P != NP? Probably
 not. Although proving P = NP would be a great social evil hack, while
 P != NP would maybe fall on the social good side.
-
-# 
