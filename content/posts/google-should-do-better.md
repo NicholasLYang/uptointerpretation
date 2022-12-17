@@ -4,12 +4,10 @@ date: 2021-11-06T22:09:37-04:00
 draft: true
 ---
 
-I recently finished my new-grad job search. I'm happy to say that I'm
-going to be working at Rome, a developer tools startup. Rome combines
-my interest in compilers, Rust and developer tooling. I'm really
-excited to start!
+I recently finished my new-grad job search. Well recently as in within
+the past year and a half. Hey blog posts take a while!
 
-However, in the process, I applied to a company that may be familiar
+Anyways, in the process, I applied to a company that may be familiar
 to some readers: Google. For many people, Google is their dream
 company. They're world famous for hiring only the best and brightest;
 they pay extremely well; and they offer some of the best working

@@ -7,11 +7,11 @@ enableRobotsTXT = true
 
 [menu]
   [main]
-    identifier = "archive"
-    name = "Archive"
-    title = "Archive"
-    url = "/posts/"
-    weight = "0"
+    identifier = "about"
+    name = "About"
+    title = "About"
+    url = "/about/"
+    weight = "1"
 
 [params]
 author = "Nicholas Yang"

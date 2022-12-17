@@ -29,6 +29,8 @@ events. You'd end up slapping together some front end that didn't work
 without some *ahem* manual intervention, pitch it as the breakthrough
 to save the world, while surviving on minimal sleep.
 
+# The Benefits of Hackathons
+
 That said, I do miss certain aspects of hackathons. For one, I miss
 how they were a way to speed run a project. Projects are a great way
 to add content to a resume when you don't have any job experience. I
@@ -69,22 +71,34 @@ hours is about the maximum I'd advise for an event. It allows people
 to get into a good workflow but not cut into their sleep. They're also
 a lot cheaper to run.
 
+# Competition
+
 However the issue with hackathons is not just the time, it's also the
 format. Competition, while fun, does lead to prioritizing winning over
-learning or fun. Now this is where someone pops in and says "buuuuuut
-my hackathon has all of these awesome other activites not related to
-the competition". Yes, but the competition is an inextricable part of
-a hackathon. How many people would run a hackathon without the
-competition? I don't think many people would show up for an event of
-Jenga, iOS workshops, and junk food. Okay, maybe they would. That
-doesn't sound half bad, but it wouldn't have the same widespread
-appeal as a hackathon.
+learning or fun. It's what leads to rampant cheating, faking projects
+and cynical use of buzzwords to impress inexperienced, often
+non-technical judges.
+
+This is usually where someone pops in and says "buuuuuut my hackathon
+has all of these awesome other activites not related to the
+competition, only you care this much about the competition
+Nick". Perhaps, but the competition is an inextricable part of a
+hackathon. It's why the event always advertises the prizes, why the
+event ends with a big ceremony celebrating the winners, why people lie
+and cheat to win hackathons. How many people would run a hackathon
+without the competition? I don't think many people would show up for
+an event of Jenga, iOS workshops, and junk food. Okay, maybe they
+would. That doesn't sound half bad, but it wouldn't have the same
+widespread appeal as a hackathon.
 
 Which does beg the question, is it worth chasing that widespread
 appeal? Maybe this was just a blip in the space-time continuum and
 forever on after, hackathons/similar events will be small events. If
-that's the case, I could live with that. There's something to be said
-about not having festivals worshiping at the altar of big tech.
+that's the case, I could live with that. I have no horse in this
+race. And there's something to be said about not having festivals
+worshiping at the altar of big tech.
+
+# Hacker Clubs
 
 Back to alternatives, there's of course the hacker club model,
 basically a weekly meeting where people work on various projects. It's
@@ -116,14 +130,39 @@ to the length of their unemployment.
 
 As for intrinsic motivation, that's hard. Maybe I'm biased by my
 particular experiences, but in my experience a lot of CS majors are
-not intrinsically motivated. That's not entirely their fault. It takes
-a while to become experienced enough to do side projects and often
-love of a subject grows with time. That doesn't mean intrinsic
-motivation is impossible, however. What it means is that hacker clubs
-need a few gimmicks to get people in the door for the first few
-meetings, maybe free food for a person's first meeting; then the
-possibility of a job for the next few; and then community and
-intrinsic motivation for the rest. Most hacker clubs already do this,
-but I think it's worth making the model explicit, so that organizers
-can ensure that members hop on the next motivation before the previous
-one wears off and the member stops showing up.
+not intrinsically motivated. That's not their fault. It takes a while
+to become experienced enough to do side projects and often love of a
+subject grows with time. That doesn't mean intrinsic motivation is
+impossible, however. What it means is that hacker clubs need a few
+gimmicks to get people in the door for the first few meetings, maybe
+free food for a person's first meeting; then the possibility of a job
+for the next few; and then community and intrinsic motivation for the
+rest. Most hacker clubs already do this, but I think it's worth making
+the model explicit, so that organizers can ensure that members hop on
+the next motivation before the previous one wears off and the member
+stops showing up.
+
+# Meetups & Conferences
+
+Another option is to do more meetups and conferences for students. I
+was always a little confounded at how few students went to tech
+meetups. Before COVID they were rather common and even if the talks
+were bad, there were at least people to meet and free food &
+drinks. Nowadays meetups have certainly become less common but they're
+far from dead. I could see a revival of meetups in the near future. Of
+course, with any meetup, high quality talks are the issue. I remember
+there being a pattern of well-intentioned talks given by bootcamp
+graduates, who were perhaps a little too inexperienced to be
+explaining the material. Put less politely, the graduates would
+essentially regurgitate a tutorial that they had read in the form of a
+talk.
+
+Some meetups have switched to a model where they only plan a meetup
+when speakers are available. That works a lot better in my view,
+although you lose the nice consistency that monthly meetings offer.
+
+If I were to turn meetups into a viable hackathon alternative, I'd try
+to encourage students to come to them. I'd make sure to offer a nice
+extended period for people to mingle and even cowork. Perhaps at the
+end of the year we could have a gathering that doubles as a
+mini-hackathon. Basically, I'd try to have events outside of talks.

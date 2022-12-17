@@ -9,6 +9,13 @@ startup. They're working with cool tech; the co-founders are these
 super smart tech whizzes; and they just raised a bunch of
 money. What's not to like?
 
+Well, a lot. Startups can be very rewarding fun experiences. They can
+also be absolutely miserable experiences with lots of emotional
+strife, economic hardship, and real repercussions on your life. And by
+becoming an employee of a startup, you are effectively betting your
+time, energy, and money on that this startup will be the former and
+not the latter.
+
 Before you take their offer, here's what I think you should try to
 figure out.
 
@@ -44,6 +51,14 @@ and shipping? These are not dichotomies but it is true that if you've
 engineered your code to be this big scalable behemoth, you might not
 be willing to pivot.
 
+Are they good people? This is nearly impossible to judge at a
+glance. But weigh any negatives you see pretty heavily. Do they treat
+you poorly during the interview? That could be scheduling long,
+grueling interviews at inconvenient times, or asking slightly
+insulting questions. Do they have a reputation? Reputations can be
+deceiving, and good people can be painted in an unfair light, but you
+are investing your time in this person. If there is any doubt, do not
+do it.
 
 # The Product
 
@@ -59,3 +74,6 @@ What is the MVP of this product? How quickly can this be built? How
 quickly can they get this in front of users? Without user feedback, we
 are flying blind, so there should be as short of an interval as
 possible.
+
+How much have they validated? Have they asked for money, time, or
+reputation from their customers and received it?

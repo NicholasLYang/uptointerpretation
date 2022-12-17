@@ -2,22 +2,14 @@
 title: "About"
 ---
 
-<div class="headshot-container">
-     <img class="headshot" style="width: 80%" alt="Headshot of meeeee" src="/img/headshot.jpg">
-</div>
-
-This blog is written by me, Nicholas Yang. I am currently a junior at
-NYU studying computer science and mathematics. I am interning at
-Microsoft for summer 2019. I like to read, program and cook. Some of
-my interests include functional programming, compilers and language
-design. I'm also interested in user interfaces and creating intuitive,
-beautiful design.
+This blog is written by me, Nicholas Yang. I'm currently a software
+developer at Vercel working on Turborepo. I like to watch movies,
+travel and cook. I also like to write Rust.
 
 
-The blog name is a tongue in cheek allusion to how many young (and not
-young) developers feel while applying for jobs; completely hopelessly,
-horribly underqualified. My hope is that I can provide some semblance
-of reassurance that no, you are not horribly underqualified. The blog
-is built with [Hugo](https://gohugo.io/), a static site
+The blog is built with [Hugo](https://gohugo.io/), a static site
 generator. It's hosted on Amazon's S3 service with Cloudfront and
 Route 53. The domain was bought with Gandi.
+
+If you'd like to reach out, feel free to contact me at
+nick@nicholasyang.com or @NicholasLYang on Twitter.
