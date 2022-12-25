@@ -69,6 +69,12 @@ necessarily bad. But they need to be well formed, specific
 opinions. And much like an essay, a talk should start with this thesis
 in an up front and clear manner.
 
+I suppose what I'm really criticizing is a genre of talk that borders
+on a manifesto. Programming is a subjective endeavor and to an extent
+I do not begrudge someone for having a strong opinion. But the
+difference between a strong opinion and a manifesto is that a
+manifesto is inherently adversarial, it is inherently a 
+
 - No nuance. Fails to account for alternative incentives and difficulty
 - Using people's general issues with programming to get people on board
   - Like how a politician can say a lot of generic stuff about how we've gone wrong and how the country needs change

@@ -166,3 +166,7 @@ to encourage students to come to them. I'd make sure to offer a nice
 extended period for people to mingle and even cowork. Perhaps at the
 end of the year we could have a gathering that doubles as a
 mini-hackathon. Basically, I'd try to have events outside of talks.
+
+Extending from events, conferences are essentially a larger scale
+version. They have talks, yes, but they also have workshops and
+chances to socialize. 
