@@ -22,30 +22,32 @@ new. They often come with massive binary sizes since most languages
 need to ship an additional runtime. Interop is still a pipe
 dream. Just because two languages compile to WebAssembly doesn't mean
 they can necessarily talk to each other. And the languages still need
-to catch up on decades of JavaScript libraries for the DOM. There's no
-React or Svelte for the browser. Don't get me wrong, there's still a
-time and a place for WebAssembly. If you want to run compute heavy
-native code in the browser, WebAssembly is perfect.
+to catch up on decades of JavaScript libraries for the DOM. There's
+nothing like React or Svelte for WebAssembly. Don't get me wrong,
+there's still a time and a place for WebAssembly. If you want to run
+compute heavy native code in the browser, WebAssembly is
+perfect. Otherwise, I can't say I'd recommend it for everyday
+front-end development.
 
 Which leaves the languages that compile to JavaScript. Barring the one
 elephant in the room, which I'll address shortly, they've become a
-little unsung. I can't say CoffeeScript is doing well. Languages such
-as ClojureScript, Elm, ReScript, Dart, etc. all have respectable
-communities but I wouldn't say they're necessarily expanding in market
-share[^2]. This is a shame, as languages that compile to JavaScript
-are probably the most effective way to get a good programming language
-experience in the browser. They allow you to access all the nice
-features that JavaScript doesn't have like static types, strong
-typing, immutability, etc. They still give you access to JS and the
-extensive JS ecosystem, hopefully through bindings. And they don't
-require shipping a large runtime.
+little unsung. Languages such as ClojureScript, Elm, ReScript, Dart,
+etc. all have respectable communities but I wouldn't say they're
+necessarily expanding in market share[^2]. This is a shame, as
+languages that compile to JavaScript are probably the most effective
+way to get a good programming language experience in the browser. They
+allow you to access all the nice features that JavaScript doesn't have
+like static types, strong typing, immutability, macros, etc. They
+still give you access to JS and the extensive JS ecosystem, hopefully
+through bindings. And they don't require shipping a large runtime.
 
 [^2]: Nor does that seem to be their goal, in fairness.
 
 Because of WebAssembly, I suspect there's a reticence to compile to
 JS, since Wasm is the anointed compilation target for the browser. I
-disagree with this sentiment. We need more browser languages with
-innovative features.
+disagree with this sentiment. We need more languages that compile to
+JavaScript. In this post, I'd like to outline what I want out of these
+future languages.
 
 # TypeScript
 
@@ -81,11 +83,13 @@ explicitly annotate types in a lot of places.
 
 Again, both of these were the result of calculated
 trade-offs. Bootstrapping the compiler was essential for dogfooding
-the language. The developers had to understand how TypeScript felt as
-a language. And rejecting soundness meant that developers could
-incrementally adopt TypeScript in existing JS codebases. It also
-meant that developers could escape the frustration of types with a
-single `any` type.
+TypeScript. The developers had to understand how TypeScript felt as a
+language. More specifically, they had to experience writing a large
+JavaScript codebase, then incrementally adopting types within this
+codebase. And rejecting soundness meant that developers could
+incrementally adopt TypeScript in existing JS codebases. It also meant
+that developers could escape the frustration of types with a single
+`any` type.
 
 This is worth an entire essay of its own, but TypeScript is probably
 the first language to be purely about developer-experience and not
@@ -93,7 +97,7 @@ about semantics. The language did not add any runtime constructs. It
 did not affect performance. Instead it added a type system, and more
 importantly, it taught a community that did not use types, that did
 not have high quality tooling[^3], that did not have a culture of
-correctness, to adopt these values.
+correctness, to adopt these values. That is an incredible feat.
 
 [^3]: Recall that TypeScript came out in 2012. Babel and Webpack came
     out in 2014.
@@ -104,13 +108,16 @@ All of this is to say that TypeScript made some trade-offs 10 years
 ago that had a massive effect on the language. And now, with that time
 passed, I think it's time for new languages with a new set of
 trade-offs. Specifically, I want a language that has soundness, that
-has type inference, and that has quick compilation speeds. That's
-great and all, but what are the corresponding trade-offs that come
-with these choices? Well, to have soundness, the language should have
-explicit runtime type checks. This does mean more overhead for using
-JavaScript libraries in this new language. The language will not try
-to type check the various JavaScript patterns, but instead treat
-existing JavaScript code as something to interoperate with.
+has type inference, and that has quick compilation speeds.
+
+That's great and all, but what are the corresponding trade-offs that
+come with these choices? Well, to have soundness, the language will
+not try to type check the various JavaScript patterns, but instead be
+a separate language that compiles to JavaScript with a simpler type
+system. It will treat existing JavaScript code as foreign code to
+interoperate with. It will have explicit runtime type checks for
+JavaScript code. And it will be implemented in a different, native
+language.
 
 Why do I want this? Well first, I want this because I like writing
 languages that have sound and relatively simple type systems[^4]. I want a
@@ -135,7 +142,8 @@ TypeScript and with it they started to get comfortable listening to
 the compiler and modeling their data in types. They started playing
 around with languages like Rust and Swift and Kotlin. They started to
 appreciate good tooling. Not to say that people would have rejected a
-type-safe language ten years ago, but it would have been a lot harder.
+type-safe language ten years ago, but it would have been a lot harder
+to gain adoption.
 
 # ReScript/ReasonML
 
@@ -147,13 +155,13 @@ nice. You could use any JavaScript library with relative
 ease. Likewise, I believe traits are a better fit for users. They map
 onto other language features like Java interfaces and C++
 concepts. They facilitate features like easy printing of any type via
-a Display trait. This may seem superficial, but it's preventable
-usability quirks like "how do I print this???" or "why is + used for
-integer addition and +. used for float addition?" that put people off
-from languages. Furthermore, I'd like to remove some extra stuff like
-objects, linked lists, polymorphic variants, etc. I was also not
-impressed with ReScript's developer experience and error messages when
-I tried it last.
+a Display trait. This may seem superficial, but it eliminates
+preventable usability quirks like "how do I print this???" or "why
+is + used for integer addition and +. used for float addition?" that
+put people off from languages. Furthermore, I'd like to remove some
+extra stuff like objects, linked lists, polymorphic variants, etc. I
+was also not impressed with ReScript's developer experience and error
+messages when I tried it last.
 
 That said, I'm not ruling out the possibility that ReScript is the
 correct path forward. I need to give it another shot, as my
@@ -180,13 +188,18 @@ beyond security. Safety is the ability to use a value without worrying
 if it's actually null. Safety is the ability to model the domains of
 your values as types and know that they will be correct. Safety is the
 ability to have mutability without introducing bugs or
-confusion. Rust's concept of unsafe blocks allows users to have their
+confusion. JavaScript, due to its dynamic features, is fundamentally
+unsafe. Rust's concept of unsafe blocks allows users to have their
 safe zone, but also interact with the large corpus of unsafe code. The
 same should be true with browser based languages.
 
 As for runtime checks, I believe they would worth the overhead. We
 already do plenty of schema validation in JavaScript. It's just done
-with ad-hoc mechanisms like [zod](https://github.com/colinhacks/zod).
+with ad-hoc mechanisms like
+[zod](https://github.com/colinhacks/zod). They will probably either
+take the form of being able to derive an automatic conversion to a
+language type that errors at runtime, or the ability to pattern match
+on a JavaScript value.
 
 # WebAssembly
 
@@ -225,14 +238,26 @@ subset could interact with the outer code with a `dynamic`
 block. These are all hypotheticals but I believe they're worth
 exploring.
 
+# Implementation
+
+The language will probably be implemented in Rust. This is mostly
+because I'm a fan of Rust and I believe the combination of algebraic
+data types, relatively fast code, limited but available mutability,
+and decent libraries is a good fit for a compiler.
+
+If WebAssembly evolves sufficiently such that the performance is close
+to native, I would consider bootstrapping the compiler with a subset
+of the language that compiles to fast WebAssembly. But a Rust compiler
+would probably be more than sufficient for quite a few years.
+
 # Conclusion
 
-If you've noticed, the previous two sections are essentially taking
-ideas from systems languages such as unsafety and hardware
-acceleration, and applying them to a browser based language. This is
-by design. Some of the most interesting programming languages work is
-being done at the systems level. All I wish is that these ideas make
-it into the browser.
+If you've noticed, the Type Safety and WebAssembly sections are
+essentially taking ideas from systems languages such as unsafety and
+hardware acceleration, and applying them to a browser based
+language. This is by design. Some of the most interesting programming
+languages work is being done at the systems level. All I wish is that
+these ideas make it into the browser.
 
 I've titled this post "The Next Browser Language", but I want to be
 clear, it's not a singular language. My hope is that there will be

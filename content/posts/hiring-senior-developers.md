@@ -18,4 +18,5 @@ same time, when we discussed hiring goals, he emphasized repeatedly
 that we hire senior developers.
 
 Put those two thoughts together and he was effectively saying that we
-should hire senior developers who don't cost that much. I don't really understand what that'd
+should hire senior developers who don't cost that much. I don't really
+understand what that'd
