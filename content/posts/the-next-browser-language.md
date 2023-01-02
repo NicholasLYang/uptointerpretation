@@ -1,7 +1,7 @@
 ---
 title: "The Next Browser Language"
-date: 2022-12-15T01:04:56-05:00
-draft: true
+date: 2022-12-27T01:04:56-05:00
+draft: false
 ---
 
 Let's say you're writing some front-end code. How many options are

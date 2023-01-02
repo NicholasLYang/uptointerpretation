@@ -48,27 +48,24 @@ never occur. Sometimes that's true, but bugs are also a factor of
 life. In many cases I'd rather have shipped software with some bugs
 versus a hypothetical piece of software with no bugs.
 
-2. Have you validated your product?
+2. Have you validated your rewrite as a product?
 
-By doing a rewrite, you have commited to a long process before you go
-to market. If you're going to invest this amount of time into a
-rewrite, you should be certain that this product is something that
-people will actually use. More than that, you should be certain that
-this product fulfills a pressing, painful need. If you haven't, then
-do that before you rewrite.
-
-You should also validate the benefits of your rewrite. If you're
-rewriting for performance, validate that performance is important for
-users. This isn't just asking people "do you want a faster X", because
-they'll always say yes. Nobody wants a slower tool. It's instead
-ensuring that slowness is what's preventing other people from using
-your tool. It's ensuring that speed is a sufficient reason for people
-leaving your competitors. The same is true with safety.
+By doing a rewrite, you have commited to a long process of
+transforming your codebase and therefore your product. If you're going
+to invest this amount of time into a rewrite, you should be certain
+that it is necessary from a product perspective. Basically, you should
+be certain that the benefits from the rewrite will directly allow you
+to gain more users. If you're rewriting for performance, validate that
+performance is important for users. This isn't just asking people "do
+you want a faster X", because they'll always say yes. Nobody wants a
+slower tool. It's instead ensuring that slowness is what's preventing
+other people from using your tool. It's ensuring that speed is a
+sufficient reason for people leaving your competitors. The same is
+true with safety.
 
 Sometimes your product can be over-validated. If your product is
 gaining users like mad and has dozens of feature requests, it may not
-be in your interest to stop and rewrite. Perhaps you can build these
-new features in the new language.
+be in your interest to stop and rewrite.
 
 3. How much should you rewrite?
 
