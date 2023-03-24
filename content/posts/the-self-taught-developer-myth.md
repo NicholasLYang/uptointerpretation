@@ -1,7 +1,7 @@
 ---
-title: "The Self Taught Developer Paradox"
-date: 2023-01-06T11:19:54-05:00
-draft: true
+title: "The Self Taught Developer Myth"
+date: 2023-01-18T0:00:54-05:00
+draft: false
 ---
 
 I have a problem with the phrase "self taught developer". It's not
@@ -9,10 +9,7 @@ that I take issue with autodidacts. Far from it; I find the phrase
 redundant. Every developer is a self taught developer.
 
 Some of us may take courses in school and may learn to write code
-under the guidance of [a
-brilliant](https://en.wikipedia.org/wiki/Gerald_Jay_Sussman),
-[at-times eccentric](https://en.wikipedia.org/wiki/Matthias_Felleisen)
-[professor](https://en.wikipedia.org/wiki/David_J._Malan). Others
+under the tutelage of a brilliant, perhaps eccentric professor. Others
 might learn via after school programs or online courses. But the nice
 guided path of professors and courses never lasts. Eventually, whether
 for work or for personal interest, you have to teach yourself.
@@ -77,4 +74,13 @@ documentation.
 So when people tell new programmers to do projects or to teach
 yourself a new language, it's not out of some abstract notion of work
 ethic. It's because reading about a new language and using it to write
-a web server is as close as you can get to real world programming.
+a web server is as close as you can get to real world
+programming. Especially if you have to spend hours reading confusing
+documentation, scrolling through GitHub Issues and rereading your
+code. That is ultimately the essence of programming: constant, ad-hoc,
+seat-of-your pants self-teaching.
+
+This is also why it's not worth hemming and hawing about the specific
+programming language or front-end library to learn. The point is not
+that you learned React or that you learned Vue. The point is that you
+taught yourself and figured it out. That's what matters.
