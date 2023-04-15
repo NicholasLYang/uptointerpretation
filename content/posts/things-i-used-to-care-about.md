@@ -194,3 +194,92 @@ call each other, but then worry that it's not abstract and
 professional enough, maybe I should add some generics and traits? When
 really, no, abstraction is a cost you pay when you have to limit
 complexity. If there is no complexity to limit, don't abstract.
+
+# Function Length, DRY, Single Return and other Clean Code-isms
+
+In a sense these were the ESLint rules before ESLint rules. In code
+review you'd be lectured that a function longer than 10 lines needed
+to be split up, or that you should only have a single return
+statement, or that repeated code was evil.
+
+There's somewhat reasonable justification for these concepts. Long
+functions can be quite hard to read, while smaller utility functions
+can help with abstraction. If you have a lot of complicated control
+flow, i.e. a lot of what's called cyclomatic complexity, that can be
+hard to read (although I don't know how you could conclude that only a
+single return statement is an acceptable solution). Repeated code does
+add to mental overhead and requires changes to be propagated to
+multiple places in the codebase, leaving the door open for partial
+migration states.
+
+However...there are also really compelling counter-examples. Sometimes
+you just want to read a long function top to bottom instead of jumping
+into 7 different utility functions. I used to feel guilty about
+writing large functions in my compiler, but then I realized that the
+long functions consisted of pattern matching and handling multiple,
+mutually exclusive cases. In which case, was it so hard to read?
+No. If one case started to get really long, maybe I'd factor it out
+into a separate function, but until then, there really was no need.
+
+Similarly, multiple return statements are great! Often you want to
+handle the edgecases in the beginning, then continue on the happy path
+for the rest of the function. In fact some languages make this quite
+easy, such as Swift with guards and Ruby with post-fix if.
+
+In fact, the whole advice against cyclomatic complexity, basically
+lots of `if/else` conditions, is a little overwrung. There certainly
+can be cases where cyclomatic complexity is too high, but one cases
+where I actually don't think this applies is a long chain of unnested
+`if/else` statements:
+
+```
+if (day == "Monday") {
+  ...
+} else if (day == "Tuesday") {
+  ...
+} else if (day == "Wednesday") {
+  ...
+}
+```
+
+Now, there are cases where this chain is a code smell, say if you
+wanted to do something very dumb like get the first character of the
+day, you could obviously rewrite this to:
+
+```
+day[0]
+```
+
+But if you were genuinely doing logic that depended on the day, this
+is probably the best option. Heck, even if you were mapping to some
+data, like say an internal id, I don't think this would be a bad
+idea. Yes, yes, you could create a hash map and index with the day,
+but then you're allocating memory (unless your compiler is *really*
+smart) and you're having to chase a pointer, for what's basically the
+same code. Sure this is all premature optimization, but you could
+argue that using a hash map is premature refactoring.
+
+The same is true with Don't Repeat Yourself (DRY). Often times it's
+totally fine to repeat yourself. The guideline I generally follow is
+to only deduplicate after three usages or if the repeated piece is
+longer than a few lines. It should also depend on the context of the
+code. For instance, I may have a helper function that I use in two
+different Rust crates. I could factor it out into a separate crate,
+but that would be a massive amount of overhead for a single
+function. Instead, I may just copy the function and include a comment
+noting that there is a duplicate in the other crate.
+
+Again, this is a situation where people took general guidelines and
+turned them into dogma. Furthermore, when giving this advice, what is
+often neglected is the prioritization of the guidelines. Yes, you
+shouldn't repeat yourself, but is that more or less important than
+code readability? Is cyclomatic complexity important unto itself or is
+it in service of legibility? You can make a list of good qualities but
+the list will be self-contradictory and impossible to fulfill. The
+tricky aspect of programming is not the making of the list, but
+balancing all of the items in a feasible manner.
+
+# File Structure
+
+I used to use emacs with a relatively sparse config. Therefore, to
+navigate to code, I'd have to go searching through the file tree.
