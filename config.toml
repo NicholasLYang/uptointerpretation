@@ -1,7 +1,7 @@
 languageCode = "en-us"
 baseUrl = "https://uptointerpretation.com"
 title = "Up to Interpretation"
-theme = "anubis"
+theme = ["github.com/Mitrichius/hugo-theme-anubis"]
 paginate = 10
 enableRobotsTXT = true
 
