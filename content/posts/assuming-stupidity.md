@@ -47,7 +47,7 @@ clicking on Terminal. Then you'll need to generate your keys---
 
 **Junior Dev** Uh huh, I already did that. <sup>I've sshing into servers since I was 15</sup>
 
-**Assuming Alex** SSH is how we connect to servers. You can write commands on SSH like `ls`. 
+**Assuming Alex** SSH is how we connect to servers. You can write commands on SSH like `ls`.
 
 **Junior Dev** ... <sup> Buddy I wrote a terminal in class </sup>
 

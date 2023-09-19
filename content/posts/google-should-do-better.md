@@ -77,7 +77,7 @@ inside Google there are perhaps 5-6. Only a few weeks out from my
 start date would I get to know my actual team. From my perspective
 this is rather baffling. I'm interested in compilers and I'd consider
 myself pretty decent at them for a new grad software engineer. It's
-quite baffling that I can't be guaranteed a spot on a compilers team,
+quite absurd that I can't be guaranteed a spot on a compilers team,
 when I truly believe that would be the best way for me to help the
 company.
 

@@ -282,4 +282,15 @@ balancing all of the items in a feasible manner.
 # File Structure
 
 I used to use emacs with a relatively sparse config. Therefore, to
-navigate to code, I'd have to go searching through the file tree.
+navigate to code, I'd have to go searching through the file tree. I
+developed a lot of opinions on how to structure a codebase and make
+things properly isolated and modular.
+
+Now I use an IDE and can search through files without having to go
+through directories. Guess who doesn't care a single bit about
+directory structure anymore? This guy! I might care about file names
+and I might care a tiny bit about folder names to disambiguate, but
+other than that, nope, don't care.
+
+This isn't to say that I keep my code in utter disarray. What it means
+is that the organization of my code is based around

@@ -47,11 +47,11 @@ an opportunity for better competition and better improvement.
 
 This applies to fencing; it also applies to many other situations. For
 instance, small tech companies. There are many excellent small tech
-companies (I work at one!). But there is a massive massive difference
-between a small tech company where everybody has a varied work
-experience including some time in big tech, and a small tech company
-where everybody has a very limited work experience and nobody's worked
-at a big tech company.
+companies---I've worked at a few. But there is a massive massive
+difference between a small tech company where everybody has a varied
+work experience including some time in big tech, and a small tech
+company where everybody has a very limited work experience and
+nobody's worked at a big tech company.
 
 I don't mean to lionize big tech. There's certainly a lot of
 incompetence and poor engineering at big tech companies. But it's a
@@ -71,9 +71,9 @@ programming standards, a horrible case of [magpie
 development](https://blog.codinghorror.com/the-magpie-developer/) and
 [expert
 beginners](https://daedtech.com/how-developers-stop-learning-rise-of-the-expert-beginner/). The
-codebase was an absolute mess; the culture was to ship as fast as
-possible; the programming team was utterly beholden to the product
-managers and the marketing team. It was a mess.
+codebase was an absolute mess; the culture was to throw code against
+the wall and hope it stuck; the programming team was utterly beholden
+to the product managers and the marketing team. It was a mess.
 
 The worst part about being in such a company is that the experience
 becomes normalized. You just see software development as this
@@ -85,34 +85,6 @@ company. Even then, I remember going to a big tech company and being
 utterly amazed at how much better it was. There was no fire and
 fury. There was no micromanaging boss breathing down my neck. There
 was no incompetent CTO making arbitrary decisions on the fly.
-
-One final experience with provinciality comes from academia. I'll
-admit that I have not experienced this first-hand. In
-academia---specifically math and computer science---provinciality can
-be rather challenging to determine because professors by their very
-nature are isolated in very specific subfields. That doesn't mean
-they're provincial per se, nonetheless it can be easy to confuse the
-two.
-
-In this case, provinciality can come with age. Professors who are
-still tenure-track and not tenured need to prove their research again
-and again. They have to hustle to get grants, to get papers accepted,
-etc. Professors who are tenured do not have to do this. Professors who
-are tenured and close to retirement especially do not have to do
-this. Therefore, it can be a little dangerous getting advice from an
-older professor close to retirement. The unfortunate truth is that
-many times, a subfield dies with a professor. A professor may push
-their student into doing work that is no longer popular, and therefore
-has extremely limited career prospects. Even worse, they can
-discourage their students from pursuing other, more fruitful
-areas. There's an old adage that if a respected elder in a field says
-that something can be accomplished, it almost surely will be. If they
-say it is impossible, then it definitely will be accomplished!
-
-I'm not saying to avoid elderly professors. They're often wonderful
-people who can teach you multitudes. It's just better at times to seek
-out advice from more than just elderly professors. Conferences are a
-great way to get a feel for the larger academic world.
 
 Which brings me to my advice on how to avoid provinciality. First,
 seek out information beyond your environment. Read online, find books,
