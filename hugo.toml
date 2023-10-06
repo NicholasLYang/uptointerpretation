@@ -1,0 +1,3 @@
+[module]
+[[module.imports]]
+    path = 'github.com/Mitrichius/hugo-theme-anubis'

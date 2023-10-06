@@ -1,7 +1,7 @@
 ---
 title: "Post-Clean Code"
-date: 2023-03-18T00:04:36-04:00
-draft: true
+date: 2023-09-19T00:04:36-04:00
+draft: false
 ---
 
 I've noticed that there's been a push-back on some commonly cited best
@@ -22,11 +22,10 @@ happening:
 I remember reading and believing that functions should be nice and
 short, that anything long should be refactored into smaller
 pieces. But then a few things happened. First, I read some code that
-obeyed these conventions that I had not written myself and realized
-hey, this kinda sucks. I have to jump to five different definitions to
-understand even half of what's going on. Maybe it's just me, but it's
-a lot easier to read code when you can actually read it linearly from
-top to bottom.
+obeyed these conventions and realized hey, this kinda sucks. I have to
+jump to five different definitions to understand even half of what's
+going on. Maybe it's just me, but it's a lot easier to read code when
+you can actually read it linearly from top to bottom.
 
 The second thing that happened was that I read and wrote some code
 that had really long functions and...it was fine? The code would not
@@ -38,10 +37,13 @@ functions. But it's sometimes forgotten in the codification of these
 rules that most of them are tradeoffs. Shorter functions may make it
 easier to understand them as individual abstractions, but they also
 increase the fragmentation of your code. Longer functions may be more
-complex, but they're compact and linear. It doesn't help that usually
-this advice goes from a long, nuanced book full of examples to a
-second-hand recollection in a tweet to folk knowledge, or worse, a
-particularly naggy linter rule.
+complex, but they're compact and linear. Moreover, abstraction is not
+an inherently good thing. It can create simple interfaces, but it can
+also obscure the actual intent of the code.
+
+It also doesn't help that usually this advice goes from a long, nuanced
+book full of examples to a second-hand recollection in a tweet to folk
+knowledge, or worse, a particularly naggy linter rule.
 
 2. The people giving the advice changed.
 
@@ -64,6 +66,16 @@ you need different advice for different situations, instead of one
 single source declaring that *this* is how you should write code
 for all programmers everywhere.
 
+On the flip side, this does mean that the barrier to entry for
+becoming a programming thought leader is a lot lower. Or is it? A lot
+of the early thought leaders wrote books, which is a lot harder than a
+blog post, but it's not like they were inherently better programmers
+for having written a book. Today, while you may be able to get your
+thoughts out, it's much harder for them to be noticed and
+elevated. Plus many modern thought leaders are involved in open
+source, which allows you to judge for yourself if their code is
+actually clean.
+
 3. Languages have gotten better (and worse).
 
 Leo White said something interesting in Signals & Threads about how he
@@ -80,13 +92,14 @@ nicely.
 On the flip side, because of Rust's borrow checker, it's sometimes a
 lot easier to just write things in a longer, less abstracted
 manner. Otherwise I tend to end up in lifetime soup, or worse, closure
-types soup. Or the code doesn't even work.
+types soup. Or the code doesn't even work. That's not a good thing,
+but it does have an inevitable effect on my code.
 
-Also stuff like Visitor patterns can be implemented with an enum and
-pattern matching. At worst you may need a trait implementation but
-usually that's overkill. Often times these patterns were created to
-get around limitations like lack of pattern matching or first class
-functions.
+There's also a lot of code that just feels like a workaround or
+unnecessarily defensive due to the constraints of the
+language. Visitor patterns can become enums and pattern matching.
+Strategy patterns can be closures or enums. Booleans don't have to be
+prefixed with `is-` if you have type checking.
 
 4. It's just fashion.
 

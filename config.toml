@@ -1,7 +1,7 @@
 languageCode = "en-us"
 baseUrl = "https://uptointerpretation.com"
 title = "Up to Interpretation"
-theme = ["github.com/Mitrichius/hugo-theme-anubis"]
+theme = "github.com/Mitrichius/hugo-theme-anubis"
 paginate = 10
 enableRobotsTXT = true
 
@@ -16,6 +16,6 @@ enableRobotsTXT = true
 [params]
 author = "Nicholas Yang"
 description = "A blog on programming and other things"
-copyright = "Copyright © 2022 Nicholas Yang"
+copyright = "Copyright © 2023 Nicholas Yang"
 highlightjs = true
 rssAsSocialIcon = true
