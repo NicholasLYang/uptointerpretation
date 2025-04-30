@@ -52,7 +52,7 @@ blandly outraged like "our country is going down the drain! We need
 change!" and get a vocal reception, even if Alice believes the
 solution is estate tax reform while Bob believes it's fixing tort law,
 the speakers of these talks can give some blandly outraged statements
-about how programming is awful these days, and let each audiencem
+about how programming is awful these days, and let each audience
 member fill in the exact issue they have. Speakers may retort that if
 the audience pays attention, they'd understand the precise issue
 discussed. I'd counter that the majority of people will read the title
@@ -73,7 +73,8 @@ I suppose what I'm really criticizing is a genre of talk that borders
 on a manifesto. Programming is a subjective endeavor and to an extent
 I do not begrudge someone for having a strong opinion. But the
 difference between a strong opinion and a manifesto is that a
-manifesto is inherently adversarial, it is inherently a 
+manifesto is inherently adversarial, it is inherently an aggressive,
+general statement about programming, which, again, is subjective.
 
 - No nuance. Fails to account for alternative incentives and difficulty
 - Using people's general issues with programming to get people on board

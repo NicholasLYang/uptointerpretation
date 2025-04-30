@@ -1,0 +1,13 @@
+---
+title: "Explaining OCaml Quantification"
+date: 2025-04-01T11:50:25-04:00
+draft: true
+---
+
+I'm trying to learn OCaml. In the process, I came across a guide on
+[OCaml's generalization
+algorithm](https://okmij.org/ftp/ML/generalization.html). It's a good
+guide, but I had to fill in a few gaps in the process. Here's my
+attempt to write those up.
+
+## What Is Quantification?

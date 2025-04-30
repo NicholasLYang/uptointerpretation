@@ -1,6 +1,6 @@
 ---
 title: "How Big Could Rust Be?"
-date: 2023-09-29T13:37:45-04:00
+date: 2023-10-10T13:37:45-04:00
 draft: false
 ---
 
@@ -40,21 +40,28 @@ undercurrent of C and C++. Almost everything you use is supported by
 this code. It's device drivers, browsers, text editors, network
 protocol parsers, compilers, and so on. Heck, a lot of the
 foundational Python libraries rely on tightly optimized C and C++
-code.
+code. It's not code that's tweeted about or posted on Hacker
+News. But it's out there.
 
-In 10 years, a significant portion of this code will be in
-Rust. Perhaps not all; Zig, Go, and other languages will certainly
-take a portion. Nonetheless I anticipate Rust will take a large
-slice.
+In 10 years, a significant portion of this code will be in Rust. Not
+all of it; Zig, Go, and other languages will certainly take a
+portion. Nonetheless I anticipate Rust will take a very large slice.
 
 Why not C/C++? Well, there's the standard answer of security issues,
 memory bugs, etc. Those should not be underlooked. Bugs cost money, as
-do security issues. Furthermore, there's the issue of hiring. Before
-Rust became popular, the general sentiment was that it would attract
-ex-C++ users and ex-functional programming users, since those were the
-two main lineages behind Rust. And indeed both groups were
-attracted. But a third group emerged of ex-scripting language users,
-people who wrote Ruby and JavaScript.
+do security
+issues. [Microsoft](https://www.zdnet.com/article/microsoft-70-percent-of-all-security-bugs-are-memory-safety-issues/)
+and
+[Google](https://source.android.com/docs/security/test/memory-safety)
+have both published studies indicating that memory safety bugs cause a
+significant percentage of their security issues.
+
+Furthermore, there's the issue of hiring. Before Rust became popular,
+the general sentiment was that it would attract ex-C++ users and
+ex-functional programming users, since those were the two main
+lineages behind Rust. And indeed both groups were attracted. But a
+third group emerged of ex-scripting language users, people who wrote
+Ruby and JavaScript.
 
 What people didn't realize was that there were a large contingent of
 people who wanted to write systems level code but for whatever reason
@@ -98,16 +105,18 @@ that can create discomfort.
 But as time passes, as generations come and go, more and more
 programmers will come of age with Rust as their initial context for
 systems level programming. They won't see it as restrictive because
-it'll be natural to them.
+it'll be natural to them. As the old adage goes, science moves forward
+one death at a time. In a more optimistic tone, software development
+moves forward with every new developer.
 
 Indeed the biggest challenge to Rust is not C, C++, Go or any
 established language. It's the next language---the language that
 leapfrogs Rust by being a better version of it. Maybe it has a better,
-easier borrow checker. Maybe it's faster to compile. That is the main
-obstacle towards Rust becoming a true A-list language[^1].
-
-[^1]: Even then, it's quite unlikely that a new language will suddenly
-    leapfrog Rust, given that Rust has a 15 year head start.
+easier borrow checker. Maybe it's faster to compile. Maybe it solves
+the orphan rule. That is the main obstacle towards Rust becoming a
+true A-list language. And even then, it's quite unlikely that a new
+language will suddenly leapfrog Rust, given that Rust has a 15 year
+head start.
 
 # Beginner Friendly
 
@@ -119,17 +128,17 @@ part of the story. Rust comes with simple, excellent tooling. You can
 jump into almost any project and build it with `cargo build`. There's
 a built in formatter and linter that helps steer your code in the
 right direction. You don't have to fiddle with compiler flags or
-Makefiles. The incidental complexity of setting up a tool is much more
-frustrating than the inherent complexity of a language.
+Makefiles. This makes Rust a very compelling language to learn. The
+incidental complexity of setting up a tool is much more frustrating
+than the inherent complexity of a language.
 
 And the error messages! Rust has fantastic error messages. They're
 often so good that you can solve your issue simply by reading the
 message and applying the recommended solution. You can learn the
 borrow checker simply by writing Rust and fighting through the
-compiler messages (although I wouldn't recommend it). The difference
-between a good error message and a bad one is a long detour through
-StackOverflow and GitHub Issues versus a quick fix that keeps your
-flow state.
+compiler messages. The difference between a good error message and a
+bad one is a long detour through StackOverflow and GitHub Issues
+versus a quick fix that keeps your flow state.
 
 Packages are also massively helpful for beginners. Instead of rolling
 my own implementation, I can use a package written by a more qualified
@@ -141,18 +150,19 @@ packaging options, but nothing on this level.
 Rust's strong culture of documentation means you can jump into almost
 any library and figure it out. I still remember trying to learn
 Haskell and having to discern documentation from a function type
-signature. Or having to dive into the code to understand a JavaScript
-library. There's still some rough edges here, but the ecosystem is by
-and large excellent at documenting libraries.
+signature. Or being really confused about where to find the damn
+documentation for a JavaScript library. There's still some rough edges
+here, but the ecosystem is by and large excellent at documenting
+libraries.
 
 One other undersung aspect is syntax. I know it's gauche to discuss
 syntax as meaningful in programming language circles, but it truly is
-important. That is how beginners first interact with your language and
-interpret its meaning. Rust, by staying relatively close to C/C++
-syntax, made it much more familiar to users than other languages with
-more esoteric syntax. I know that I've encountered OCaml or Haskell
-code that is so syntactically foreign that I struggle to understand
-it.
+crucal for adoption. That is how beginners first interact with your
+language and interpret its meaning. Rust, by staying relatively close
+to C/C++ syntax, made it much more familiar to users than other
+languages with more esoteric syntax. I know that I've encountered
+OCaml or Haskell code that is so syntactically foreign that I struggle
+to understand it.
 
 # Other Languages
 
@@ -176,7 +186,7 @@ makes Rust a more compelling option for many developers. OCaml is
 starting to improve its tooling---I'm quite excited actually to see it
 go through a renaissance---so if it reaches a point where it's
 comparable to Rust, I could see it siphoning back some users from
-Rust.
+Rust. But until then, Rust still has the advantage.
 
 And really, it's not that Rust is per se better than these other
 languages. That's completely subjective and there are certainly

@@ -298,9 +298,25 @@ write good code. They had this perpetual attitude that they were under
 fire and needed to deliver code as soon as possible. Again, people
 would come in on Saturdays to finish their work.
 
+There were a few others on the team, such as Bharat, who was our scrum
+master. Oh yeah, we practiced agile. Except Bharat's entire job
+appeared to just be nagging us about keeping only one task active at a
+time, and quizzing us on task sizes. Task sizes, if you're not
+familiar, is a fun exercise in which agile people pretend they're not
+asking for estimates by hiding behind analogies like t-shirt
+sizes. Estimates aren't inherently bad, but with a codebase as messy
+as MyTime's, they weren't very accurate. It's like looking for your
+phone in a messy bedroom with piles of clothes everywhere, versus
+looking in a clean, organized room. 
+
 After I joined, another developer, Paul, joined. Honestly Paul joining
 was a huge relief. First, he was able to completely validate my
-concerns. He came and immediately realized the same issues that I had.
+concerns. He came and immediately realized the same issues that I
+had. In fact, it was a little uncanny seeing his progression of
+emotions mirror mine. He started out thinking he could change MyTime's
+issues, and impose sane development practices. After some time dealing
+with everybody, he got more and more discouraged and eventually
+angry. This was basically my journey as well.
 
 - Team
   - Kevin: Underpaid

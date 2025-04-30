@@ -1,7 +1,7 @@
 ---
 title: "Alternate Hiring Strategies"
-date: 2022-07-28T00:12:48-04:00
-draft: true
+date: 2023-12-26T00:12:48-04:00
+draft: false
 ---
 
 I'm not claiming all of these will work, but they're worth a shot:
@@ -41,6 +41,13 @@ backgrounds, but it's a little presumptuous to have them solve your
 problem. Especially because there's probably thousands of other people
 also asking.
 
+I strongly believe these efforts need to be outbound. A lot of
+underrepresented people are either unaware of your company, or find it
+intimidating to apply. Job listings can be very scary! You need to put
+in the extra effort to encourage people to apply and give them
+information on the process. Or just collect resumes and start them on
+the process without them having to apply.
+
 ## Last Minute Hiring Cycle
 
 New graduate and internship roles operate on hiring cycles. These days
@@ -61,9 +68,13 @@ i.e. people who may be underrepresented.
 There's an incredible trove of Japanese programmers doing cool systems
 stuff. Some of them are barely out of high school! The only issue is
 that most of their documentation and personal websites are in
-Japanese. Fortunately Google Translate works pretty well.
+Japanese. Fortunately Google Translate works pretty well. I wouldn't be
+surprised if there's similar communities in other countries.
 
-I wouldn't be surprised if there's similar communities in other countries.
+Many of them likely do speak decent enough English to be good
+employees. But even if they don't, could you hire them an English
+tutor? As long as they're okay with it, I think spending the few
+thousand to train them in English would be money well spent.
 
 ## Ask Professors
 
@@ -80,15 +91,22 @@ you could amass a really solid list of candidates. Add on a Twitter
 search for keywords like "compiler, llvm, io_uring, L1 cache" and
 you'd get some cool people.
 
+You could also find the really popular people on Twitter/GitHub, then
+see who *they* follow. If Dan Abramov follows some random college
+student, maybe that person is a good candidate?
+
 ## Pre-empting
 
 Create a deal where if a developer gets to the final round with
 certain companies, you'll give them a blazing fast process. You should
 already have a super fast process, but I'm talking reach out on
 Monday, offer by Friday. However you do have to trust that these
-companies have good processes. I wouldn't do this with say, Google for
-instance.
+companies have good processes.
 
+For every developer who strings out the process waiting for the best
+offer, many others will just take what's in front of them. If you can
+speed a developer through the process faster than another company can
+schedule a single interview, you'll get some great talent.
 
 ## Allow Unconventional Applications
 
@@ -101,6 +119,10 @@ underrepresented candidates. Why not take it to an extreme and remove
 them all? If a person is good but not in the way you imagined, why not
 take them still?
 
+Or maybe even disguise a job application as something else? Maybe you
+could offer free career advice to people and if they look talented,
+start the interview process.
+
 ## Create Unusual Events
 
 I'm not a huge fan of the big generic hackathon. It encourages the
@@ -112,12 +134,15 @@ dumb. Or what about a competition to build bots for a game that you
 invent? It could be really fun to have a semi-annual event and recruit
 out of it.
 
+It doesn't have to be a hackathon either. Maybe it's a reading
+group. Meetups are great hiring opportunities too.
+
 ## Open Test
 
 Google has the infamous foobar test where if you search the right
-terms, it reveals itself for you to take. It's a nice idea but not
-well done. I took it and it just deposited me at the beginning of the
-already annoyingly long Google process.
+programming terms, it reveals itself for you to take. It's a nice idea
+but not well done. I took it and it just deposited me at the beginning
+of the already annoyingly long Google process.
 
 It'd be nice if it was a simpler test. Maybe something like writing a
 simple project and documenting it. Of course, cheating is a problem,
@@ -129,3 +154,40 @@ similar tool.
 
 The issue with an open test is that you might get a lot of submissions
 which you then have to go through.
+
+Perhaps you could create some sort of online course? If you complete
+the course, you get a shot at an interview.
+
+## Content Marketing
+
+Tech blogs are a well known form of content marketing for
+companies. Some companies are branching out into podcasts and YouTube
+videos too. I think you could go a lot further! Vercel, my employer,
+has some really excellent developer advocates, and it goes a long way
+in building brand trust. Could you start publishing books? Making
+zines? Maybe you could have multiple podcasts? You could do a weekly
+tech news podcast and a more in depth technical one. Good developer
+content is still very rare. You could easily dominate the market given
+enough resources and quality people.
+
+If you have some developers who are interested, could they stream
+their programming? It'd have to be code you're willing to show
+publicly of course.
+
+## Accessibility
+
+Think about the different ways in which a technical interview can
+create false negatives. People with anxiety may hate live coding
+exercises. People who have children or other time-consuming
+responsibilities may not be able to do take-home projects. People who
+struggle with memory may not do well on random factoid
+questions. Someone with a language barrier may have difficulty
+explaining something verbally, but can write up a perfectly good
+document.
+
+There's never going to be a perfect interview, but you can at least
+provide options to people so they can showcase their best selves.
+
+I bet there's a lot of fantastic programmers with disabilities who are
+not being accurately judged by current interview techniques.
+

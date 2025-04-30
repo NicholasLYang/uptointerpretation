@@ -25,6 +25,33 @@ comprehension can be solved by simply more effort. A lot of functional
 programmers come from math backgrounds, so it makes sense that they
 would inherit these sensibilites.
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Why do these sensibilities prevail? I posit that there's a difference
 of internal aesthetic versus external aesthetic. As this is my own
 terminology, I should probably explain what I mean. Aesthetic refers

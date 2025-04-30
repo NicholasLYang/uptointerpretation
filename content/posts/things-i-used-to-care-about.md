@@ -1,7 +1,7 @@
 ---
 title: "Things I Used to Care About"
-date: 2023-03-21T09:15:24-04:00
-draft: true
+date: 2024-02-21T09:15:24-04:00
+draft: false
 ---
 
 Do you ever look back and marvel at how much fashion has changed? In
@@ -125,6 +125,9 @@ Similarly, I suspect that in Rust, you generally have a lot fewer
 variables and objects in scope. Nested functions are not encouraged
 and generally most values are moved after one or two uses.
 
+I wouldn't be surprised if we see more languages that permit if not
+encourage shadowing.
+
 # Formatting
 
 I started programming seriously right before formatters became super
@@ -144,8 +147,9 @@ of developers have begrudgingly embraced formatters.
 
 Even when I worked on a formatter at Rome, we eventually concluded
 that there was no point to changing any of Prettier's choices. It
-would just cause large diffs when adopting our formatter and no
-material benefit.
+would just cause large diffs when adopting our formatter. Sure, we may
+have preferred a different style to Prettier, but would it have been
+worth the diffs?
 
 # (Many) ESLint Rules
 
@@ -159,7 +163,8 @@ me, I can't say I do.
 
 This isn't to say that linters are bad or out of vogue. But I think
 there was a period where we were really fanatical about lint rules and
-now, hopefully, we've backed off a little.
+now, hopefully, we've backed off a little. Nowadays linters seem more
+focused on correctness and less so on style.
 
 The rational often cited was that linters enforced standardization and
 therefore less mental overhead when it came to reading the code. I do
@@ -292,5 +297,10 @@ directory structure anymore? This guy! I might care about file names
 and I might care a tiny bit about folder names to disambiguate, but
 other than that, nope, don't care.
 
-This isn't to say that I keep my code in utter disarray. What it means
-is that the organization of my code is based around
+This isn't to say that I keep my code in utter disarray. But I'm a
+little more okay with large files or flat directories. TypeScript
+famously keeps its entire type checker in a single `checker.ts`
+file. While that may be a little extreme, I do think it works well for
+them, especially versus having to jump between 10 different files just
+to trace a single type inference step.
+

@@ -27,11 +27,12 @@ The lifecycle goes as following:
 
 4. You tweet/xeet/blog about it to everyone, proudly showing off how
    you managed to become a true 10x developer with this one simple
-   trick.
+   trick. Maybe you buy the premium version or pay for a subscription.
 
 5. The placebo effect wears off. You go back to your normal work
    rate. But the tool must work! All of your friends seem to be using
-   it properly. You don't say anything out of embarassement.
+   it properly. You don't say anything out of embarassement. You don't
+   cancel your subscription, hoping that you'll return to it.
 
 6. You feel unproductive.
 
@@ -43,4 +44,18 @@ environment. A tool can only do so much to affect these factors.
 
 Indeed one issue I have with productivity tools is the rather generic
 category of productivity. In my view there's a lot of tools that
-improve my productivity significantly, but are
+improve my productivity significantly, but are not "productivity"
+tools. For instance, using a good IDE and getting familiar with the
+key commands has likely netted me a decent boost in productivity. Is
+an IDE a productivity tool? Not really, it's a developer tool. It's
+like that old adage, "what do you call alternative medicine that
+works? Medicine". Productivity tools that work are generally specific
+enough that they're not described as productivity tools.
+
+Of course, saying that productivity tools never work is patently not
+true. Some tools work for some people. But it's like gym
+memberships. For every person who goes to the gym, there's 4 people
+who pay for a membership and don't go. Productivity tools are gym
+memberships for programmers. They sell an aspiration, a promise to be
+better. A fancy new gym won't make you an athlete and a slick
+productivity tool won't make you a brilliant programmer.

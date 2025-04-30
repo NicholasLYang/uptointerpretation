@@ -2,4 +2,4 @@ module github.com/nicholaslyang/uptointerpretation
 
 go 1.21.1
 
-require github.com/Mitrichius/hugo-theme-anubis v0.0.0-20230918182456-01c3a53f124c // indirect
+require github.com/Mitrichius/hugo-theme-anubis v0.0.0-20250217111916-b427ef0f5999 // indirect

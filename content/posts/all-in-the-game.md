@@ -20,16 +20,16 @@ I'll preface this by emphasizing that I do not condone this
 behavior. I can have some sympathy as to why people play the
 game---immense financial reward that lifts them and their family from
 poverty---but I don't think it's fundamentally acceptable. Of course,
-this is on a spectrum, and some twisting of the truth on a resume i
+this is on a spectrum, and some twisting of the truth on a resume is
 not exactly a mortal sin.
 
 Let's give some examples. You are a part of your college's tech
 club. You show up to a couple meetings, maybe contribute one or two
-lines of code. You could list that on your resume as a member, or even
-omit it entirely since it's really not that substantial. Or...you
-could claim to be a vice president[^1] who wrote a codebase from
-scratch and deployed it. Who will know the difference? It's not like
-jobs will do a background check on a club membership.
+lines of code. You could list that on your resume as a member, or omit
+it entirely since it's really not that substantial. Or...you could
+claim to be a vice president[^1] who wrote a codebase from scratch and
+deployed it. Who will know the difference? It's not like jobs will do
+a background check on a club membership.
 
 [^1]: There's always a dozen vice presidents of clubs
 
@@ -43,7 +43,9 @@ startup, you tell people that you're an ex-Googler. I mean, sure, you
 are, but an internship is not the same as a 5 year stint. And of
 course on your resume you emphasize that you were using *Big Data*
 with terabytes of processing, i.e. you plugged stuff into a BigQuery
-table.
+table[^2].
+
+[^2]: Okay...I'm guilty of that one
 
 This compounds really quickly! Those last three examples could be in
 order. And they could in fact be preceeded by another few, say a
@@ -54,11 +56,11 @@ to get on Forbes' 30 under 30.
 I don't mean to say that someone who does these things is not
 talented, smart, hardworking, etc. They very well could be. *Could* is
 the relevant word here. If you know how to play the game, your actual
-abilities are almost irrelevant[^2] here. You could be a programming
-genius and a total mediocre coder and get pretty much the same
+abilities are almost irrelevant[^3] here. You could be a programming
+genius or a total mediocre coder and get pretty much the same
 outcome.
 
-[^2]: Playing the game plus some leetcode skills is probably enough
+[^3]: Playing the game plus some leetcode skills is probably enough
     for a really good career in software development.
 
 If you want a perfect example of students playing the game, go to a

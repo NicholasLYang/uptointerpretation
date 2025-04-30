@@ -1,6 +1,6 @@
 ---
 title: "A Tooling Orchestration Protocol"
-date: 2023-10-08T01:18:43-04:00
+date: 2023-10-22T01:18:43-04:00
 draft: false
 ---
 
@@ -8,7 +8,7 @@ I've written about what I call [Tooling for
 Tooling](https://uptointerpretation.com/posts/tooling-for-tooling/),
 basically meta-tools that help people build better developer tools
 faster and easier. Arguably the most famous and ubiquitous meta-tool
-is not actually a tool; it's the Language Server Protocol (LSP). By
+is not actually a tool---it's the Language Server Protocol (LSP). By
 defining a protocol for language implementations to communicate with
 editors, the LSP lets language authors write a single LSP server and
 let their users bring any editor that implements an LSP
@@ -24,16 +24,17 @@ restricted to IDEs on mainstream languages.
 
 However, the LSP does have its limits. It's fundamentally a tool for
 editors, so the abstraction is a persistent server that needs to be
-started up. This makes sense for an editor, but it doesn't scale well
-into other domains such as CLIs or web services. This also doesn't
-necessarily play well with how tools are implemented under the hood. A
-lot of tools are originally conceived and implemented as one-shot
-systems, i.e. you run `eslint` or `clang` and wait until the process
-ends. Usually this process takes a few seconds to run. Whereas a
-language server is queried repeatedly as the code changes, and is
-expected to return an answer within a few hundred milliseconds. This
-usually necessitates some amount of caching or incremental computation
-which is often awkwardly tacked on post-facto.
+started and queried. This makes sense for an editor, but it doesn't
+scale well into other domains such as CLIs or web services. This also
+doesn't necessarily play well with how tools are implemented under the
+hood. A lot of tools are originally conceived and implemented as
+one-shot systems, i.e. you run `eslint` or `clang` and wait until the
+process ends. Usually this process takes a few seconds to run. Whereas
+a language server is queried repeatedly as the code changes, and is
+expected to return an answer within a few hundred milliseconds (or
+risk providing a poor user experience). This usually necessitates some
+amount of caching or incremental computation, which is often awkwardly
+tacked on post-facto.
 
 There are attempts to extend the protocol with persistence
 ([LSIF](https://lsif.dev/) and
@@ -71,12 +72,13 @@ Second, when we talk about file watching, we usually mean something a
 little more sophisticated than just watching a list of files and
 returning changed or unchanged. Usually you want to have globbing to
 declare the set of files that are being watched, as well as which
-files to exclude. You probably want to filter via the `.gitignore`
-file, unless you want users to accidentally get terrible performance
-out of the box. And you likely want some way of surfacing which files
-have changed, so the tool can make an intelligent decision about what
-to do. Maybe it can only rebuild those files. Or maybe it can rebuild
-a single module instead of multiple modules.
+files to exclude. You probably want to filter using the `.gitignore`
+files, unless you want users to accidentally get terrible performance
+out of the box because you ended up watching `node_modules` and
+`dist`. And you likely want some way of surfacing which files have
+changed, so the tool can make an intelligent decision about what to
+do. Maybe it can only rebuild those files. Or maybe it can rebuild a
+single module instead of multiple modules.
 
 Beyond file watching, a watcher process has a few other
 requirements. Maybe you want to run it as a daemon. That would require
@@ -123,8 +125,9 @@ it would be nice to surface UI prompts to the user for interaction. Or
 maybe we want errors to appear in our [Vercel
 Spaces](https://vercel.com/docs/workflow-collaboration/vercel-spaces#runs)
 UI. Or going even deeper, maybe we want the ability for a tool to
-provide data that another tool takes in. All of this is not really
-feasible with our current approach of just executing scripts.
+provide data that another tool takes in. All of this is theoretically
+feasible with our current methodology of forwarding stdin and stdout,
+but it could be a lot nicer with a proper protocol.
 
 ## Solution
 
@@ -142,3 +145,6 @@ web UI, by a terminal, and by an error database.
 In a really ambitious case, all of these protocol messages could be
 backed by a content addressed store, which could allow you to replay a
 tooling execution, either remotely or locally.
+
+I'd love to build this. If you're interested too, send me an email at
+nick@nicholasyang.com.
