@@ -1,0 +1,35 @@
+---
+import { getCollection } from "astro:content";
+import FormattedDate from "./FormattedDate.astro";
+
+interface Props {
+    limit?: number;
+}
+
+const { limit } = Astro.props;
+
+let posts = (await getCollection("blog")).filter(post => post.data.draft !== true).sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+if (limit) {
+    posts = posts.slice(0, limit);
+}
+---
+<section class="container mx-auto px-4 py-8">
+  <ul class="list-none">
+      {
+          posts.map((post) => (
+                  <li>
+                    <a href={`/blog/${post.id}/`}>
+                      <h4 class="title">{post.data.title}</h4>
+                      <p class="text-[16px] text-gray-500">
+                        <FormattedDate date={post.data.pubDate} />
+                      </p>
+                    </a>
+                  </li>
+          ))
+      }
+  </ul>
+    {limit && <a href="/blog"><button>More</button></a>}
+</section>
