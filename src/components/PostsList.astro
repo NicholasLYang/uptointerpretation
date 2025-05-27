@@ -21,7 +21,7 @@ if (limit) {
       {
           posts.map((post) => (
                   <li>
-                    <a href={`/blog/${post.id}/`}>
+                    <a href={`/posts/${post.id}/`}>
                       <h4 class="title">{post.data.title}</h4>
                       <p class="text-[16px] text-gray-500">
                         <FormattedDate date={post.data.pubDate} />
@@ -31,5 +31,5 @@ if (limit) {
           ))
       }
   </ul>
-    {limit && <a href="/blog"><button>More</button></a>}
+    {limit && <a href="/posts"><button>More</button></a>}
 </section>
