@@ -32,6 +32,15 @@ strong,
 b {
 	font-weight: 700;
 }
+
+.prose h2 {
+	@apply pt-8;
+}
+
+.prose h3 {
+	@apply pt-8;
+}
+
 .prose a {
 	@apply text-blue-500;
 }
@@ -43,7 +52,8 @@ p {
 	margin-bottom: 1em;
 }
 .prose p {
-	margin-bottom: 2em;
+	margin-top: 1em;
+	margin-bottom: 1em;
 }
 textarea {
 	width: 100%;
