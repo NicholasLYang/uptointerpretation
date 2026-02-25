@@ -6,27 +6,21 @@
 
 @import "tailwindcss";
 
+h1 {
+	@apply text-3xl;
+	@apply my-4;
+}
 
-@font-face {
-	font-family: 'Atkinson';
-	src: url('/fonts/atkinson-regular.woff') format('woff');
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
+h2 {
+	@apply text-2xl;
+	@apply my-3;
 }
-@font-face {
-	font-family: 'Atkinson';
-	src: url('/fonts/atkinson-bold.woff') format('woff');
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
-}
+
 body {
-	font-family: 'Atkinson', sans-serif;
+	font-family: sans-serif;
 	margin: 0;
 	padding: 0;
 	text-align: left;
-	background: linear-gradient(var(--gray-gradient)) no-repeat;
 	background-size: 100% 600px;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
@@ -38,6 +32,15 @@ strong,
 b {
 	font-weight: 700;
 }
+
+.prose h2 {
+	@apply pt-8;
+}
+
+.prose h3 {
+	@apply pt-8;
+}
+
 .prose a {
 	@apply text-blue-500;
 }
@@ -49,7 +52,8 @@ p {
 	margin-bottom: 1em;
 }
 .prose p {
-	margin-bottom: 2em;
+	margin-top: 1em;
+	margin-bottom: 1em;
 }
 textarea {
 	width: 100%;

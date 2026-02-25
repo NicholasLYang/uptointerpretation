@@ -1,0 +1,23 @@
+---
+import "../styles/global.css";
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+---
+
+<html lang="en">
+<head>
+  <BaseHead title="404" description="Page not found"/>
+</head>
+<body>
+<Header/>
+<div class="prose p-4">
+  <h1 class="text-3xl font-bold">404 Not Found</h1>
+  <p class="max-w-xl">
+    Hi, sorry, this page doesn't exist. It might be because I switched
+    from Hugo to Astro and while in theory the URLs should have stayed the same,
+    they might have broken in the migration. Apologies if that's the case.
+    You can try to find the post you're looking for <a href="/posts">here</a>
+  </p>
+</div>
+</body>
+</html>
